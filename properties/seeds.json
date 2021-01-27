@@ -600,5 +600,29 @@
       15 
     ]
   }
+},
+{
+  "model": "properties.property",
+  "pk": 28,
+  "fields": {
+    "name": "Casa Corazon",
+    "address": "Arrecife Xaman Ha Avenue, Playacar",
+    "city": "Playa del Carmen",
+    "country": "Mexico",
+    "continent": "Central America",
+    "description": "Casa Corazón is a property with a great personality and unique style, on it you can appreciate design details in every corner, as impressive palapas, domes on the bedrooms, glass art work in bathroom, orchide’s greenhouse, robust solid wood beams, handmade talavera and industrial equipment in kitchen, traditional roof tile, bright colors on walls and large windows.",
+    "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fsir.azureedge.net%2F1103i215%2F3383bcjc9457mht0vjdw10ekt3i215&option=N&h=472&permitphotoenlargement=false",
+    "is_available": true,
+    "latitude": 20.82012236033068,
+    "longitude": -87.0585930626576,
+    "bedrooms": 12,
+    "bathrooms": 9,
+    "types": [
+      3,
+      5,
+      13,
+      12 
+    ]
+  }
 }
 ]
