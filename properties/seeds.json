@@ -12,7 +12,14 @@
     "property_image": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUTExMVFRUXFxoYGRgYGB0bFxcXGhoaFxoYFhoaHSggGBolHRUYIjEhJSkrLi4uGh8zODMtNygtLisBCgoKDg0OGxAQGy8mHyUtLS0tLS8tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIALcBEwMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAAEBQIDBgABB//EAEcQA",
     "is_available": false,
     "longitude": "-118.40124600000000000000",
-    "latitude": "34.07700000000000000000"
+    "latitude": "34.07700000000000000000",
+    "bedrooms": 5,
+    "bathrooms": 3,
+    "types": [
+      4, 
+      6,
+      7
+    ]
   }
 },
 {
@@ -28,7 +35,14 @@
     "property_image": "https://media.onthemarket.com/properties/9645506/1326790022/image-0-1024x1024.webp",
     "is_available": true,
     "longitude": "-2.09877000000000000000",
-    "latitude": "53.64982000000000000000"
+    "latitude": "53.64982000000000000000",
+    "bedrooms": 5,
+    "bathrooms": 3,
+    "types": [
+      2, 
+      6,
+      8
+    ]
   }
 },
 {
@@ -44,7 +58,15 @@
     "property_image": "https://media.onthemarket.com/properties/9591547/1325607226/image-0-1024x1024.webp",
     "is_available": true,
     "longitude": "0.95862000000000000000",
-    "latitude": "52.47100000000000000000"
+    "latitude": "52.47100000000000000000",
+    "bedrooms": 5,
+    "bathrooms": 3,
+    "types": [
+      4, 
+      2,
+      8,
+      11
+    ]
   }
 },
 {
@@ -60,7 +82,15 @@
     "property_image": "https://media.onthemarket.com/properties/4997473/1314173694/image-0-1024x1024.webp",
     "is_available": true,
     "longitude": "-2.99535000000000000000",
-    "latitude": "52.16288000000000000000"
+    "latitude": "52.16288000000000000000",
+    "bedrooms": 5,
+    "bathrooms": 3,
+    "types": [
+      4, 
+      2,
+      8,
+      11
+    ]
   }
 },
 {
@@ -76,7 +106,15 @@
     "property_image": "https://ogroup.com/wp-content/uploads/2018/09/4601charmion-high-1-2.jpg",
     "is_available": true,
     "longitude": "-118.51165200000000000000",
-    "latitude": "34.15323300000000000000"
+    "latitude": "34.15323300000000000000",
+    "bedrooms": 5,
+    "bathrooms": 3,
+    "types": [
+      4, 
+      7,
+      6,
+      14
+    ]
   }
 },
 {
@@ -92,7 +130,15 @@
     "property_image": "https://ogroup.com/wp-content/uploads/2018/09/1206amalfi-high-2-1.jpg",
     "is_available": true,
     "longitude": "-118.50579278886757000000",
-    "latitude": "34.05170020778360000000"
+    "latitude": "34.05170020778360000000",
+    "bedrooms": 5,
+    "bathrooms": 3,
+    "types": [
+      4, 
+      2,
+      8,
+      11
+    ]
   }
 },
 {
@@ -108,7 +154,15 @@
     "property_image": "https://s3-us-west-2.amazonaws.com/issuewireassets/primg/33230/1021-north-beverly-drive-property131516983.jpg",
     "is_available": true,
     "longitude": "-118.41296653106430000000",
-    "latitude": "34.09045738129244500000"
+    "latitude": "34.09045738129244500000",
+    "bedrooms": 5,
+    "bathrooms": 3,
+    "types": [
+      4, 
+      1,
+      3,
+      6
+    ]
   }
 },
 {
@@ -124,7 +178,15 @@
     "property_image": "https://ap.rdcpix.com/c076f49e9b9380e67da4580f73df5574l-m2041730901xd-w1020_h770_q80.jpg",
     "is_available": true,
     "longitude": "-118.47186148926001000000",
-    "latitude": "34.14864831667919000000"
+    "latitude": "34.14864831667919000000",
+    "bedrooms": 5,
+    "bathrooms": 3,
+    "types": [
+      6, 
+      4,
+      7,
+      13
+    ]
   }
 },
 {
@@ -140,7 +202,16 @@
     "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fsir.azureedge.net%2F1103i215%2Fx1apj9tpp7bgm96d7k8vcaakg2i215&option=N&h=472&permitphotoenlargement=false",
     "is_available": true,
     "longitude": "151.32652807633278000000",
-    "latitude": "-33.60984017866124400000"
+    "latitude": "-33.60984017866124400000",
+    "bedrooms": 5,
+    "bathrooms": 3,
+    "types": [
+      4, 
+      1,
+      3,
+      6,
+      13
+    ]
   }
 },
 {
@@ -156,7 +227,15 @@
     "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fsir.azureedge.net%2F1103i215%2F5gfymq0hcqmfmz6f8gscybcd05i215&option=N&h=472&permitphotoenlargement=false",
     "is_available": true,
     "longitude": "-81.36215473983582000000",
-    "latitude": "19.27484609227665800000"
+    "latitude": "19.27484609227665800000",
+    "bedrooms": 5,
+    "bathrooms": 3,
+    "types": [
+      4, 
+      11,
+      6,
+      7
+    ]
   }
 },
 {
@@ -170,9 +249,18 @@
     "continent": "North America",
     "description": "There are 132 rooms, 35 bathrooms, and 6 levels in the Residence. There are also 412 doors, 147 windows, 28 fireplaces, 8 staircases, and 3 elevators.The White House kitchen is able to serve dinner to as many as 140 guests and hors d'oeuvres to more than 1,000. The White House requires 570 gallons of paint to cover its outside surface.",
     "property_image": "https://www.history.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTU3ODc4Njc0MzgyMDcxNTE5/whitehouse-2.jpg",
+    "bedrooms": 5,
+    "bathrooms": 3,
     "is_available": true,
     "latitude": 38.897675,
-    "longitude": -77.036530
+    "longitude": -77.036530,
+    "types": [
+      4, 
+      1,
+      6,
+      14,
+      11
+    ]
   }
 }, 
 {
@@ -188,7 +276,15 @@
     "property_image": "https://images.successstory.com/img_people/house/620Xauto/Snoop-Dogg-Mansion_1459849783.jpg",
     "is_available": true,
     "latitude": 33.988290,
-    "longitude": -117.822570
+    "longitude": -117.822570,
+    "bedrooms": 5,
+    "bathrooms": 3,
+    "types": [
+      4, 
+      5,
+      14,
+      11
+    ]
   }
 },
 {
@@ -204,7 +300,15 @@
     "property_image": "https://www.barbaraweissarchitects.com/files/large/fed0b64d5baf75e5cb54e5aee1787578.jpg",
     "is_available": true,
     "latitude": 51.4989948,
-    "longitude": -0.1991229
+    "longitude": -0.1991229,
+    "bedrooms": 5,
+    "bathrooms": 3,
+    "types": [
+      5, 
+      1,
+      8,
+      14
+    ]
   }
 }, 
 {
@@ -220,7 +324,15 @@
     "property_image": "https://loveincorporated.blob.core.windows.net/contentimages/gallery/1162dce3-2b35-477c-a6f0-9393ff7fbc3b-11747-laurelwood-drive-selling-sunset-exterior.jpg",
     "is_available": true,
     "latitude": 34.1409374,
-    "longitude": -118.3906582
+    "longitude": -118.3906582,
+    "bedrooms": 5,
+    "bathrooms": 3,
+    "types": [
+      4, 
+      1,
+      3,
+      7
+    ]
   }
 }, 
 {
@@ -236,7 +348,15 @@
     "property_image": "https://i.pinimg.com/originals/9e/7f/44/9e7f444bfa1b58e564d213cc511c47c4.jpg",
     "is_available": true,
     "latitude": 51.9418212,
-    "longitude": -1.5455303
+    "longitude": -1.5455303,
+    "bedrooms": 5,
+    "bathrooms": 3,
+    "types": [
+      2, 
+      8,
+      11,
+      13
+    ]
   }
 }, 
 {
@@ -252,7 +372,15 @@
     "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fsir.azureedge.net%2F977i215%2Fm6xxsfbdh7c1mdph869t7j6ra5i215&option=N&permitphotoenlargement=false&w=1024",
     "is_available": true,
     "latitude": 48.8631709,
-    "longitude": 2.2757648
+    "longitude": 2.2757648,
+    "bedrooms": 5,
+    "bathrooms": 3,
+    "types": [
+      4, 
+      1,
+      3,
+      7
+    ]
   }
 }, 
 {
@@ -268,7 +396,16 @@
     "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fimg.gtsstatic.net%2Freno%2Fimagereader.aspx%3Fimageurl%3Dhttps%253A%252F%252Fsir.azureedge.net%252F1050i215%252Fqjdrmr5x54qw4563jzfz0jywk3i215%26option%3DN%26permitphotoenlargement%3Dfalse&option=N&permitphotoenlargement=false&w=1024",
     "is_available": true,
     "latitude": 46.2959019,
-    "longitude": 7.0562609
+    "longitude": 7.0562609,
+    "bedrooms": 5,
+    "bathrooms": 3,
+    "types": [
+      10, 
+      11,
+      13,
+      2,
+      8
+    ]
   }
 },
 {
@@ -284,7 +421,15 @@
     "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fimg.gtsstatic.net%2Freno%2Fimagereader.aspx%3Fimageurl%3Dhttps%253A%252F%252Fsir.azureedge.net%252F1103i215%252Fd0mf4cc871ce41t0p6dps17816i215%26option%3DN%26permitphotoenlargement%3Dfalse&option=N&permitphotoenlargement=false&w=1024",
     "is_available": true,
     "latitude": 48.0001038,
-    "longitude": 11.3508972
+    "longitude": 11.3508972,
+    "bedrooms": 5,
+    "bathrooms": 3,
+    "types": [
+      6, 
+      2,
+      10,
+      14
+    ]
   }
 },
 {
@@ -300,7 +445,15 @@
     "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fimg.gtsstatic.net%2Freno%2Fimagereader.aspx%3Fimageurl%3Dhttps%253A%252F%252Fsir.azureedge.net%252F1008i215%252Fqc0myjfehqg0m7ta7xn7jb1wt4i215%26option%3DN%26permitphotoenlargement%3Dfalse&option=N&permitphotoenlargement=false&w=1024",
     "is_available": true,
     "latitude": 49.2737545,
-    "longitude": -123.2131574
+    "longitude": -123.2131574,
+    "bedrooms": 5,
+    "bathrooms": 3,
+    "types": [
+      2, 
+      4,
+      8,
+      11
+    ]
   }
 },
 {
@@ -316,7 +469,15 @@
     "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fsir.azureedge.net%2F1103i215%2F269403y2b0sx41ac74809nkem4i215&option=N&permitphotoenlargement=false&w=1024",
     "is_available": true,
     "latitude": -33.3578605,
-    "longitude": -70.5599504
+    "longitude": -70.5599504,
+    "bedrooms": 5,
+    "bathrooms": 3,
+    "types": [
+      4, 
+      2,
+      7,
+      13
+    ]
   }
 },
 {
@@ -332,7 +493,15 @@
     "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fimg.gtsstatic.net%2Freno%2Fimagereader.aspx%3Fimageurl%3Dhttps%253A%252F%252Fsir.azureedge.net%252F1103i215%252F37ttpmpdkbfpmc2qzvfqfjk7a2i215%26option%3DN%26permitphotoenlargement%3Dfalse&option=N&permitphotoenlargement=false&w=1024",
     "is_available": true,
     "latitude": 13.1863793,
-    "longitude": -59.625191
+    "longitude": -59.625191,
+    "bedrooms": 5,
+    "bathrooms": 3,
+    "types": [
+      3, 
+      5,
+      7,
+      12
+    ]
   }
 },
 {
@@ -348,7 +517,16 @@
     "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fimg.gtsstatic.net%2Freno%2Fimagereader.aspx%3Fimageurl%3Dhttps%253A%252F%252Fsir.azureedge.net%252F1103i215%252F7z4cdty4g2e5m02rxscvxfmhr3i215%26option%3DN%26permitphotoenlargement%3Dfalse&option=N&permitphotoenlargement=false&w=1024",
     "is_available": true,
     "latitude": -20.0667738,
-    "longitude": 57.6505895
+    "longitude": 57.6505895,
+    "bedrooms": 5,
+    "bathrooms": 3,
+    "types": [
+      3, 
+      5,
+      7,
+      12, 
+      11
+    ]
   }
 },
 {
@@ -364,7 +542,15 @@
     "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fimg.gtsstatic.net%2Freno%2Fimagereader.aspx%3Fimageurl%3Dhttps%253A%252F%252Fsir.azureedge.net%252F1103i215%252Fb0v12tnvdsvpmvjry02gsk5ea4i215%26option%3DN%26permitphotoenlargement%3Dfalse&option=N&permitphotoenlargement=false&w=1024",
     "is_available": true,
     "latitude": -33.8676276,
-    "longitude": 151.2515727
+    "longitude": 151.2515727,
+    "bedrooms": 5,
+    "bathrooms": 3,
+    "types": [
+      3, 
+      7,
+      9, 
+      14
+    ]
   }
 },
 {
@@ -380,7 +566,14 @@
     "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fimg.gtsstatic.net%2Freno%2Fimagereader.aspx%3Fimageurl%3Dhttps%253A%252F%252Fsir.azureedge.net%252F1261i215%252F0a28wem5zt53mnpcjzwwfcxre5i215%26option%3DN%26permitphotoenlargement%3Dfalse&option=N&permitphotoenlargement=false&w=1024",
     "is_available": true,
     "latitude": 36.1143945,
-    "longitude": 138.031901
+    "longitude": 138.031901,
+    "bedrooms": 5,
+    "bathrooms": 3,
+    "types": [
+      1, 
+      6,
+      7
+    ]
   }
 },
 {
@@ -396,7 +589,16 @@
     "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fimg.gtsstatic.net%2Freno%2Fimagereader.aspx%3Fimageurl%3Dhttps%253A%252F%252Fsir.azureedge.net%252F1103i215%252Fs1fmp880z6wnm5650qfr5gt4s5i215%26option%3DN%26permitphotoenlargement%3Dfalse&option=N&permitphotoenlargement=false&w=1024",
     "is_available": true,
     "latitude": 55.7475603,
-    "longitude": 37.53879430
+    "longitude": 37.53879430,
+    "bedrooms": 5,
+    "bathrooms": 3,
+    "types": [
+      1, 
+      6,
+      7,
+      14,
+      15 
+    ]
   }
 }
 ]
