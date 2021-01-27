@@ -624,5 +624,269 @@
       12 
     ]
   }
+},
+{
+  "model": "properties.property",
+  "pk": 29,
+  "fields": {
+    "name": "10 Bed Danish Home",
+    "address": "Embassy Area",
+    "city": "Copenhagen",
+    "country": "Denmark",
+    "continent": "Europe",
+    "description": "Copenhagens most beautiful Townhouse. This historic city townhouse dating back to 1908 is located in the beautiful Ambassador quarter in Hellerup, a mere 7 minutes from Kongens Nytorv. It is situated on a sun-drenched plot with freshly landscaped gardens in a charming up-scale residential neighborhood. The villa has been completely restored to its original splendor, while simultaneously incorporating powerful modernization and a totally customized design experience.",
+    "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fimg.gtsstatic.net%2Freno%2Fimagereader.aspx%3Fimageurl%3Dhttps%253A%252F%252Fsir.azureedge.net%252F1103i215%252Fg2yns46rcrzvm560sq0pggy4b7i215%26option%3DN%26permitphotoenlargement%3Dfalse&option=N&permitphotoenlargement=false&w=1024",
+    "is_available": true,
+    "latitude": 55.9315266,
+    "longitude": 12.3493195,
+    "bedrooms": 10,
+    "bathrooms": 5,
+    "types": [
+      1, 
+      4,
+      6,
+      8
+    ]
+  }
+},
+{
+  "model": "properties.property",
+  "pk": 30,
+  "fields": {
+    "name": "Constantia",
+    "address": "Cape Town",
+    "city": "Western Cape",
+    "country": "South Africa",
+    "continent": "Africa",
+    "description": "This breathtaking property set on 3.5 acres is the epitome of comfort, quality and the very best architectural design all set in a beautifully landscaped garden. Something unique in Constantia with creature comforts, up-to the minute sophistication, state of the art functionality and stylish simplicity . Entertain your guests effortlessly in one of the many entertainment rooms, keep fit in your private gym with lap pool all while enjoying views that seem to go on forever from every aspect of this home.",
+    "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fimg.gtsstatic.net%2Freno%2Fimagereader.aspx%3Fimageurl%3Dhttps%253A%252F%252Fsir.azureedge.net%252F1103i215%252Fn74h5dc693r94hy2v4n9ynnh16i215%26option%3DN%26permitphotoenlargement%3Dfalse&option=N&permitphotoenlargement=false&w=1024",
+    "is_available": true,
+    "latitude": -34.0283333,
+    "longitude": 18.4155556,
+    "bedrooms": 7,
+    "bathrooms": 3,
+    "types": [
+      2, 
+      7,
+      13,
+      11
+    ]
+  }
+},
+{
+  "model": "properties.property",
+  "pk": 31,
+  "fields": {
+    "name": "Soria",
+    "address": "San Miguel De Allende",
+    "city": "Guanajuato",
+    "country": "Canada",
+    "continent": "Mexico",
+    "description": "With 470,000 M2 of land and 46,000 M2 of construction, Soria also has a sophisticated and captivating 16-bedroom Hacienda. The rooms are decorated with elegant antiques, 9 spacious and comfortable Villas that once housed distinguished visitors as well as European engineers who reviewed machinery and trained personnel in the nearby factories. Extensive and wooded green areas surround both the Hacienda and the 9 blocks that make up the 247 modest homes that at the time were built for the employees who worked in the factories.",
+    "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fimg.gtsstatic.net%2Freno%2Fimagereader.aspx%3Fimageurl%3Dhttps%253A%252F%252Fsir.azureedge.net%252F1103i215%252Fxhahr796gtgd472wz87ha1fcf6i215%26option%3DN%26permitphotoenlargement%3Dfalse&option=N&permitphotoenlargement=false&w=1024",
+    "is_available": true,
+    "latitude": 49.2737545,
+    "longitude": -123.2131574,
+    "bedrooms": 16,
+    "bathrooms": 6,
+    "types": [
+      14, 
+      2,
+      8
+    ]
+  }
+},
+{
+  "model": "properties.property",
+  "pk": 32,
+  "fields": {
+    "name": "Innerwick House",
+    "address": "2 Ellersly Road",
+    "city": "Edinburgh",
+    "country": "UK",
+    "continent": "Europe",
+    "description": "Considered Edinburgh’s finest private home this highly prized Georgian mansion is a once-in-a-generation opportunity and arguably the very best family home in Edinburgh. The house is located in the affluent and prestigious Murrayfield area, especially sought after for its close proximity to world-class schools for every age group. This outstanding property dates back to the 1800’s. In the late 1990s, acclaimed Scottish architect Lorn Macneal enhanced the property with a skillful remodeling of the west wing, synthesising flow, space and light, whilst retaining the detailed majesty of the original design.",
+    "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fimg.gtsstatic.net%2Freno%2Fimagereader.aspx%3Fimageurl%3Dhttps%253A%252F%252Fsir.azureedge.net%252F1103i215%252F2njbpshyg9a0m5p057988znnx1i215%26option%3DN%26permitphotoenlargement%3Dfalse&option=N&permitphotoenlargement=false&w=1024",
+    "is_available": true,
+    "latitude": 55.947088,
+    "longitude": -3.2469613,
+    "bedrooms": 9,
+    "bathrooms": 4,
+    "types": [
+      6, 
+      4,
+      8,
+      11
+    ]
+  }
+},
+{
+  "model": "properties.property",
+  "pk": 33,
+  "fields": {
+    "name": "Seafield House",
+    "address": "Donabate",
+    "city": "Dublin",
+    "country": "Ireland",
+    "continent": "Europe",
+    "description": "An attractive mid-18th Century mansion, built circa 1730. Magically positioned within some 80 acres or 32 hectares on the shores of Malahide Estuary, on the periphery of Dublin city and within a 15 minute drive of Dublin International airport. Enjoying an idyllic position within glorious private grounds the water views over Malahide Estuary are exceptional and the mature Victorian designed gardens and stone outbuildings include a magnificent walled garden, a Yew Walk and an attractive cut-stone enclosed stable yard. In use as a private residence but possibly suitable for alternative use(s), subject to any necessary consents.",
+    "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fimg.gtsstatic.net%2Freno%2Fimagereader.aspx%3Fimageurl%3Dhttps%253A%252F%252Fsir.azureedge.net%252F1103i215%252F2dv1skzv47vg46a8ktwar408s2i215%26option%3DN%26permitphotoenlargement%3Dfalse&option=N&permitphotoenlargement=false&w=1024",
+    "is_available": true,
+    "latitude": 53.4818004,
+    "longitude": -6.154880259,
+    "bedrooms": 11,
+    "bathrooms": 7,
+    "types": [
+      2, 
+      4,
+      8,
+      6,
+      11,
+      13
+    ]
+  }
+},
+{
+  "model": "properties.property",
+  "pk": 34,
+  "fields": {
+    "name": "Penthouse on Delfim Moreira",
+    "address": "Delfim Moreira",
+    "city": "Rio de Janeiro",
+    "country": "Brazil",
+    "continent": "South America",
+    "description": "The penthouse is a project by Luiz Fernando Redó, with a main hall with more than 100 s.m., besides a TV room. In the intimate area, there are five bedrooms with closet. Each one with more than 50 s.m., and the master with more than 100 s.m., large closet and two bathrooms. Lunch room, kitchen, pantry and employee's room. On the second floor, there is a terrace with swimming pool, sauna and barbecue grill.",
+    "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fimg.gtsstatic.net%2Freno%2Fimagereader.aspx%3Fimageurl%3Dhttps%253A%252F%252Fsir.azureedge.net%252F1103i215%252Fdqq1p7thcddjmgtjg6qzmtz9p7i215%26option%3DN%26permitphotoenlargement%3Dfalse&option=N&permitphotoenlargement=false&w=1024",
+    "is_available": true,
+    "latitude": -22.5086783,
+    "longitude": -45.2792398,
+    "bedrooms": 8,
+    "bathrooms": 5,
+    "types": [
+      15, 
+      14,
+      8,
+      1
+    ]
+  }
+},
+{
+  "model": "properties.property",
+  "pk": 35,
+  "fields": {
+    "name": "Coach House",
+    "address": "Brgy. Catarman",
+    "city": "Dauis",
+    "country": "Philippines",
+    "continent": "Asia",
+    "description": "Set on a cliff overlooking the sea, this stately country manor offers stunning panoramic views from all angles. Designed with the tropical climate in mind and constructed to world-class standards, the Manor combines luxury and comfort in a magnificent coastal setting. Dubbed by many as the Most Beautiful House in Bohol, this is truly an impressive property in an exceptional location. Situated in Brgy. Catarman, Dauis on Panglao Island in Bohol, a short drive from the new Panglao-Bohol International Airport. Escaping to this exclusive retreat couldn’t be any easier.",
+    "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fimg.gtsstatic.net%2Freno%2Fimagereader.aspx%3Fimageurl%3Dhttps%253A%252F%252Fsir.azureedge.net%252F1257i215%252Fb2xytn0xd7semhttfq3t0vc6v2i215%26option%3DN%26permitphotoenlargement%3Dfalse&option=N&permitphotoenlargement=false&w=1024",
+    "is_available": true,
+    "latitude": 9.624934,
+    "longitude": 123.865223,
+    "bedrooms": 8,
+    "bathrooms": 3,
+    "types": [
+      2, 
+      4,
+      8,
+      11,
+      13
+    ]
+  }
+},
+{
+  "model": "properties.property",
+  "pk": 36,
+  "fields": {
+    "name": "The Leela Sky Villas",
+    "address": "Central New Delhi",
+    "city": "New Delhi",
+    "country": "India",
+    "continent": "Asia",
+    "description": "The stunning development offers 8 BHK penthouses with a built-up area of 9,733.92 Sq. Ft. It is the first mix use development in New Delhi with a step in shopping mall, food courts, showrooms, offices and movie theaters with multi-level lift parking. These are also the first residences in India with a 4-meter floor to floor height with the highest planned recreational club/restro bar club with a provision of helipad. Additionally, the observatory area on top gives residents an expansive and breathtaking 360-degree view of Delhi.",
+    "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fimg.gtsstatic.net%2Freno%2Fimagereader.aspx%3Fimageurl%3Dhttps%253A%252F%252Fsir.azureedge.net%252F1103i215%252F4b3ge3smhtt8mny1e87cqj3tb6i215%26option%3DN%26permitphotoenlargement%3Dfalse&option=N&permitphotoenlargement=false&w=1024",
+    "is_available": true,
+    "latitude": 28.66195369,
+    "longitude": 77.30211150,
+    "bedrooms": 5,
+    "bathrooms": 5,
+    "types": [
+      1, 
+      15,
+      14
+    ]
+  }
+},
+{
+  "model": "properties.property",
+  "pk": 37,
+  "fields": {
+    "name": "Chameleon villa",
+    "address": "Palma De Mallorca",
+    "city": "Balearic Islands",
+    "country": "Spain",
+    "continent": "Europe",
+    "description": "A unique architecture and design offered by the Chameleon villa in the exclusive area of Son Vida, with breathtaking views to the sea, the city and the harbor of Palma. The Chameleon house attracts through its exceptional light effects, which accomplish a true miracle of light; finest crystal on which surface has been installed a special LED technology, can be programmed in its colors corresponding to your wish. The villa consists of three buildings. The main house is divided into three floors with living room, library, TV room, bedroom suites, kitchen and wine cellar. The second building offers the pool, wellness and fitness area. The third building is used as the guest house with 200 m2 of living space.",
+    "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fimg.gtsstatic.net%2Freno%2Fimagereader.aspx%3Fimageurl%3Dhttps%253A%252F%252Fsir.azureedge.net%252F1294i215%252Fdm21m18swrbpm76pwx9dh7eds6i215%26option%3DN%26permitphotoenlargement%3Dfalse&option=N&permitphotoenlargement=false&w=1024",
+    "is_available": true,
+    "latitude": 39.5902738,
+    "longitude": 2.5895384,
+    "bedrooms": 8,
+    "bathrooms": 6,
+    "types": [ 
+      3,
+      14,
+      7
+    ]
+  }
+},
+{
+  "model": "properties.property",
+  "pk": 38,
+  "fields": {
+    "name": "Casuarinas",
+    "address": "Cerro San Francisco",
+    "city": "Casuarinas",
+    "country": "Peru",
+    "continent": "South America",
+    "description": "Beautiful house with pool and garden by Architect Roberto Río Frió in Casuarinas closed condominium with 4 bedrooms in suite. All of the spaces have wooden floors. The entrance hall is modern and has elegant wooden finishings and a panoramic view from the top of Casuarinas. This hall brings us to the main living room and separate dining room with very tall ceilings Both have a beatiful view of the pool, terrace and garden. There is a living room in this first floor as well as the kitchen. It comes fully equipped and has modern finishings and a daily dining area.",
+    "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fimg.gtsstatic.net%2Freno%2Fimagereader.aspx%3Fimageurl%3Dhttps%253A%252F%252Fsir.azureedge.net%252F1103i215%252Fpjxjjqvf247k4tpkg4a46tvdr7i215%26option%3DN%26permitphotoenlargement%3Dfalse&option=N&permitphotoenlargement=false&w=1024",
+    "is_available": true,
+    "latitude": -11.0281643,
+    "longitude": -77.4549931,
+    "bedrooms": 4,
+    "bathrooms": 3,
+    "types": [
+      2, 
+      5,
+      7,
+      11
+    ]
+  }
+},
+{
+  "model": "properties.property",
+  "pk": 39,
+  "fields": {
+    "name": "6 Bedroom Flat",
+    "address": "Julho Avenue",
+    "city": "Lisboa",
+    "country": "Portugal",
+    "continent": "Europe",
+    "description": "Unique apartment on the 24 de Julho Avenue, with six bedrooms which stands out for its location facing the Tagus river in downtown Lisbon, in an area that has seen total rehabilitation, with shops, bars and restaurants. Condominium with Concierge Service, 5 * Hotel Lobby, Spa with indoor pool for residents and an architectural 'concept' which is absolutely unique in the city. The penthouses have private elevators, terraces with unique views of the city and the river, private pool and luxury finishes.",
+    "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fimg.gtsstatic.net%2Freno%2Fimagereader.aspx%3Fimageurl%3Dhttps%253A%252F%252Fsir.azureedge.net%252F280i215%252Fwms7pm7vbvfg4867kbtfpqgf21i215%26option%3DN%26permitphotoenlargement%3Dfalse&option=N&permitphotoenlargement=false&w=1024",
+    "is_available": true,
+    "latitude": 38.7038963,
+    "longitude": -9.1725452,
+    "bedrooms": 6,
+    "bathrooms": 4,
+    "types": [ 
+      4,
+      9,
+      7,
+      15
+    ]
+  }
 }
 ]
