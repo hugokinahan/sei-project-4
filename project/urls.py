@@ -6,6 +6,6 @@ urlpatterns = [
     path('api/properties/', include('properties.urls')),
     path('api/reviews/', include('reviews.urls')),
     path('api/types/', include('property_types.urls')),
-     path('api/offers/', include('offers.urls'))
-
+    path('api/offers/', include('offers.urls')),
+    path('api/auth/', include('jwt_auth.urls'))
 ]

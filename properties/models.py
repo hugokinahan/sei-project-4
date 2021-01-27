@@ -14,6 +14,16 @@ class Property(models.Model):
     bathrooms = models.PositiveIntegerField()
     bedrooms = models.PositiveIntegerField()
     types = models.ManyToManyField('property_types.PropertyType', related_name="properties")
+    owner = models.ForeignKey(
+        'jwt_auth.User',
+        related_name='created_property',
+        on_delete=models.CASCADE
+    )
+    favorited_by = models.ManyToManyField(
+        'jwt_auth.User',
+        related_name="favorited_property",
+        blank=True
+    )
   
     def __str__(self):
         return f"{self.name} - {self.city}"

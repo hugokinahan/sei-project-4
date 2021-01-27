@@ -2,12 +2,15 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.exceptions import NotFound
 from rest_framework import status
+from rest_framework.permissions import IsAuthenticated
 
 from .serializers.common import ReviewSerializer
 from .models import Review
 
 class ReviewListView(APIView):
     """ Controller for post request to /reviews endpoint """
+
+    permission_classes = (IsAuthenticated, )
 
     def post(self, request):
         review_to_create = ReviewSerializer(data=request.data)
@@ -18,6 +21,8 @@ class ReviewListView(APIView):
 
 class ReviewDetailView(APIView):
     """ Controller for delete requests to /reviews/id(pk) endpoint """
+
+    permission_classes = (IsAuthenticated, )
 
     def delete(self, _request, pk):
         try:
