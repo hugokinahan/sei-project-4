@@ -4,12 +4,13 @@ from rest_framework import status
 from rest_framework.exceptions import NotFound
 from .models import Property
 from .serializers.common import PropertySerializer
+from .serializers.populated import PopulatedPropertySerializer
 
 class PropertyListView(APIView):
 
     def get(self, _request):
         properties = Property.objects.all() #querying property from index
-        serialized_property = PropertySerializer(properties, many=True) #expect a list
+        serialized_property = PopulatedPropertySerializer(properties, many=True) #expect a list
         return Response(serialized_property.data, status=status.HTTP_200_OK)
 
     def post(self, request):
@@ -34,16 +35,16 @@ class PropertyDetailView(APIView):
 
         """ retrives property from db by its pk(id) or responds 404 not found """
 
-        property = self.get_property(pk=pk)
-        serialized_property = PropertySerializer(property)
+        property_to_get = self.get_property(pk=pk)
+        serialized_property = PopulatedPropertySerializer(property_to_get)
         return Response(serialized_property.data, status=status.HTTP_200_OK)
 
     def put(self, request, pk):
         property_to_update = self.get_property(pk=pk)
         updated_property = PropertySerializer(property_to_update, data=request.data)
         if updated_property.is_valid():
-          updated_property.save()
-          return Response(updated_property.data, status=status.HTTP_202_ACCEPTED)
+            updated_property.save()
+            return Response(updated_property.data, status=status.HTTP_202_ACCEPTED)
         return Response(updated_property.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 
     def delete(self, _request, pk):

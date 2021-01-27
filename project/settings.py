@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'properties',
     'jwt_auth',
+    'reviews',
 ]
 
 MIDDLEWARE = [

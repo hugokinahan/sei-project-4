@@ -11,6 +11,8 @@ class Property(models.Model):
     is_available = models.BooleanField(default=False)
     longitude = models.DecimalField(max_digits=30, decimal_places=20)
     latitude = models.DecimalField(max_digits=30, decimal_places=20)
+    bathrooms = models.PositiveIntegerField()
+    bedrooms = models.PositiveIntegerField()
   
     def __str__(self):
-      return f"{self.name} - {self.city}"
+        return f"{self.name} - {self.city}"
