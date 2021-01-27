@@ -1,0 +1,107 @@
+[
+  {
+    "model": "property_types.propertytype",
+    "pk": 1,
+    "fields": {
+      "name": "City"
+    }
+  },
+  {
+    "model": "property_types.propertytype",
+    "pk": 2,
+    "fields": {
+      "name": "Countryside"
+    }
+  },
+  {
+    "model": "property_types.propertytype",
+    "pk": 3,
+    "fields": {
+      "name": "Beach"
+    }
+  },
+  {
+    "model": "property_types.propertytype",
+    "pk": 4,
+    "fields": {
+      "name": "Mansion"
+    }
+  },
+  {
+    "model": "property_types.propertytype",
+    "pk": 5,
+    "fields": {
+      "name": "Cosy"
+    }
+  },
+  {
+    "model": "property_types.propertytype",
+    "pk": 6,
+    "fields": {
+      "name": "Spacious"
+    }
+  },
+  {
+    "model": "property_types.propertytype",
+    "pk": 7,
+    "fields": {
+      "name": "Modern"
+    }
+  },
+  {
+    "model": "property_types.propertytype",
+    "pk": 8,
+    "fields": {
+      "name": "Traditional"
+    }
+  },
+  {
+    "model": "property_types.propertytype",
+    "pk": 9,
+    "fields": {
+      "name": "Apartment"
+    }
+  },
+  {
+    "model": "property_types.propertytype",
+    "pk": 10,
+    "fields": {
+      "name": "Chalet"
+    }
+  },
+  {
+    "model": "property_types.propertytype",
+    "pk": 11,
+    "fields": {
+      "name": "Pet-friendly"
+    }
+  },
+  {
+    "model": "property_types.propertytype",
+    "pk": 12,
+    "fields": {
+      "name": "Bungalow"
+    }
+  },
+  {
+    "model": "property_types.propertytype",
+    "pk": 13,
+    "fields": {
+      "name": "Peaceful"
+    }
+  },
+  {
+    "model": "property_types.propertytype",
+    "pk": 14,
+    "fields": {
+      "name": "Lively"
+    }
+  },
+  {
+    "model": "property_types.propertytype",
+    "pk": 15,
+    "fields": {
+      "name": "Penthouse"
+    }
+  }
+]

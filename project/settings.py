@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'properties',
     'jwt_auth',
     'reviews',
+    'property_types',
 ]
 
 MIDDLEWARE = [

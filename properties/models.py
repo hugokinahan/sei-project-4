@@ -13,6 +13,7 @@ class Property(models.Model):
     latitude = models.DecimalField(max_digits=30, decimal_places=20)
     bathrooms = models.PositiveIntegerField()
     bedrooms = models.PositiveIntegerField()
+    types = models.ManyToManyField('property_types.PropertyType', related_name="properties") 
   
     def __str__(self):
         return f"{self.name} - {self.city}"
