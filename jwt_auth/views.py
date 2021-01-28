@@ -6,6 +6,7 @@ from rest_framework.exceptions import PermissionDenied
 from rest_framework.permissions import IsAuthenticated
 from rest_framework import status
 from django.contrib.auth import get_user_model
+# from randomuser import RandomUser
 from django.conf import settings
 import jwt
 
@@ -13,6 +14,8 @@ from .serializers.common import UserSerializer
 from .serializers.populated import PopulatedUserSerializer
 
 User = get_user_model()
+# User = RandomUser()
+# User = print(RandomUser.generate_users(10))
 
 class RegisterView(APIView):
     """ Controller for post request to /auth/login """

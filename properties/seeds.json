@@ -705,7 +705,7 @@
     "city": "Edinburgh",
     "country": "UK",
     "continent": "Europe",
-    "description": "Considered Edinburgh’s finest private home this highly prized Georgian mansion is a once-in-a-generation opportunity and arguably the very best family home in Edinburgh. The house is located in the affluent and prestigious Murrayfield area, especially sought after for its close proximity to world-class schools for every age group. This outstanding property dates back to the 1800’s. In the late 1990s, acclaimed Scottish architect Lorn Macneal enhanced the property with a skillful remodeling of the west wing, synthesising flow, space and light, whilst retaining the detailed majesty of the original design.",
+    "description": "Considered Edinburgh’s finest private home this highly prized Georgian mansion is a once-in-a-generation opportunity and arguably the very best family home in Edinburgh. The house is located in the affluent and prestigious Murrayfield area, especially sought after for its close proximity to world-class schools for every age group. This outstanding property dates back to the 1800’s.",
     "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fimg.gtsstatic.net%2Freno%2Fimagereader.aspx%3Fimageurl%3Dhttps%253A%252F%252Fsir.azureedge.net%252F1103i215%252F2njbpshyg9a0m5p057988znnx1i215%26option%3DN%26permitphotoenlargement%3Dfalse&option=N&permitphotoenlargement=false&w=1024",
     "is_available": true,
     "latitude": 55.947088,
@@ -729,7 +729,7 @@
     "city": "Dublin",
     "country": "Ireland",
     "continent": "Europe",
-    "description": "An attractive mid-18th Century mansion, built circa 1730. Magically positioned within some 80 acres or 32 hectares on the shores of Malahide Estuary, on the periphery of Dublin city and within a 15 minute drive of Dublin International airport. Enjoying an idyllic position within glorious private grounds the water views over Malahide Estuary are exceptional and the mature Victorian designed gardens and stone outbuildings include a magnificent walled garden, a Yew Walk and an attractive cut-stone enclosed stable yard. In use as a private residence but possibly suitable for alternative use(s), subject to any necessary consents.",
+    "description": "An attractive mid-18th Century mansion, built circa 1730. Magically positioned within some 80 acres or 32 hectares on the shores of Malahide Estuary, on the periphery of Dublin city and within a 15 minute drive of Dublin International airport. Enjoying an idyllic position within glorious private grounds the water views over Malahide Estuary are exceptional and the mature Victorian designed gardens and stone outbuildings include a magnificent walled garden, a Yew Walk and an attractive cut-stone enclosed stable yard.",
     "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fimg.gtsstatic.net%2Freno%2Fimagereader.aspx%3Fimageurl%3Dhttps%253A%252F%252Fsir.azureedge.net%252F1103i215%252F2dv1skzv47vg46a8ktwar408s2i215%26option%3DN%26permitphotoenlargement%3Dfalse&option=N&permitphotoenlargement=false&w=1024",
     "is_available": true,
     "latitude": 53.4818004,
@@ -827,7 +827,7 @@
     "city": "Balearic Islands",
     "country": "Spain",
     "continent": "Europe",
-    "description": "A unique architecture and design offered by the Chameleon villa in the exclusive area of Son Vida, with breathtaking views to the sea, the city and the harbor of Palma. The Chameleon house attracts through its exceptional light effects, which accomplish a true miracle of light; finest crystal on which surface has been installed a special LED technology, can be programmed in its colors corresponding to your wish. The villa consists of three buildings. The main house is divided into three floors with living room, library, TV room, bedroom suites, kitchen and wine cellar. The second building offers the pool, wellness and fitness area. The third building is used as the guest house with 200 m2 of living space.",
+    "description": "A unique architecture and design offered by the Chameleon villa in the exclusive area of Son Vida, with breathtaking views to the sea, the city and the harbor of Palma. The Chameleon house attracts through its exceptional light effects, which accomplish a true miracle of light; finest crystal on which surface has been installed a special LED technology, can be programmed in its colors corresponding to your wish. The villa consists of three buildings.",
     "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fimg.gtsstatic.net%2Freno%2Fimagereader.aspx%3Fimageurl%3Dhttps%253A%252F%252Fsir.azureedge.net%252F1294i215%252Fdm21m18swrbpm76pwx9dh7eds6i215%26option%3DN%26permitphotoenlargement%3Dfalse&option=N&permitphotoenlargement=false&w=1024",
     "is_available": true,
     "latitude": 39.5902738,
@@ -1213,31 +1213,6 @@
 },
 {
   "model": "properties.property",
-  "pk": 53,
-  "fields": {
-    "name": "Secluded Ibizan Finca",
-    "address": "Ibiza, Ibiza, 7812 Spain",
-    "city": "Ibiza",
-    "country": "Spain",
-    "continent": "Europe",
-    "description": "This home is the ideal property to stay for anyone interested in being in the middle of nature secluded from any neighbors or noise from road traffic. This property is a family friendly home.",
-    "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fsir.azureedge.net%2F1294i215%2F295gp7238azcmty24427mqrys1i215&option=N&h=472&permitphotoenlargement=false",
-    "is_available": true,
-    "latitude": 39.02133399335562,
-    "longitude": 1.487225404026141,
-    "bedrooms": 6,
-    "bathrooms": 6,
-    "types": [
-     2,
-     3,
-     5,
-     8,
-     13
-    ]
-  }
-},
-{
-  "model": "properties.property",
   "pk": 54,
   "fields": {
     "name": "Provence Chateau",
@@ -1256,55 +1231,6 @@
      2,
      5,
      8,
-     13
-    ]
-  }
-},
-{
-  "model": "properties.property",
-  "pk": 55,
-  "fields": {
-    "name": "Provence Chateau",
-    "address": "Verquieres, 13670",
-    "city": "Provence-Alpes-Cote D'Azur",
-    "country": "France",
-    "continent": "Europe",
-    "description": "A stunning french chateau situated in the middle of the provence hills. The perfect place for anyone to get away from the business of the city and relax in this french paradise.",
-    "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fsir.azureedge.net%2F977i215%2Fqzcr6w92c8wg4qtc28bmzc1qs5i215&option=N&h=472&permitphotoenlargement=false",
-    "is_available": true,
-    "latitude": 43.80626316564009,
-    "longitude": 4.889312627181121,
-    "bedrooms": 5,
-    "bathrooms": 3,
-    "types": [
-     2,
-     5,
-     8,
-     13
-    ]
-  }
-},
-{
-  "model": "properties.property",
-  "pk": 56,
-  "fields": {
-    "name": "Corfu Beachside Mansion",
-    "address": "Agni Bay",
-    "city": "Corfu, Ionian Islands",
-    "country": "Greece",
-    "continent": "Europe",
-    "description": "The stunning property offers breathtaking views of the Ionian sea and enjoys a most -desired feeling of privacy in all its areas. With 12 bedrooms, the property is big enough to accomodate lots of guests and families.",
-    "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fsir.azureedge.net%2F1103i215%2Fk08wmbmj7v6zm4a7gt3ysf7894i215&option=N&h=472&permitphotoenlargement=false",
-    "is_available": true,
-    "latitude": 39.739346874163886,
-    "longitude": 19.931525612023794,
-    "bedrooms": 12,
-    "bathrooms": 12,
-    "types": [
-     2,
-     3,
-     4,
-     6,
      13
     ]
   }
