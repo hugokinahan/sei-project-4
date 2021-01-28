@@ -2,8 +2,8 @@ from datetime import datetime, timedelta
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework.exceptions import PermissionDenied
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.exceptions import PermissionDenied, NotFound
+from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
 from rest_framework import status
 from django.contrib.auth import get_user_model
 # from randomuser import RandomUser
@@ -50,11 +50,49 @@ class LoginView(APIView):
           {'token': token, 'message': f"Welcome back {user_to_login.username}"}
         )
 
-class ProfileView(APIView):
+class ProfileDetailView(APIView):
   
     permission_classes = (IsAuthenticated, )
 
-    def get(self, request):
-        user = User.objects.get(pk=request.user.id)
+    def get_user(self, pk):
+  
+        """ retrives user from db by its pk(id) or responds 404 not found """
+
+        try:
+            return User.objects.get(pk=pk)
+        except User.DoesNotExist:
+            raise NotFound()
+
+    def get(self, _request, pk):
+        user = self.get_user(pk=pk)
         serialized_user = PopulatedUserSerializer(user)
         return Response(serialized_user.data, status=status.HTTP_200_OK)
+
+class ProfileListView(APIView):
+  
+    permission_classes = (IsAuthenticatedOrReadOnly, )
+
+    def get(self, _request):
+        users = User.objects.all() #querying property from index
+        serialized_users = PopulatedUserSerializer(users, many=True) #expect a list
+        return Response(serialized_users.data, status=status.HTTP_200_OK)
+class UserFollowView(ProfileDetailView):
+  
+    permission_classes = (IsAuthenticated, )
+
+    def post(self, request, pk):
+        user_to_follow = self.get_user(pk=pk)
+        user_to_follow.followed_by.add(request.user.id)
+        user_to_follow.save()
+        serialized_followed_user = PopulatedUserSerializer(user_to_follow)
+        return Response(serialized_followed_user.data, status=status.HTTP_201_CREATED)
+
+    permission_classes = (IsAuthenticated, )
+
+    def delete(self, request, pk):
+        user_to_unfollow = self.get_user(pk=pk)
+        user_to_unfollow.followed_by.remove(request.user.id)
+        user_to_unfollow.save()
+        serialized_unfollowed_user = PopulatedUserSerializer(user_to_unfollow)
+        return Response(serialized_unfollowed_user.data, status=status.HTTP_204_NO_CONTENT)
+        

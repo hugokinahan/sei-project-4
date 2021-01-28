@@ -7,3 +7,4 @@ class PopulatedUserSerializer(UserSerializer):
     created_property = PropertySerializer(many=True)
     posted_reviews = ReviewSerializer(many=True)
     favorited_property = PropertySerializer(many=True)
+    followed_user = UserSerializer(many=True)  

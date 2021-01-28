@@ -7,3 +7,8 @@ class User(AbstractUser):
     last_name = models.CharField(max_length=50)
     profile_image = models.CharField(max_length=300)
     bio_description = models.CharField(max_length=300)
+    followed_by = models.ManyToManyField(
+        'jwt_auth.User',
+        related_name="followed_user",
+        blank=True
+    )
