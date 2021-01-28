@@ -67,8 +67,16 @@ class PropertyFavoriteView(PropertyDetailView):
     permission_classes = (IsAuthenticated, )
 
     def post(self, request, pk):
-        property_to_like = self.get_property(pk=pk)
-        property_to_like.favorited_by.add(request.user.id)
-        property_to_like.save()
-        serialized_liked_property = PopulatedPropertySerializer(property_to_like)
+        property_to_unlike = self.get_property(pk=pk)
+        property_to_unlike.favorited_by.add(request.user.id)
+        property_to_unlike.save()
+        serialized_liked_property = PopulatedPropertySerializer(property_to_unlike)
         return Response(serialized_liked_property.data, status=status.HTTP_201_CREATED)
+
+    def delete(self, request, pk):
+        property_to_unlike = self.get_property(pk=pk)
+        property_to_unlike.favorited_by.remove(request.user.id)
+        property_to_unlike.save()
+        serialized_unliked_property = PopulatedPropertySerializer(property_to_unlike)
+        return Response(serialized_unliked_property.data, status=status.HTTP_204_NO_CONTENT)
+
