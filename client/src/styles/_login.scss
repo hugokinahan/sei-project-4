@@ -1,0 +1,19 @@
+.login-container {
+  background-color: #012349;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  h1, p {
+    color: white;
+  }
+}
+
+.login-section {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  // border: 1px white solid;
+}

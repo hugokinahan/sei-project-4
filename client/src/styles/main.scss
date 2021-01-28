@@ -1,6 +1,10 @@
+@import '_register.scss';
+@import '_login.scss';
+
 * {
   box-sizing: border-box;
 } 
+
 
 // Universal
 .container {
@@ -22,4 +26,8 @@ div .ui.menu.fixed {
 img {
   height: 250px;
   width: 400px;
+}
+
+.register-container {
+  background-color: #012349;
 }
