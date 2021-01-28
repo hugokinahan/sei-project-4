@@ -1,24 +1,44 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
+import { Menu, Button } from 'semantic-ui-react'
 
 function Nav() {
 
   return (
-    <ul>
-      <li> 
-        <Link to="/">Home</Link>
-      </li>
-      <li> 
-        <Link to="/properties">Explore</Link>
-      </li>
-      <li> 
-        <Link to="/login">Login</Link>
-      </li>
-      <li> 
-        <Link to="/register">Register</Link>
-      </li>
-    </ul>
+    <div className="ui menu fixed">
+      <Link to="/" className="navbar-item">
+        <Menu.Item
+          className="home"
+          name='Home'
+        />
+      </Link>
+      <Link to="/properties" className="navbar-item">
+        <Menu.Item
+          className="home"
+          name='Explore'
+        />
+      </Link>
+
+      <Menu.Item className="logo">
+        <Link to="/">
+          <h1>Sharebnb</h1>
+        </Link>
+      </Menu.Item>
+      
+
+      <Menu.Item position='right'>
+        <Link to="/register">
+          <Button type="submit">
+            Register
+          </Button>
+        </Link>
+        <Link to="/login">
+          <Button type="submit">
+            Log In
+          </Button>
+        </Link>
+      </Menu.Item>
+    </div>
   )
 }
 

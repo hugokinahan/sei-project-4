@@ -1,5 +1,6 @@
 import React from 'react'
 import { getAllProperties } from '../../lib/api'
+import { Container } from 'semantic-ui-react'
 
 function PropertyIndex() {
 
@@ -22,14 +23,19 @@ function PropertyIndex() {
   console.log(properties)
 
   return (
-    <>
-      {properties ? properties.map(property => (
-        <p key={property.id}>{property.name}</p>
-      ))
-        :
-        ''
-      }
-    </>
+    <Container>
+      <>
+        {properties ? properties.map(property => (
+          <div key={property.id}>
+            <p key={property.id}>{property.name}</p>
+            <img src={property.property_image} />
+          </div>
+        ))
+          :
+          ''
+        }
+      </>
+    </Container>
   )
 }
 

@@ -1,0 +1,25 @@
+* {
+  box-sizing: border-box;
+} 
+
+// Universal
+.container {
+  background-color: cornsilk;
+  width: 90vw;
+  margin: 6rem auto 0 auto;
+}
+
+// Navbar
+div .ui.menu.fixed {
+  background-color: #012349;
+  display: flex;
+}
+.logo {
+  margin: auto;
+}
+
+
+img {
+  height: 250px;
+  width: 400px;
+}

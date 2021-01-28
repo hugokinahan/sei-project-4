@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import { Container } from 'semantic-ui-react'
 
 function Home() {
 
@@ -22,7 +23,9 @@ function Home() {
   console.log(properties)
 
   return (
-    <h1>HouseSwap</h1>
+    <Container>
+      <h1>HouseSwap</h1>
+    </Container>
   )
 }
 

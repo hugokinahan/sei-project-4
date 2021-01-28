@@ -1,11 +1,14 @@
 import React from 'react'
+import { Container } from 'semantic-ui-react'
 // import { Link } from 'react-router-dom'
 
 
 function Login() {
 
   return (
-    <h1>Login page</h1>
+    <Container>
+      <h1>Login page</h1>
+    </Container>
   )
 }
 
