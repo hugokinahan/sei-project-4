@@ -888,5 +888,476 @@
       15
     ]
   }
+},
+{
+  "model": "properties.property",
+  "pk": 40,
+  "fields": {
+    "name": "Hampton Hall",
+    "address": "Queens Drive, KT22 0PB ",
+    "city": "Leatherhead",
+    "country": "England",
+    "continent": "Europe",
+    "description": "A beautifully designed Manor House in the prestigious Crown Estate with over 70 rooms, including staff accommodation, internal and external leisure facilities, a two storey garage and unsurpassed luxury.",
+    "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fsir.azureedge.net%2F1103i215%2F73xrar80dxbwmpjzjm500sgc42i215&option=N&h=472&permitphotoenlargement=false",
+    "is_available": true,
+    "latitude": 51.342040195190656,
+    "longitude": -0.3605386499494546,
+    "bedrooms": 11,
+    "bathrooms": 10,
+    "types": [
+     2,
+     4,
+     6,
+     7,
+     14
+    ]
+  }
+},
+{
+  "model": "properties.property",
+  "pk": 41,
+  "fields": {
+    "name": "Barcelona Apartment",
+    "address": "Paseo de Gracia",
+    "city": "Barcelona",
+    "country": "Spain",
+    "continent": "Europe",
+    "description": "It has a large living room with high ceilings with moldings and access to three balconies with wonderful views of Paseo de Gracia and La Pedrera. The apartment is in an impeccable condition with finishes of the highest quality. After being reformed, all the apartments were emptied making them brand new to the most demanding level of comfort.",
+    "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fsir.azureedge.net%2F1044i215%2Fpbcz6scbnzfp4k2z8eas4y3070i215&option=N&h=472&permitphotoenlargement=false",
+    "is_available": true,
+    "latitude": 41.39828796957776,
+    "longitude": 2.161355571320759,
+    "bedrooms": 3,
+    "bathrooms": 3,
+    "types": [
+     1,
+     5,
+     8,
+     9,
+     14
+    ]
+  }
+},
+{
+  "model": "properties.property",
+  "pk": 42,
+  "fields": {
+    "name": "Stunning Lakehouse",
+    "address": "Lake Como",
+    "city": "Laglio",
+    "country": "Italy",
+    "continent": "Europe",
+    "description": "Gorgeous lakefront trophy estate, featuring a generous garden and beautiful outdoor and indoor pools. With 7 bedrooms, this lakeside beauty is the perfect place for you and your family to stay. The perfect place to escape the city and relax by the peaceful and famous Lake Como.",
+    "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fsir.azureedge.net%2F1188i215%2F40m6z5y13r58mty4r6kj5fbgb3i215&option=N&h=472&permitphotoenlargement=false",
+    "is_available": true,
+    "latitude": 45.89074772475289,
+    "longitude": 9.14538129440387,
+    "bedrooms": 7,
+    "bathrooms": 17,
+    "types": [
+     2,
+     4,
+     6,
+     8,
+     13
+    ]
+  }
+},
+{
+  "model": "properties.property",
+  "pk": 43,
+  "fields": {
+    "name": "The perfect Capri Getaway",
+    "address": "Villa Bismarck, Capri, Amalfi Coast",
+    "city": "Capri",
+    "country": "Italy",
+    "continent": "Europe",
+    "description": "Built during the second half of the 18th century, on the ruins of a Roman Palace, inhabited by artists of different molds, painters, musicians, composers, the sumptuous Villa Bismarck, takes its name from its most famous owner, the Countess Mona Strader Bismarck. The villa, one of the most beautiful in the world, enjoys a privileged location on the island of Capri.",
+    "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fsir.azureedge.net%2F1188i215%2Fdt2qp9g0f5mn4s2sbj8fmjr6z3i215&option=N&h=472&permitphotoenlargement=false",
+    "is_available": true,
+    "latitude": 40.558256259106244,
+    "longitude": 14.233152626561765,
+    "bedrooms": 9,
+    "bathrooms": 10,
+    "types": [
+     2,
+     4,
+     6,
+     8,
+     13
+    ]
+  }
+},
+{
+  "model": "properties.property",
+  "pk": 44,
+  "fields": {
+    "name": "Beautiful Parisian Townhouse Mansion",
+    "address": "7th Arrondissement, Faubourgh Saint-Germain",
+    "city": "Paris",
+    "country": "France",
+    "continent": "Europe",
+    "description": "This exceptional private mansion from the 18th century is close to Musée d’Orsay. Raised on the basement, it is built on five levels and has a generous living space. It has kept the charm of yesteryear as shown with the superb wood paneling from regency period, the Venetian paintings in the three reception rooms of the first floor and the painted Ottoman wood paneling in the boudoir. A wonderful main staircase from the 18th century leads to the whole property",
+    "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fsir.azureedge.net%2F977i215%2F15mrhaqcy1em416aapq6c92je2i215&option=N&h=472&permitphotoenlargement=false",
+    "is_available": true,
+    "latitude": 48.8600,
+    "longitude": 2.3266,
+    "bedrooms": 7,
+    "bathrooms": 5,
+    "types": [
+     1,
+     4,
+     6,
+     8,
+     14
+    ]
+  }
+},
+{
+  "model": "properties.property",
+  "pk": 45,
+  "fields": {
+    "name": "Madrid Penthouse",
+    "address": "Salamanca, 28006",
+    "city": "Madrid",
+    "country": "Spain",
+    "continent": "Europe",
+    "description": "Wonderful penthouse with large terraces. It is located in a classical building with an excellent location and an interior that has been completely refurbished with an excellent eye for detail, respecting its classical façade. It boasts an unusual sense of peacefulness and brightness.The building includes several common areas such as a bright sophisticated gymnasium, swimming pool, cinema, wine cellar, communal kitchen",
+    "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fsir.azureedge.net%2F1103i215%2Fs555t6g73bgj406kr2v8c52v30i215&option=N&h=472&permitphotoenlargement=false",
+    "is_available": true,
+    "latitude": 40.43489019200472,
+    "longitude": -3.6823004097774734,
+    "bedrooms": 5,
+    "bathrooms": 5,
+    "types": [
+     1,
+     6,
+     7,
+     15
+    ]
+  }
+},
+{
+  "model": "properties.property",
+  "pk": 46,
+  "fields": {
+    "name": "Italian Neo-Classical Villa",
+    "address": "Via della Crocina, Pistoia, PT",
+    "city": "Tuscany",
+    "country": "Italy",
+    "continent": "Europe",
+    "description": "Historic villa dating back to the late 19th century in the typical late-Renaissance Tuscan style dominating all over the valley of Pistoia. Conveniently and strategically located in less than 25 min. from Florence and just over 40 min. from the prestigious coastline of Versilia.",
+    "property_image": "https://img.jamesedition.com/listing_images/2019/09/11/11/06/47/843f387e-1b1c-45ad-b697-74b1cb3392d3/je/1900xxsxm.jpg",
+    "is_available": true,
+    "latitude": 43.97565968636657,
+    "longitude": 10.913944900831003,
+    "bedrooms": 35,
+    "bathrooms": 16,
+    "types": [
+     1,
+     6,
+     7,
+     15
+    ]
+  }
+},
+{
+  "model": "properties.property",
+  "pk": 47,
+  "fields": {
+    "name": "Palmilla Beachfront Cabo",
+    "address": "Palmilla, Baja California",
+    "city": "San Jose del Cabo",
+    "country": "Mexico",
+    "continent": "Central America",
+    "description": "Palmilla Beachfront Six is a one-of-a-kind property on the beach from the ample backyard pool and luscious garden areas. This home is an architectural gem, designed and built in a stunning Spanish-Colonial style that combines the highest standards in Mexican materials, finishes, décor and craftmanship.",
+    "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=http%3A%2F%2FRealEstateAdminImages.gabriels.net%2F170%2F82503%2F170-20201120153456216-695.jpg&option=N&idlisting=listingmedia&w=1024&permitphotoenlargement=false&fallbackimageurl=https%3A%2F%2Fstatic-christiesrealestate-cms-production-2.gtsstatic.net%2Fresources%2F_responsive%2Fimages%2Fcommon%2Fnophoto%2Flisting.jpg",
+    "is_available": true,
+    "latitude": 23.069792764228037,
+    "longitude": -109.48830416538672,
+    "bedrooms": 5,
+    "bathrooms": 5,
+    "types": [
+     3,
+     4,
+     6,
+     7,
+     13
+    ]
+  }
+},
+{
+  "model": "properties.property",
+  "pk": 48,
+  "fields": {
+    "name": "Fifth Avenue Apartment",
+    "address": "927 Fifth Avenue, 9th Floor, Manhattan",
+    "city": "New York",
+    "country": "USA",
+    "continent": "North America",
+    "description": "Full-floor Fifth Avenue apartment with approximately 5,500 square feet, four exposures and exquisite Central Park views centered just above Conservatory Pond. Perfect place for family to come and stay and see the sights of New York.",
+    "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fsir.azureedge.net%2F1253i215%2Fdqjdfbawwrykmvt29r6vn731e4i215&option=N&h=472&permitphotoenlargement=false",
+    "is_available": true,
+    "latitude": 40.77366172730994,
+    "longitude": -73.96582390899283,
+    "bedrooms": 6,
+    "bathrooms": 5,
+    "types": [
+     1,
+     9,
+     14,
+     8,
+     11
+    ]
+  }
+},
+{
+  "model": "properties.property",
+  "pk": 49,
+  "fields": {
+    "name": "St Tropez Villa",
+    "address": "Ramatuelle",
+    "city": "St Tropez",
+    "country": "France",
+    "continent": "Europe",
+    "description": "Stunning 7 bedroom villa, which is probably one of the most amazing properties to stay within the Saint-Tropez peninsula, ideally situated in a quiet and sunny setting, yet close to the village and the beaches.",
+    "property_image": "https://www.prestigeproperty.co.uk/PropertyImages/LargerImages/227732.jpg",
+    "is_available": true,
+    "latitude": 43.26626637507837,
+    "longitude": 6.687274768206354,
+    "bedrooms": 7,
+    "bathrooms": 7,
+    "types": [
+     2,
+     3,
+     4,
+     6,
+     13
+    ]
+  }
+},
+{
+  "model": "properties.property",
+  "pk": 50,
+  "fields": {
+    "name": "Stunning French Chalet",
+    "address": "Megeve, Rhone-Alpes, 74120",
+    "city": "Megeve",
+    "country": "France",
+    "continent": "Europe",
+    "description": "The chalet is made up of 4 bedrooms with adjoining bathrooms and two duplexes located on the ground floor, like chalets on the roof with large volumes under roofs for master bedrooms and lounges. Each chalet has independent basements with parking lots, cellars and storage for skis and snowboards equipped with boot dryers. A common relaxation area includes a fitness center and a sauna with relaxation area and shower. ",
+    "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fsir.azureedge.net%2F977i215%2Fc733zzbfykx245pnbdw78dsa50i215&option=N&h=472&permitphotoenlargement=false",
+    "is_available": true,
+    "latitude": 45.847544976191216,
+    "longitude": 6.625196099552529,
+    "bedrooms": 3,
+    "bathrooms": 4,
+    "types": [
+    10,
+    13,
+    11,
+    5
+    ]
+  }
+},
+{
+  "model": "properties.property",
+  "pk": 51,
+  "fields": {
+    "name": "Beautiful Ibizan Villa",
+    "address": "Ibiza, Ibiza, 7815 Spain",
+    "city": "Ibiza",
+    "country": "Spain",
+    "continent": "Europe",
+    "description": "This luxury villa is located in the north of Ibiza, near the well known beach Cala Benirras.The house is in a very quiet area, surrounded by woods, for a very relaxing holiday and enjoys breathtaking views to the sea and the sunset.Every bedroom overlooks the sea.The lovely town of San Miquel is just few km away.",
+    "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fsir.azureedge.net%2F1294i215%2Ffnrgyt5drywx44e6gqayrzvcd7i215&option=N&h=472&permitphotoenlargement=false",
+    "is_available": true,
+    "latitude": 39.086718901490805,
+    "longitude": 1.4422089566459275,
+    "bedrooms": 4,
+    "bathrooms": 4,
+    "types": [
+     2,
+     3,
+     4,
+     6,
+     13
+    ]
+  }
+},
+{
+  "model": "properties.property",
+  "pk": 52,
+  "fields": {
+    "name": "Secluded Ibizan Finca",
+    "address": "Ibiza, Ibiza, 7812 Spain",
+    "city": "Ibiza",
+    "country": "Spain",
+    "continent": "Europe",
+    "description": "This home is the ideal property for anyone interested in being in the middle of nature secluded from any neighbors or noise from road traffic. This property is a family friendly home.",
+    "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fsir.azureedge.net%2F1294i215%2F295gp7238azcmty24427mqrys1i215&option=N&h=472&permitphotoenlargement=false",
+    "is_available": true,
+    "latitude": 39.02133399335562,
+    "longitude": 1.487225404026141,
+    "bedrooms": 6,
+    "bathrooms": 6,
+    "types": [
+     2,
+     3,
+     5,
+     8,
+     13
+    ]
+  }
+},
+{
+  "model": "properties.property",
+  "pk": 53,
+  "fields": {
+    "name": "Secluded Ibizan Finca",
+    "address": "Ibiza, Ibiza, 7812 Spain",
+    "city": "Ibiza",
+    "country": "Spain",
+    "continent": "Europe",
+    "description": "This home is the ideal property to stay for anyone interested in being in the middle of nature secluded from any neighbors or noise from road traffic. This property is a family friendly home.",
+    "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fsir.azureedge.net%2F1294i215%2F295gp7238azcmty24427mqrys1i215&option=N&h=472&permitphotoenlargement=false",
+    "is_available": true,
+    "latitude": 39.02133399335562,
+    "longitude": 1.487225404026141,
+    "bedrooms": 6,
+    "bathrooms": 6,
+    "types": [
+     2,
+     3,
+     5,
+     8,
+     13
+    ]
+  }
+},
+{
+  "model": "properties.property",
+  "pk": 54,
+  "fields": {
+    "name": "Provence Chateau",
+    "address": "Verquieres, 13670",
+    "city": "Provence-Alpes-Cote D'Azur",
+    "country": "France",
+    "continent": "Europe",
+    "description": "A stunning french chateau situated in the middle of the provence hills. The perfect place for anyone to get away from the business of the city and relax in this french paradise.",
+    "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fsir.azureedge.net%2F977i215%2Fqzcr6w92c8wg4qtc28bmzc1qs5i215&option=N&h=472&permitphotoenlargement=false",
+    "is_available": true,
+    "latitude": 43.80626316564009,
+    "longitude": 4.889312627181121,
+    "bedrooms": 5,
+    "bathrooms": 3,
+    "types": [
+     2,
+     5,
+     8,
+     13
+    ]
+  }
+},
+{
+  "model": "properties.property",
+  "pk": 55,
+  "fields": {
+    "name": "Provence Chateau",
+    "address": "Verquieres, 13670",
+    "city": "Provence-Alpes-Cote D'Azur",
+    "country": "France",
+    "continent": "Europe",
+    "description": "A stunning french chateau situated in the middle of the provence hills. The perfect place for anyone to get away from the business of the city and relax in this french paradise.",
+    "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fsir.azureedge.net%2F977i215%2Fqzcr6w92c8wg4qtc28bmzc1qs5i215&option=N&h=472&permitphotoenlargement=false",
+    "is_available": true,
+    "latitude": 43.80626316564009,
+    "longitude": 4.889312627181121,
+    "bedrooms": 5,
+    "bathrooms": 3,
+    "types": [
+     2,
+     5,
+     8,
+     13
+    ]
+  }
+},
+{
+  "model": "properties.property",
+  "pk": 56,
+  "fields": {
+    "name": "Corfu Beachside Mansion",
+    "address": "Agni Bay",
+    "city": "Corfu, Ionian Islands",
+    "country": "Greece",
+    "continent": "Europe",
+    "description": "The stunning property offers breathtaking views of the Ionian sea and enjoys a most -desired feeling of privacy in all its areas. With 12 bedrooms, the property is big enough to accomodate lots of guests and families.",
+    "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fsir.azureedge.net%2F1103i215%2Fk08wmbmj7v6zm4a7gt3ysf7894i215&option=N&h=472&permitphotoenlargement=false",
+    "is_available": true,
+    "latitude": 39.739346874163886,
+    "longitude": 19.931525612023794,
+    "bedrooms": 12,
+    "bathrooms": 12,
+    "types": [
+     2,
+     3,
+     4,
+     6,
+     13
+    ]
+  }
+},
+{
+  "model": "properties.property",
+  "pk": 57,
+  "fields": {
+    "name": "Corfu Beachside Mansion",
+    "address": "Agni Bay",
+    "city": "Corfu, Ionian Islands",
+    "country": "Greece",
+    "continent": "Europe",
+    "description": "The stunning property offers breathtaking views of the Ionian sea and enjoys a most -desired feeling of privacy in all its areas. With 12 bedrooms, the property is big enough to accomodate lots of guests and families.",
+    "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fsir.azureedge.net%2F1103i215%2Fk08wmbmj7v6zm4a7gt3ysf7894i215&option=N&h=472&permitphotoenlargement=false",
+    "is_available": true,
+    "latitude": 39.739346874163886,
+    "longitude": 19.931525612023794,
+    "bedrooms": 12,
+    "bathrooms": 12,
+    "types": [
+     2,
+     3,
+     4,
+     6,
+     13
+    ]
+  }
+},
+{
+  "model": "properties.property",
+  "pk": 58,
+  "fields": {
+    "name": "Aleomandra, Mykonos, 84600",
+    "address": "Agni Bay",
+    "city": "Mykonos",
+    "country": "Greece",
+    "continent": "Europe",
+    "description": "Casa Reale, defining elegance, sophistication and style, in a scenic setting with breathtaking sea views.Admire by day the endless blue horizon stretching as far as the eye can see and marvel at nature’s brush strokes painting the sky in shades of red and gold, as the sun slowly sets. A veritable kaleidoscope of wondrous colour.",
+    "property_image": "https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fsir.azureedge.net%2F1103i215%2Fprtzqns5pvb845ac5288wj6c60i215&option=N&h=472&permitphotoenlargement=false",
+    "is_available": true,
+    "latitude": 37.40950608742919,
+    "longitude": 25.30894211297295,
+    "bedrooms": 10,
+    "bathrooms": 10,
+    "types": [
+     2,
+     3,
+     4,
+     7,
+     11,
+     13
+    ]
+  }
 }
 ]
