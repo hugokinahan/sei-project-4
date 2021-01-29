@@ -1,5 +1,6 @@
 @import '_register.scss';
 @import '_login.scss';
+@import '_showpage.scss';
 
 * {
   box-sizing: border-box;
@@ -20,12 +21,6 @@ div .ui.menu.fixed {
 }
 .logo {
   margin: auto;
-}
-
-
-img {
-  height: 250px;
-  width: 400px;
 }
 
 .register-container {
