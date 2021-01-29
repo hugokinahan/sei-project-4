@@ -113,9 +113,125 @@ function PropertyShow() {
           <h4>{property.city}, {property.country}</h4>
           {/* <h6>{property.types.name[0]}</h6> */}
           <p>{property.description}</p>
-          <Button className="request-button" type="submit" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
-          Request A Swap <Icon name="exchange" className="exchange-icon"/>
-          </Button>
+          <Popup
+            trigger={<Button className="request-button" type="submit" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
+        Request A Swap <Icon name="exchange" className="exchange-icon"/>
+            </Button>}
+            modal
+            nested
+          >
+            {close => (
+              <div className="modal">
+                <button className="close" onClick={close}>
+          &times;
+                </button>
+                <div className="header"> 
+                  {property.owner ?  
+                    <div>
+                      <p>Request a swap with {property.owner.first_name} </p>
+                      <p>{property.address}</p>
+                      <p>{property.city}, {property.country}</p>
+                    </div>
+                    : '' }
+                </div>
+                <div className="content">
+                  <Form inverted onSubmit={handleSubmit} className="small form">
+                    <Form.Group widths='equal'>
+                      <Form.Field>
+                        <label fluid>First Name *</label>
+                        <input placeholder='eg. John'
+                          onChange={handleChange}
+                          name="firstName"
+                          value={formdata.firstName}
+                        />
+                      </Form.Field>
+                      <Form.Field>
+                        <label>Last Name *</label>
+                        <input placeholder='eg. Smith'
+                          onChange={handleChange}
+                          name="lastName"
+                          value={formdata.lastName}
+                        />
+                      </Form.Field>
+                    </Form.Group>
+                    <Form.Group widths='equal'>
+                      <Form.Field>
+                        <label>Email *</label>
+                        <input placeholder='eg. john.smith@gmail.com'
+                          onChange={handleChange}
+                          name="email"
+                          value={formdata.email}
+                        />
+                      </Form.Field>
+                      <Form.Field>
+                        <label>Property To Exchange *</label>
+                        <select placeholder='eg. Belmont Estate' 
+                          onChange={handleChange}
+                          name="offeredProperty"
+                          value={formdata.offeredProperty}
+                        />
+                      </Form.Field>
+                    </Form.Group>
+                    <Form.Group widths='equal'>
+                      <Form.Field>
+                        <label>Start Date *</label>
+                        <input placeholder='eg. 26/05/21' 
+                          type='date'
+                          onChange={handleChange}
+                          name="startDate"
+                          value={formdata.startDate}
+                        />
+                      </Form.Field>
+                      <Form.Field>
+                        <label>End Date *</label>
+                        <input placeholder='eg. 06/06/21'
+                          type='date'
+                          onChange={handleChange}
+                          name="endDate"
+                          value={formdata.endDate}
+                        />
+                      </Form.Field>
+                    </Form.Group>
+                    <Form.Field>
+                      <label>Tell Us About You *</label>
+                      <textarea placeholder='eg. I live in L.A and love travelling around the world.'
+                        onChange={handleChange}
+                        name="bioDescription"
+                        value={formdata.bioDescription}
+                      />
+                    </Form.Field>
+                    <Form.Field>
+                      <Checkbox label='I agree to the Terms and Conditions *' />
+                    </Form.Field>
+                    <Button className="popup-auth-request" type='submit' style={{ backgroundColor: 'white', borderRadius: 0, color: '#012349', border: 'none' }}>Request Property Exchange</Button>
+                  </Form>
+                </div>
+                {/* <div className="actions">
+              <Popup
+                trigger={<button className="button"> Trigger </button>}
+                position="top center"
+                nested
+              >
+                <span>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae
+              magni omnis delectus nemo, maxime molestiae dolorem numquam
+              mollitia, voluptate ea, accusamus excepturi deleniti ratione
+              sapiente! Laudantium, aperiam doloribus. Odit, aut.
+                </span>
+              </Popup>
+              <button
+                className="button"
+                onClick={() => {
+                  console.log('modal closed ')
+                  close()
+                }}
+              >
+            close modal
+              </button>
+            </div> */}
+              </div>
+            )}
+          </Popup>
         </div>
       </div>
       <div className="map-user-container">
@@ -205,123 +321,6 @@ function PropertyShow() {
           {property.owner ? `Contact ${property.owner.first_name} ${property.owner.last_name}` : '' }
         </Button>
       </div>
-      <Popup
-        trigger={<button className="button"> Open Modal </button>}
-        modal
-        nested
-      >
-        {close => (
-          <div className="modal">
-            <button className="close" onClick={close}>
-          &times;
-            </button>
-            <div className="header"> 
-              {property.owner ?  
-                <div>
-                  <p>Request a swap with {property.owner.first_name} </p>
-                  <p>{property.address}</p>
-                  <p>{property.city}, {property.country}</p>
-                </div>
-                : '' }
-            </div>
-            <div className="content">
-              <Form inverted onSubmit={handleSubmit} className="small form">
-                <Form.Group widths='equal'>
-                  <Form.Field>
-                    <label fluid>First Name *</label>
-                    <input placeholder='eg. John'
-                      onChange={handleChange}
-                      name="firstName"
-                      value={formdata.firstName}
-                    />
-                  </Form.Field>
-                  <Form.Field>
-                    <label>Last Name *</label>
-                    <input placeholder='eg. Smith'
-                      onChange={handleChange}
-                      name="lastName"
-                      value={formdata.lastName}
-                    />
-                  </Form.Field>
-                </Form.Group>
-                <Form.Group widths='equal'>
-                  <Form.Field>
-                    <label>Email *</label>
-                    <input placeholder='eg. john.smith@gmail.com'
-                      onChange={handleChange}
-                      name="email"
-                      value={formdata.email}
-                    />
-                  </Form.Field>
-                  <Form.Field>
-                    <label>Property To Exchange *</label>
-                    <select placeholder='eg. Belmont Estate' 
-                      onChange={handleChange}
-                      name="offeredProperty"
-                      value={formdata.offeredProperty}
-                    />
-                  </Form.Field>
-                </Form.Group>
-                <Form.Group widths='equal'>
-                  <Form.Field>
-                    <label>Start Date *</label>
-                    <input placeholder='eg. 26/05/21' 
-                      type='date'
-                      onChange={handleChange}
-                      name="startDate"
-                      value={formdata.startDate}
-                    />
-                  </Form.Field>
-                  <Form.Field>
-                    <label>End Date *</label>
-                    <input placeholder='eg. 06/06/21'
-                      type='date'
-                      onChange={handleChange}
-                      name="endDate"
-                      value={formdata.endDate}
-                    />
-                  </Form.Field>
-                </Form.Group>
-                <Form.Field>
-                  <label>Tell Us About You *</label>
-                  <textarea placeholder='eg. I live in L.A and love travelling around the world.'
-                    onChange={handleChange}
-                    name="bioDescription"
-                    value={formdata.bioDescription}
-                  />
-                </Form.Field>
-                <Form.Field>
-                  <Checkbox label='I agree to the Terms and Conditions *' />
-                </Form.Field>
-                <Button className="popup-auth-request" type='submit' style={{ backgroundColor: 'white', borderRadius: 0, color: '#012349', border: 'none' }}>Request Property Exchange</Button>
-              </Form>
-            </div>
-            {/* <div className="actions">
-              <Popup
-                trigger={<button className="button"> Trigger </button>}
-                position="top center"
-                nested
-              >
-                <span>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae
-              magni omnis delectus nemo, maxime molestiae dolorem numquam
-              mollitia, voluptate ea, accusamus excepturi deleniti ratione
-              sapiente! Laudantium, aperiam doloribus. Odit, aut.
-                </span>
-              </Popup>
-              <button
-                className="button"
-                onClick={() => {
-                  console.log('modal closed ')
-                  close()
-                }}
-              >
-            close modal
-              </button>
-            </div> */}
-          </div>
-        )}
-      </Popup>
       <div className="featured-container">
         <div className="featured-header">
           <h2>Featured Properties</h2>
