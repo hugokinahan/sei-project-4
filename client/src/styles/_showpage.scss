@@ -212,3 +212,50 @@ p {
     border-radius: 100%
   }
 }
+
+
+// POPUP PLAY
+
+.modal {
+  font-size: 12px;
+  background-color:  #012349;
+  color: white;
+  width: 70vw;
+  height: 78vh;
+  margin: 0 auto;
+}
+.modal > .header {
+  margin-left: 9rem;
+  text-align: left;
+  text-transform: uppercase;
+  width: 75%;
+  border-bottom: 1px solid gray;
+  font-size: 12px;
+  padding: 5px;
+}
+.modal > .content {
+  margin: 0 auto;
+  text-align: center;
+  width: 75%;
+  padding: 10px 5px;
+}
+.modal > .actions {
+  width: 100%;
+  padding: 10px 5px;
+  margin: auto;
+  text-align: center;
+}
+.modal > .close {
+  cursor: pointer;
+  position: relative;
+  display: block;
+  padding: 2px 5px;
+  line-height: 20px;
+  right: -10px;
+  top: -10px;
+  font-size: 24px;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #cfcece;
+}
+
