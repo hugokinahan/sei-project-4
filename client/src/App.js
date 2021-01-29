@@ -5,6 +5,7 @@ import Nav from './components/common/Nav'
 import Home from './components/common/Home'
 
 import PropertyIndex from './components/properties/PropertyIndex'
+import PropertyIndexMap from './components/properties/PropertyIndexMap'
 import PropertyShow from './components/properties/PropertyShow'
 import PropertyNew from './components/properties/PropertyNew'
 import PropertyEdit from './components/properties/PropertyEdit'
@@ -24,6 +25,7 @@ function App() {
         <Route path="/properties/new" component={PropertyNew} />
         <Route path="/properties/:id/edit" component={PropertyEdit} />
         <Route path="/properties/:id" component={PropertyShow} />
+        <Route path="/properties/map" component={PropertyIndexMap} />
         <Route path="/properties" component={PropertyIndex} />
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />

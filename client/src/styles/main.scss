@@ -1,5 +1,7 @@
 @import '_register.scss';
 @import '_login.scss';
+@import '_index.scss';
+@import '_navBar.scss';
 
 * {
   box-sizing: border-box;
@@ -17,11 +19,21 @@
 div .ui.menu.fixed {
   background-color: #012349;
   display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 .logo {
   margin: auto;
+  color: white;
 }
 
+#root > div.ui.menu.fixed > a:nth-child(1) > div, #root > div.ui.menu.fixed > a:nth-child(2) > div{
+  color: white;
+}
+
+#root > div.ui.menu.fixed > div.right.item {
+  margin: 0;
+}
 
 img {
   height: 250px;

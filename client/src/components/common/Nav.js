@@ -21,12 +21,12 @@ function Nav() {
 
       <Menu.Item className="logo">
         <Link to="/">
-          <h1>Sharebnb</h1>
+          <h1 className="logo-header">Sharebnb</h1>
         </Link>
       </Menu.Item>
       
 
-      <Menu.Item position='right'>
+      <Menu.Item>
         <Link to="/register">
           <Button type="submit">
             Register
