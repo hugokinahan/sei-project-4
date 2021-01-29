@@ -45,11 +45,11 @@ function PropertyShow() {
         <h1>Property Show Page</h1>
         <img src={property.property_image} />
         <div className="icon-buttons">
-          <Button className="edit-button">
+          <Button className="edit-button" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
             <Icon name="edit" />
           </Button>
-          <Button className="delete-button">
-            <Icon name="trash alternate" />
+          <Button className="delete-button" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
+            <Icon name="trash alternate"/>
           </Button>
         </div>
         <div className="show-details">
@@ -58,7 +58,7 @@ function PropertyShow() {
           <h4>{property.city}, {property.country}</h4>
           {/* <h6>{property.types.name[0]}</h6> */}
           <p>{property.description}</p>
-          <Button className="request-button" type="submit" >
+          <Button className="request-button" type="submit" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
           Request A Swap
           </Button>
         </div>
@@ -66,12 +66,19 @@ function PropertyShow() {
       <div className="map-user-container">
         <div className="user-details">
           {property.owner ? 
-            <div>
+            <div className="user-fields">
               <h2>{property.owner.first_name} {property.owner.last_name}</h2>
-              <p>{property.owner.email}</p>
-              <img src={property.owner.profile_image} />
-              <p>{property.owner.bio_description}</p>
+              <div className="user-info">
+                <div className="user-deets">
+                  <p>{property.owner.email}</p>
+                  <p>{property.owner.bio_description}</p>
+                </div>
+                <div className="user-image">
+                  <img src={property.owner.profile_image} />
+                </div>
+              </div>
             </div>
+            
             :
             ''
           }
@@ -88,7 +95,7 @@ function PropertyShow() {
               latitude={property.latitude ? Number(property.latitude) : 51.533451}
               longitude={property.longitude ? Number(property.longitude) : -51.533451}
               zoom={4}
-              onClick={() => setPopup(null)}
+              // onClick={() => setPopup(null)}
               onViewportChange={viewport => setViewport(viewport)}
             >
               {property ?
@@ -103,7 +110,8 @@ function PropertyShow() {
                     aria-label="map-marker"
                     onClick={() => setPopup(property.owner.first_name)}
                   >
-                    <img src={property.owner ? property.owner.profile_image : '' }/>
+                    {/* <img src={property.owner ? property.owner.profile_image : '' }/> */}
+                    <Icon className="icon" name="map marker alternate" />
                   </span>
                 </Marker>
                 :
