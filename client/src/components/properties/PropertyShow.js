@@ -1,7 +1,7 @@
 import React from 'react'
-import { getSingleProperty } from '../../lib/api'
-import { useParams } from 'react-router-dom'
-import { Button, Icon } from 'semantic-ui-react'
+import { getSingleProperty, getAllProperties } from '../../lib/api'
+import { useParams, Link } from 'react-router-dom'
+import { Button, Icon, Menu, Search } from 'semantic-ui-react'
 import ReactMapGL, { Marker } from 'react-map-gl'
 
 // import ReactMapGL from 'react-map-gl'
@@ -23,6 +23,22 @@ function PropertyShow() {
   // const history = useHistory()
   const { id } = useParams()
 
+  const [properties, setProperties] = React.useState(null)
+
+  React.useEffect(() => {
+    const getProperties = async () => {
+      try {
+        const { data } = await getAllProperties()
+        console.log(data)
+        setProperties(data)
+
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    getProperties()
+  }, [])
+
   React.useEffect(() => {
 
     const getData = async () => {
@@ -41,10 +57,27 @@ function PropertyShow() {
 
   return (
     <section className="show-page">
+      <div className="index-menu-banner">
+        <div className="ui menu index-page">
+          <Search/>
+          <Link to="/properties/map" className="navbar-item">
+            <Menu.Item
+              className="home"
+              name='Map'
+            />
+          </Link>
+          <Menu.Item
+            className="home"
+            name='Gallery'
+          />
+        </div>
+      </div>
       <div>
-        <h1>Property Show Page</h1>
         <img src={property.property_image} />
         <div className="icon-buttons">
+          <Button className="favorite-button" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'gold' }}>
+            <Icon name="favorite"/>
+          </Button>
           <Button className="edit-button" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
             <Icon name="edit" />
           </Button>
@@ -59,7 +92,7 @@ function PropertyShow() {
           {/* <h6>{property.types.name[0]}</h6> */}
           <p>{property.description}</p>
           <Button className="request-button" type="submit" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
-          Request A Swap
+          Request A Swap <Icon name="exchange" className="exchange-icon"/>
           </Button>
         </div>
       </div>
@@ -115,9 +148,6 @@ function PropertyShow() {
                   </span>
                 </Marker>
                 :
-              // <div className="ring-loader">
-              //   <RingLoader color="purple" size={60} />
-              // </div>
                 ''
               }
               {/* {popup &&
@@ -144,6 +174,54 @@ function PropertyShow() {
           // <div className="ring-loader">
           //   <RingLoader color="purple" size={60} />
           // </div>
+            ''
+          }
+        </div>
+      </div>
+      <div className="contact-button">
+        <Button className="request-button" type="submit" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
+          {property.owner ? `Contact ${property.owner.first_name} ${property.owner.last_name}` : '' }
+        </Button>
+      </div>
+      <div className="featured-container">
+        <div className="featured-header">
+          <h2>Featured Properties</h2>
+        </div>
+        <div className="index-grid">
+          {properties ? properties.map(property => (
+            <Link to={`/properties/${property.id}`} key={property.id} className="index-grid-div-container" >
+              <div className="index-grid-div">
+                <img src={property.property_image} />
+                <div className="index-grid-house-info">
+                  <div className="house-name-details">
+                    <p>{property.name}</p>
+                    <p>{property.city}, {property.country}</p>
+                  </div>
+                  <div className="house-details">
+                    <div className="bathrooms">
+                      <Icon name="bath" className="index-icon"></Icon>
+                      <p>{property.bathrooms} bathrooms </p>
+                      
+                    </div>
+                    <div className="bedrooms">
+                      <Icon name="bed" className="index-icon"></Icon>
+                      <p>{property.bedrooms} bedrooms </p>
+                      
+                    </div>
+                  </div>
+                </div>
+                <div className="index-user-info">
+                  <div className="index-owner-details">
+                    <div className="user-profile-image">
+                      <img src={property.owner.profile_image}></img>
+                    </div>
+                    <p>Added by {property.owner.first_name} {property.owner.last_name}</p>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          ))
+            :
             ''
           }
         </div>
