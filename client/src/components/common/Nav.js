@@ -1,16 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Menu, Button } from 'semantic-ui-react'
+import { Menu, Button, Icon } from 'semantic-ui-react'
 
 function Nav() {
 
   return (
     <div className="ui menu fixed">
       <Link to="/" className="navbar-item">
-        <Menu.Item
+        {/* <Menu.Item
           className="home"
           name='Home'
-        />
+        /> */}
+        <Icon name="home" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}/>
       </Link>
       <Link to="/properties" className="navbar-item">
         <Menu.Item
