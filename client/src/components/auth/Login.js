@@ -4,6 +4,7 @@ import { Link, useHistory } from 'react-router-dom'
 
 import useForm from '../../utils/useForm'
 import { loginUser } from '../../lib/api'
+import { setToken } from '../../lib/auth'
 
 
 function Login() {
@@ -18,7 +19,8 @@ function Login() {
     event.preventDefault()
     try {
       console.log('User has loggedIn')
-      await loginUser(formdata)
+      const { data } = await loginUser(formdata)
+      setToken(data.token)
       history.push('/properties')
     } catch (err) {
       console.log(err)
