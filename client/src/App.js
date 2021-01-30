@@ -24,8 +24,8 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route path="/properties/new" component={PropertyNew} />
         <Route path="/properties/:id/edit" component={PropertyEdit} />
-        <Route path="/properties/:id" component={PropertyShow} />
         <Route path="/properties/map" component={PropertyIndexMap} />
+        <Route path="/properties/:id" component={PropertyShow} />
         <Route path="/properties" component={PropertyIndex} />
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
