@@ -15,7 +15,9 @@
     "react-map-gl": "^6.1.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
+    "react-select": "^4.0.2",
     "reactjs-popup": "^2.0.4",
+    "select": "^1.1.2",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^2.0.3"
   },

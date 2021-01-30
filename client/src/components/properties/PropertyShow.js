@@ -7,8 +7,6 @@ import Popup from 'reactjs-popup'
 import useForm from '../../utils/useForm'
 
 
-// import ReactMapGL from 'react-map-gl'
-
 function PropertyShow() {
 
   const [property, setProperty] = React.useState([])
@@ -169,7 +167,13 @@ function PropertyShow() {
                           onChange={handleChange}
                           name="offeredProperty"
                           value={formdata.offeredProperty}
-                        />
+                        >
+                          {properties ? properties.map((property) => (
+                            <option key={property.id} value={property.name}>{property.name}</option>
+                          ))
+                            :
+                            ''  }
+                        </select>
                       </Form.Field>
                     </Form.Group>
                     <Form.Group widths='equal'>
@@ -326,7 +330,7 @@ function PropertyShow() {
           <h2>Featured Properties</h2>
         </div>
         <div className="index-grid">
-          {properties ? properties.map(property => (
+          {properties ? properties.slice(33, 36).map(property => (
             <Link to={`/properties/${property.id}`} key={property.id} className="index-grid-div-container" >
               <div className="index-grid-div">
                 <img src={property.property_image} />
