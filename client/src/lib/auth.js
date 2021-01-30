@@ -6,6 +6,10 @@ export function getToken() {
   return window.localStorage.getItem('token')
 }
 
+export function getUserId() {
+  return getPayload().sub
+}
+
 export function logout() {
   window.localStorage.removeItem('token')
 }

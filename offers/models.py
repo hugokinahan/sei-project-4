@@ -3,8 +3,8 @@ from django.db import models
 
 class Offer(models.Model):
     text = models.TextField(max_length=300)
-    start_date = models.DateTimeField()
-    end_date = models.DateTimeField()
+    start_date = models.TextField(max_length=300)
+    end_date = models.TextField(max_length=300)
     is_accepted = models.BooleanField(default=False)
     requested_property = models.ForeignKey(
         "properties.Property",
@@ -18,7 +18,7 @@ class Offer(models.Model):
     )
     # owner = models.ForeignKey(
     #     "jwt_auth.User",
-    #     related_name="posted_comments",
+    #     related_name="posted_offers",
     #     on_delete=models.CASCADE
     # )
 

@@ -97,3 +97,10 @@ export function showUserProfile() {
 export function editUserProfile(formdata) {
   return axios.put(`${baseUrl}/update-profile/`, formdata, headers())
 }
+
+//* Make a Offer / Request a swap
+
+export function createPropertyRequest(formdata) {
+  console.log(formdata)
+  return axios.post(`${baseUrl}/offers/`, formdata, headers())
+}

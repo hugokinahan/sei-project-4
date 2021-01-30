@@ -25,7 +25,7 @@ function Home() {
   console.log(properties)
 
   return (
-    <section>
+    <section className="home-page-section">
       <div className="hero">
         <div className="homepage-layout">
           <div className="carousel">

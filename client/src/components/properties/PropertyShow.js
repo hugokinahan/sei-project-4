@@ -1,11 +1,14 @@
 import React from 'react'
 import { getSingleProperty, getAllProperties } from '../../lib/api'
 import { useParams, Link, useLocation } from 'react-router-dom'
-import { Button, Icon, Menu, Search, Checkbox, Form } from 'semantic-ui-react'
-import ReactMapGL, { Marker } from 'react-map-gl'
-import Popup from 'reactjs-popup'
-import useForm from '../../utils/useForm'
+import { Button, Icon, Menu, Search  } from 'semantic-ui-react'
+
+// import Popup from 'reactjs-popup'
+// import useForm from '../../utils/useForm'
 import { isAuthenticated } from '../../lib/auth'
+
+import PropertyShowMap from './PropertyShowMap'
+import PropertyShowPopup from './PropertyShowPopup'
 
 
 function PropertyShow() {
@@ -17,19 +20,13 @@ function PropertyShow() {
   const [property, setProperty] = React.useState([])
   console.log(property)
 
-  const [popup, setPopup] = React.useState(null)
-  console.log(popup)
-
-  const [viewport, setViewport] = React.useState({
-    latitude: 51.501476,
-    longitude: -0.140634,
-    zoom: 15
-  })
+  
 
   // const history = useHistory()
   const { id } = useParams()
 
-  const [properties, setProperties] = React.useState(null)
+  const [properties, setProperties] = React.useState([])
+  
 
   React.useEffect(() => {
     const getProperties = async () => {
@@ -61,24 +58,8 @@ function PropertyShow() {
 
   console.log(property)
 
-  const { formdata, errors, handleChange, setErrors } = useForm({
-    startDate: '',
-    firstName: '',
-    lastName: '',
-    email: '',
-    bioDescription: '',
-    endDate: '',
-    passwordConfirmation: '',
-    profileImage: ''
-  })
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    console.log('Request made')
-  }
 
-  console.log(errors)
-  console.log(setErrors)
 
   return (
     <section className="show-page">
@@ -124,132 +105,8 @@ function PropertyShow() {
           <h4>{property.city}, {property.country}</h4>
           {/* <h6>{property.types.name[0]}</h6> */}
           <p>{property.description}</p>
-          <Popup
-            trigger={<Button className="request-button" type="submit" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
-        Request A Swap <Icon name="exchange" className="exchange-icon"/>
-            </Button>}
-            modal
-            nested
-          >
-            {close => (
-              <div className="modal">
-                <button className="close" onClick={close}>
-          &times;
-                </button>
-                <div className="header"> 
-                  {property.owner ?  
-                    <div>
-                      <p>Request a swap with {property.owner.first_name} </p>
-                      <p>{property.address}</p>
-                      <p>{property.city}, {property.country}</p>
-                    </div>
-                    : '' }
-                </div>
-                <div className="content">
-                  <Form inverted onSubmit={handleSubmit} className="small form">
-                    <Form.Group widths='equal'>
-                      <Form.Field>
-                        <label fluid>First Name *</label>
-                        <input placeholder='eg. John'
-                          onChange={handleChange}
-                          name="firstName"
-                          value={formdata.firstName}
-                        />
-                      </Form.Field>
-                      <Form.Field>
-                        <label>Last Name *</label>
-                        <input placeholder='eg. Smith'
-                          onChange={handleChange}
-                          name="lastName"
-                          value={formdata.lastName}
-                        />
-                      </Form.Field>
-                    </Form.Group>
-                    <Form.Group widths='equal'>
-                      <Form.Field>
-                        <label>Email *</label>
-                        <input placeholder='eg. john.smith@gmail.com'
-                          onChange={handleChange}
-                          name="email"
-                          value={formdata.email}
-                        />
-                      </Form.Field>
-                      <Form.Field>
-                        <label>Property To Exchange *</label>
-                        <select placeholder='eg. Belmont Estate' 
-                          onChange={handleChange}
-                          name="offeredProperty"
-                          value={formdata.offeredProperty}
-                        >
-                          {properties ? properties.map((property) => (
-                            <option key={property.id} value={property.name}>{property.name}</option>
-                          ))
-                            :
-                            ''  }
-                        </select>
-                      </Form.Field>
-                    </Form.Group>
-                    <Form.Group widths='equal'>
-                      <Form.Field>
-                        <label>Start Date *</label>
-                        <input placeholder='eg. 26/05/21' 
-                          type='date'
-                          onChange={handleChange}
-                          name="startDate"
-                          value={formdata.startDate}
-                        />
-                      </Form.Field>
-                      <Form.Field>
-                        <label>End Date *</label>
-                        <input placeholder='eg. 06/06/21'
-                          type='date'
-                          onChange={handleChange}
-                          name="endDate"
-                          value={formdata.endDate}
-                        />
-                      </Form.Field>
-                    </Form.Group>
-                    <Form.Field>
-                      <label>Tell Us About You *</label>
-                      <textarea placeholder='eg. I live in L.A and love travelling around the world.'
-                        onChange={handleChange}
-                        name="bioDescription"
-                        value={formdata.bioDescription}
-                      />
-                    </Form.Field>
-                    <Form.Field>
-                      <Checkbox label='I agree to the Terms and Conditions *' />
-                    </Form.Field>
-                    <Button className="popup-auth-request" type='submit' style={{ backgroundColor: 'white', borderRadius: 0, color: '#012349', border: 'none' }}>Request Property Exchange</Button>
-                  </Form>
-                </div>
-                {/* <div className="actions">
-              <Popup
-                trigger={<button className="button"> Trigger </button>}
-                position="top center"
-                nested
-              >
-                <span>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae
-              magni omnis delectus nemo, maxime molestiae dolorem numquam
-              mollitia, voluptate ea, accusamus excepturi deleniti ratione
-              sapiente! Laudantium, aperiam doloribus. Odit, aut.
-                </span>
-              </Popup>
-              <button
-                className="button"
-                onClick={() => {
-                  console.log('modal closed ')
-                  close()
-                }}
-              >
-            close modal
-              </button>
-            </div> */}
-              </div>
-            )}
-          </Popup>
         </div>
+        <PropertyShowPopup property={property} />
       </div>
       <div className="map-user-container">
         <div className="user-details">
@@ -278,67 +135,7 @@ function PropertyShow() {
             ''
           }
         </div>
-        <div className="map-container">
-          {viewport ? 
-            <ReactMapGL
-              className="mapbox"
-              mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
-              height="250px"
-              width="250px"
-              mapStyle='mapbox://styles/mapbox/streets-v11'
-              {...viewport}
-              latitude={property.latitude ? Number(property.latitude) : 51.533451}
-              longitude={property.longitude ? Number(property.longitude) : -51.533451}
-              zoom={4}
-              // onClick={() => setPopup(null)}
-              onViewportChange={viewport => setViewport(viewport)}
-            >
-              {property ?
-                <Marker
-                  className='map-markers'
-                  key={property.id}
-                  latitude={property.latitude ? Number(property.latitude) : 51.533451}
-                  longitude={property.longitude ? Number(property.longitude) : -51.533451}
-                >
-                  <span
-                    role="img"
-                    aria-label="map-marker"
-                    onClick={() => setPopup(property.owner.first_name)}
-                  >
-                    {/* <img src={property.owner ? property.owner.profile_image : '' }/> */}
-                    <Icon className="icon" name="map marker alternate" />
-                  </span>
-                </Marker>
-                :
-                ''
-              }
-              {/* {popup &&
-          // <Popup
-          //   closeOnClick={true}
-          //   latitude={popup.latitude}
-          //   longitude={popup.longitude}
-          //   closeButton={false}
-          // >
-            <h4>{popup.name}, {popup.city}</h4>
-            <h4>Events:</h4>
-            <div>{events.map(event => {
-              if (event.venue.name === popup.name) {
-                return <p>
-                  <Link to={`/events/${event._id}`}>{event.name}</Link>
-                </p>
-              }
-            })}
-            </div>
-          </Popup>
-            } */}
-            </ReactMapGL>
-            : 
-          // <div className="ring-loader">
-          //   <RingLoader color="purple" size={60} />
-          // </div>
-            ''
-          }
-        </div>
+        <PropertyShowMap property={property}/>
       </div>
       <div className="featured-container">
         <div className="featured-header">
