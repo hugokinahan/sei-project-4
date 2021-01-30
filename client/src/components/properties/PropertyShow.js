@@ -244,8 +244,15 @@ function PropertyShow() {
                   <p>{property.owner.email}</p>
                   <p>{property.owner.bio_description}</p>
                 </div>
-                <div className="user-image">
-                  <img src={property.owner.profile_image} />
+                <div className="user-image-button">
+                  <div className="user-image">
+                    <img src={property.owner.profile_image} />
+                  </div>
+                  <div className="contact-button">
+                    <Button className="request-button" type="submit" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
+                      {property.owner ? `Contact ${property.owner.first_name} ${property.owner.last_name}` : '' }
+                    </Button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -259,8 +266,8 @@ function PropertyShow() {
             <ReactMapGL
               className="mapbox"
               mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
-              height="100%"
-              width="100%"
+              height="250px"
+              width="250px"
               mapStyle='mapbox://styles/mapbox/streets-v11'
               {...viewport}
               latitude={property.latitude ? Number(property.latitude) : 51.533451}
@@ -315,11 +322,6 @@ function PropertyShow() {
             ''
           }
         </div>
-      </div>
-      <div className="contact-button">
-        <Button className="request-button" type="submit" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
-          {property.owner ? `Contact ${property.owner.first_name} ${property.owner.last_name}` : '' }
-        </Button>
       </div>
       <div className="featured-container">
         <div className="featured-header">
