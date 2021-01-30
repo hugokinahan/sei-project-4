@@ -14,6 +14,7 @@ import Register from './components/auth/Register'
 import Login from './components/auth/Login'
 
 import Profile from './components/users/Profile'
+import PropertyRegister from './components/properties/PropertyRegister'
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
         <Route path="/properties/map" component={PropertyIndexMap} />
         <Route path="/properties/:id" component={PropertyShow} />
         <Route path="/properties" component={PropertyIndex} />
+        <Route path="/register/property" component={PropertyRegister} />
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
         <Route path="/profile" component={Profile} />

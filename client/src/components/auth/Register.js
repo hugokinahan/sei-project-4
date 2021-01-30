@@ -26,7 +26,7 @@ function Register() {
     try {
       console.log('User has registered')
       await registerUser(formdata)
-      history.push('/login')
+      history.push('/register/property')
     } catch (err) {
       console.log(err)
     }

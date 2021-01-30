@@ -1,15 +1,18 @@
 import React from 'react'
 import { getSingleProperty, getAllProperties } from '../../lib/api'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useLocation } from 'react-router-dom'
 import { Button, Icon, Menu, Search, Checkbox, Form } from 'semantic-ui-react'
 import ReactMapGL, { Marker } from 'react-map-gl'
 import Popup from 'reactjs-popup'
 import useForm from '../../utils/useForm'
+import { isAuthenticated } from '../../lib/auth'
 
-
-// import ReactMapGL from 'react-map-gl'
 
 function PropertyShow() {
+
+  const isLoggedIn = isAuthenticated()
+  // const history = useHistory()
+  useLocation()
 
   const [property, setProperty] = React.useState([])
   console.log(property)
@@ -96,17 +99,25 @@ function PropertyShow() {
       </div>
       <div>
         <img src={property.property_image} />
-        <div className="icon-buttons">
-          <Button className="favorite-button" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'gold' }}>
-            <Icon name="favorite"/>
-          </Button>
-          <Button className="edit-button" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
-            <Icon name="edit" />
-          </Button>
-          <Button className="delete-button" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
-            <Icon name="trash alternate"/>
-          </Button>
-        </div>
+        <>
+          {isLoggedIn ?
+            <>
+              <div className="icon-buttons">
+                <Button className="favorite-button" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'gold' }}>
+                  <Icon name="favorite"/>
+                </Button>
+                <Button className="edit-button" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
+                  <Icon name="edit" />
+                </Button>
+                <Button className="delete-button" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
+                  <Icon name="trash alternate"/>
+                </Button>
+              </div>
+            </>
+            :
+            ''
+          }
+        </>
         <div className="show-details">
           <h2>{property.name}</h2>
           <h4>{property.address}</h4>
@@ -169,7 +180,13 @@ function PropertyShow() {
                           onChange={handleChange}
                           name="offeredProperty"
                           value={formdata.offeredProperty}
-                        />
+                        >
+                          {properties ? properties.map((property) => (
+                            <option key={property.id} value={property.name}>{property.name}</option>
+                          ))
+                            :
+                            ''  }
+                        </select>
                       </Form.Field>
                     </Form.Group>
                     <Form.Group widths='equal'>
@@ -328,7 +345,7 @@ function PropertyShow() {
           <h2>Featured Properties</h2>
         </div>
         <div className="index-grid">
-          {properties ? properties.map(property => (
+          {properties ? properties.slice(40, 43).map(property => (
             <Link to={`/properties/${property.id}`} key={property.id} className="index-grid-div-container" >
               <div className="index-grid-div">
                 <img src={property.property_image} />

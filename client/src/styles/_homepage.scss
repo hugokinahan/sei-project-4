@@ -1,3 +1,8 @@
+section {
+  height: 200vh;
+  background-color: white;
+}
+
 .hero {
   margin-left: 1rem;
   margin-top: 4rem;
@@ -18,7 +23,8 @@
 }
 
 .homepage-layout {
-  margin: 1rem;
+  margin: 0 1rem;
+  margin-bottom: -10rem;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -37,10 +43,42 @@
   margin: 2rem;
 }
 
-#root > section > div > div.carousel > div {
+#root > section > div > div > div.carousel > div {
   width: 100%;
 }
 
-#root > section > div > div.carousel > div > div {
+#root > section > div > div > div.carousel > div > div {
   width: 100%;
+}
+
+homepage-second-layer {
+  display: flex;
+}
+
+.users-index {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: 2rem;
+  width: 45%;
+  justify-content: space-around;
+  // align-items: left;
+
+  img {
+    border-radius: 80px;
+    height: 50px;
+    width: auto;
+  }
+}
+
+.home-reviews {
+  // margin-left: 60rem;
+  // margin-right: 2rem;
+  // margin-top: -13.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 50%;
+  margin-left: auto;
+  margin-top: -16%;
 }
