@@ -83,11 +83,11 @@ export function deleteUserReviw(id, reviewId) {
 // * Auth Requests
 
 export function registerUser(formdata) {
-  return axios.post(`${baseUrl}/register`, formdata)
+  return axios.post(`${baseUrl}/auth/register/`, formdata)
 }
 
 export function loginUser(formdata) {
-  return axios.post(`${baseUrl}/login`, formdata)
+  return axios.post(`${baseUrl}/auth/login/`, formdata)
 }
 
 export function showUserProfile() {

@@ -1,30 +1,39 @@
 import React from 'react'
 import { Form, Checkbox, Button } from 'semantic-ui-react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 import useForm from '../../utils/useForm'
+import { registerUser } from '../../lib/api'
 
 
 function Register() {
 
-  const { formdata, errors, handleChange, setErrors } = useForm({
+  const history = useHistory()
+
+  const { formdata,  handleChange } = useForm({
     username: '',
-    firstName: '',
-    lastName: '',
+    first_name: '',
+    last_name: '',
     email: '',
-    bioDescription: '',
+    bio_description: '',
     password: '',
-    passwordConfirmation: '',
-    profileImage: ''
+    password_confirmation: '',
+    profile_image: ''
   })
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async event => {
     event.preventDefault()
-    console.log('User has registered')
+    try {
+      console.log('User has registered')
+      await registerUser(formdata)
+      history.push('/login')
+    } catch (err) {
+      console.log(err)
+    }
   }
 
-  console.log(errors)
-  console.log(setErrors)
+  // console.log(errors)
+  // console.log(setErrors)
 
   return (
     <div className="register-container">
@@ -36,16 +45,16 @@ function Register() {
               <label fluid>First Name</label>
               <input placeholder='eg. John'
                 onChange={handleChange}
-                name="firstName"
-                value={formdata.firstName}
+                name="first_name"
+                value={formdata.first_name}
               />
             </Form.Field>
             <Form.Field>
               <label>Last Name</label>
               <input placeholder='eg. Smith'
                 onChange={handleChange}
-                name="lastName"
-                value={formdata.lastName}
+                name="last_name"
+                value={formdata.last_name}
               />
             </Form.Field>
           </Form.Group>
@@ -61,8 +70,8 @@ function Register() {
             <label>Image</label>
             <input placeholder='eg. profile-image.png' 
               onChange={handleChange}
-              name="profileImage"
-              value={formdata.profileImage}
+              name="profile_image"
+              value={formdata.profile_image}
             />
           </Form.Field>
           <Form.Field>
@@ -77,8 +86,8 @@ function Register() {
             <label>Tell Us About You</label>
             <textarea placeholder='eg. I live in L.A and love travelling around the world.'
               onChange={handleChange}
-              name="bioDescription"
-              value={formdata.bioDescription}
+              name="bio_description"
+              value={formdata.bio_description}
             />
           </Form.Field>
           <Form.Field>
@@ -95,8 +104,8 @@ function Register() {
             <input placeholder='Password Confirmation'
               type='password'
               onChange={handleChange}
-              name="passwordConfirmation"
-              value={formdata.passwordConfirmation}
+              name="password_confirmation"
+              value={formdata.password_confirmation}
             />
           </Form.Field>
           <Form.Field>

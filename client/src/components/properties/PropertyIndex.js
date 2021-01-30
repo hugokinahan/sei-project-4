@@ -36,6 +36,12 @@ function PropertyIndex() {
                 name='Map'
               />
             </Link>
+            <Link to="/properties" className="navbar-item">
+              <Menu.Item
+                className="home"
+                name='Index'
+              />
+            </Link>
           </div>
         </div>
         <>

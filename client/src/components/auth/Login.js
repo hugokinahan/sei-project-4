@@ -1,18 +1,32 @@
 import React from 'react'
 import { Form, Button } from 'semantic-ui-react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 import useForm from '../../utils/useForm'
+import { loginUser } from '../../lib/api'
+
 
 function Login() {
-  const { formdata, handleChange } = useForm({
+  const { formdata, handleChange, errors, setErrors } = useForm({
     email: '',
     password: ''
   })
 
-  const handleSubmit = () => {
-    console.log('User has logged in')
+  const history = useHistory()
+
+  const handleSubmit = async event => {
+    event.preventDefault()
+    try {
+      console.log('User has loggedIn')
+      await loginUser(formdata)
+      history.push('/properties')
+    } catch (err) {
+      console.log(err)
+    }
   }
+
+  console.log(errors)
+  console.log(setErrors)
 
   return (
     <div className="login-container">
