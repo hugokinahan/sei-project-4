@@ -5,7 +5,7 @@ import { Button, Icon, Menu, Search  } from 'semantic-ui-react'
 
 // import Popup from 'reactjs-popup'
 // import useForm from '../../utils/useForm'
-import { isAuthenticated } from '../../lib/auth'
+import { isAuthenticated, isOwner } from '../../lib/auth'
 
 import PropertyShowMap from './PropertyShowMap'
 import PropertyShowPopup from './PropertyShowPopup'
@@ -87,12 +87,18 @@ function PropertyShow() {
                 <Button className="favorite-button" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'gold' }}>
                   <Icon name="favorite"/>
                 </Button>
-                <Button className="edit-button" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
-                  <Icon name="edit" />
-                </Button>
-                <Button className="delete-button" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
-                  <Icon name="trash alternate"/>
-                </Button>
+                <>
+                  {isOwner(property.owner ? property.owner.id : '') &&
+                <>
+                  <Button className="edit-button" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
+                    <Icon name="edit" />
+                  </Button>
+                  <Button className="delete-button" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
+                    <Icon name="trash alternate"/>
+                  </Button>
+                </>
+                  }
+                </>
               </div>
             </>
             :
