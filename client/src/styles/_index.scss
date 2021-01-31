@@ -135,6 +135,7 @@ p {
 // }
 // }
 
-.search-button {
-  border-radius: 100%;
+#root > div.index-container > div.index-menu-banner > div > div.ui.icon.input.search-button {
+  margin: 15px;
+  width: 300px;
 }

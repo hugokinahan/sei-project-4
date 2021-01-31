@@ -92,7 +92,7 @@ function Register() {
           </Form.Field>
           <Form.Field>
             <label>Password</label>
-            <input placeholder='Password'
+            <input placeholder='Password must be 8 characters long'
               type='password'
               onChange={handleChange}
               name="password"

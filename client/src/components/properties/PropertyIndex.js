@@ -78,28 +78,39 @@ function PropertyIndex() {
 
   const continents = [ 
     { label: 'North America', value: 'North America' },
+    { label: 'Central America', value: 'Central America' },
+    { label: 'South America', value: 'South America' },
     { label: 'Europe', value: 'Europe' },
     { label: 'Asia', value: 'Asia' },
     { label: 'Africa', value: 'Africa' },
-    { label: 'South America', value: 'South America' },
-    { label: 'Central America', value: 'Central America' },
     { label: 'Oceania', value: 'Oceania' }
   ]
   const bedrooms = [ 
-    { label: 1, value: 1 },
-    { label: 2, value: 2 },
-    { label: 3, value: 3 },
-    { label: 4, value: 4 },
-    { label: 5, value: 5 },
-    { label: '10+', value: 10 },
-    { label: '20+', value: 20 }
+    { label: '0-5', value: 1 },
+    { label: '5+', value: 2 },
+    { label: '8+', value: 3 },
+    { label: '12+', value: 4 },
+    { label: '16+', value: 5 },
+    { label: '20+', value: 10 }
    
   ]
 
   const types = [ 
-    { label: 'Chalet', value: 'Chalet' },
+    { label: 'City', value: 'City' },
+    { label: 'Countryside', value: 'Countryside' },
+    { label: 'Beach', value: 'Beach' },
+    { label: 'Mansion', value: 'Mansion' },
+    { label: 'Cosy', value: 'Cosy' },
+    { label: 'Spacious', value: 'Spacious' },
+    { label: 'Modern', value: 'Modern' },
+    { label: 'Traditional', value: 'Traditional' },
     { label: 'Apartment', value: 'Apartment' },
-    { label: 'House', value: 'House' }
+    { label: 'Chalet', value: 'Chalet' },
+    { label: 'Pet-friendly', value: 'Pet-friendly' },
+    { label: 'Bungalow', value: 'Bungalow' },
+    { label: 'Peaceful', value: 'Peaceful' },
+    { label: 'Lively', value: 'Lively' },
+    { label: 'Penthouse', value: 'Penthouse' }
   ]
 
   
@@ -174,49 +185,54 @@ function PropertyIndex() {
             <ReactMultiSelectCheckboxes options={types} placeholder="Types"  onChange={handleSelect}/>
           </div>
         </div>
+        <>{!searchValue && 
         <>
           <h1>Featured</h1>
           <hr></hr>
+       
+
           <h1>All Sharebnbs</h1>
-          <hr></hr>
-          <div className="index-grid">
-            {filteredProperties ? filteredProperties.map(property => (
-              <Link to={`/properties/${property.id}`} key={property.id} className="index-grid-div-container" >
-                <div className="index-grid-div">
-                  <img src={property.property_image} />
-                  <div className="index-grid-house-info">
-                    <div className="house-name-details">
-                      <p>{property.name}</p>
-                      <p>{property.city}, {property.country}</p>
-                    </div>
-                    <div className="house-details">
-                      <div className="bathrooms">
-                        <Icon name="bath" className="index-icon"></Icon>
-                        <p>{property.bathrooms} bathrooms </p>
-                      
-                      </div>
-                      <div className="bedrooms">
-                        <Icon name="bed" className="index-icon"></Icon>
-                        <p>{property.bedrooms} bedrooms </p>
-                      
-                      </div>
-                    </div>
+        </>}
+        {searchValue && <h1>Search Results for...&quot;{searchValue}&quot;</h1>}
+        {/* <hr></hr> */}
+        <div className="index-grid">
+          {filteredProperties ? filteredProperties.map(property => (
+            <Link to={`/properties/${property.id}`} key={property.id} className="index-grid-div-container" >
+              <div className="index-grid-div">
+                <img src={property.property_image} />
+                <div className="index-grid-house-info">
+                  <div className="house-name-details">
+                    <p>{property.name}</p>
+                    <p>{property.city}, {property.country}</p>
                   </div>
-                  <div className="index-user-info">
-                    <div className="index-owner-details">
-                      <div className="user-profile-image">
-                        <img src={property.owner.profile_image}></img>
-                      </div>
-                      <p>Added by {property.owner.first_name} {property.owner.last_name}</p>
+                  <div className="house-details">
+                    <div className="bathrooms">
+                      <Icon name="bath" className="index-icon"></Icon>
+                      <p>{property.bathrooms} bathrooms </p>
+                      
+                    </div>
+                    <div className="bedrooms">
+                      <Icon name="bed" className="index-icon"></Icon>
+                      <p>{property.bedrooms} bedrooms </p>
+                      
                     </div>
                   </div>
                 </div>
-              </Link>
-            ))
-              :
-              ''
-            }
-          </div>
+                <div className="index-user-info">
+                  <div className="index-owner-details">
+                    <div className="user-profile-image">
+                      <img src={property.owner.profile_image}></img>
+                    </div>
+                    <p>Added by {property.owner.first_name} {property.owner.last_name}</p>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          ))
+            :
+            ''
+          }
+        </div>
         </>
       </div>
     </>
