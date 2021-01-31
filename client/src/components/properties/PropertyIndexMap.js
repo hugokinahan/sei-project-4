@@ -1,9 +1,10 @@
 import React from 'react'
 import ReactMapGL, { Marker, Popup } from 'react-map-gl'
-import { getAllProperties } from '../../lib/api'
 import { Link } from 'react-router-dom'
-import { Search, Menu, Icon } from 'semantic-ui-react'
+import { Icon } from 'semantic-ui-react'
 
+import { getAllProperties } from '../../lib/api'
+import PropertyNavBar from './PropertyNavBar'
 
 function PropertyIndexMap() {
 
@@ -30,28 +31,16 @@ function PropertyIndexMap() {
   }, [])
   
 
+
+  const handleShowSearch = () => {
+    history.push('/properties/')
+  }
+
   
   return (
     <>
       <div className="index-container">
-        <div className="index-menu-banner">
-          <div className="ui menu index-page">
-            <Search/>
-            <h1>Properties</h1>
-            <Link to="/properties/map" className="navbar-item">
-              <Menu.Item
-                className="home"
-                name='Map'
-              />
-            </Link>
-            <Link to="/properties" className="navbar-item">
-              <Menu.Item
-                className="home"
-                name='Index'
-              />
-            </Link>
-          </div>
-        </div>
+        <PropertyNavBar handleSearch={handleShowSearch} />
         <div className="index-map-container">
           <ReactMapGL
             mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}

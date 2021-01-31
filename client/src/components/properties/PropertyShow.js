@@ -1,7 +1,7 @@
 import React from 'react'
 import { getSingleProperty, getAllProperties, deleteProperty } from '../../lib/api'
 import { useParams, Link, useLocation, useHistory } from 'react-router-dom'
-import { Button, Icon, Menu, Search  } from 'semantic-ui-react'
+import { Button, Icon } from 'semantic-ui-react'
 
 // import Popup from 'reactjs-popup'
 // import useForm from '../../utils/useForm'
@@ -9,6 +9,7 @@ import { isAuthenticated, isOwner } from '../../lib/auth'
 
 import PropertyShowMap from './PropertyShowMap'
 import PropertyShowPopup from './PropertyShowPopup'
+import PropertyNavBar from './PropertyNavBar'
 
 
 function PropertyShow() {
@@ -36,13 +37,14 @@ function PropertyShow() {
         const { data } = await getAllProperties()
         console.log(data)
         setProperties(data)
-
       } catch (err) {
         console.log(err)
       }
     }
     getProperties()
   }, [])
+
+ 
 
   React.useEffect(() => {
 
@@ -71,25 +73,19 @@ function PropertyShow() {
   }
 
 
+  // const [filteredProperties, setFilteredProperties] = React.useState([])
+
+
+
+  const handleShowSearch = () => {
+    history.push('/properties/')
+  }
+
 
 
   return (
     <section className="show-page">
-      <div className="index-menu-banner">
-        <div className="ui menu index-page">
-          <Search/>
-          <Link to="/properties/map" className="navbar-item">
-            <Menu.Item
-              className="home"
-              name='Map'
-            />
-          </Link>
-          <Menu.Item
-            className="home"
-            name='Gallery'
-          />
-        </div>
-      </div>
+      <PropertyNavBar handleSearch={handleShowSearch} />
       <div>
         <img src={property.property_image} />
         <>
@@ -124,7 +120,17 @@ function PropertyShow() {
           {/* <h6>{property.types.name[0]}</h6> */}
           <p>{property.description}</p>
         </div>
-        <PropertyShowPopup property={property} id={id} />
+        <>
+          {isLoggedIn ?
+            <>
+              <PropertyShowPopup property={property} id={id} />
+            </>
+            :
+            <Button as={Link} to='' className="request-button" type="submit" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
+        Request A Swap <Icon name="exchange" className="exchange-icon"/>
+            </Button>
+          }
+        </>
       </div>
       <div className="map-user-container">
         <div className="user-details">
@@ -141,7 +147,7 @@ function PropertyShow() {
                     <img src={property.owner.profile_image} />
                   </div>
                   <div className="contact-button">
-                    <Button as={Link} to={`/users/profile/${property.owner.id}`}className="request-button"  style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
+                    <Button as={Link} to={isLoggedIn ? `/users/profile/${property.owner.id}` : '/login'}className="request-button"  style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
                       {property.owner ? `View ${property.owner.first_name}s profile` : '' }
                     </Button>
                   </div>
