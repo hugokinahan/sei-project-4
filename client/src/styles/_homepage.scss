@@ -43,6 +43,7 @@
   text-align: center;
   align-items: center;
   margin: 2rem;
+  margin-top: 6rem;
 }
 
 #root > section > div > div > div.carousel > div {
@@ -71,6 +72,9 @@
   width: 50%;
 }
 
+.header-comment {
+  margin-top: 6rem;
+}
 
 homepage-second-layer {
   display: flex;
@@ -99,13 +103,27 @@ homepage-second-layer {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  text-align: center;
   width: 50%;
   margin-left: auto;
+  margin-right: 2rem;
   margin-top: -16%;
+  h2 {
+    margin: 0 auto;
+  }
 }
 
 .featured-container {
-  margin-top: 4rem;
+  margin-top: 2rem;
+}
+
+hr {
+  margin: 0 2rem;
+  color: #012349;
+}
+
+.hr {
+  margin-top: 60px;
 }
 
 .property-types {

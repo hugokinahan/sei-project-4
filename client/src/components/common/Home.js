@@ -79,19 +79,22 @@ function Home() {
           <div className="headers">
             <h1>Welcome To Sharebnb</h1>
             <h4>Trade your property with one of our millions* of users and enjoy a unique stay at a destination chosen by you.</h4>
-            <h5>Sign Up today</h5>
             <div className="homepage-buttons">
-              <Button className="sign-up-button" type='submit' style={{ backgroundColor: 'white', borderRadius: 0, color: '#012349', border: '1px solid #012349', width: '100%' }}>Sign Up</Button>
+              <Button as={Link} to={'/register/'} className="sign-up-button" type='submit' style={{ backgroundColor: 'white', borderRadius: 0, color: '#012349', border: '1px solid #012349', width: '100%' }}>Sign Up</Button>
             </div>
             <div className="login-button">
-              <Button className="login-button" type='submit' style={{ backgroundColor: 'white', borderRadius: 0, color: '#012349', border: '1px solid #012349', width: '100%' }}>Login</Button>
+              <Button as={Link} to={'/login/'} className="login-button" type='submit' style={{ backgroundColor: 'white', borderRadius: 0, color: '#012349', border: '1px solid #012349', width: '100%' }}>Login</Button>
+            </div>
+            <div className="header-comment">
+              <h5>Sign Up today and join the fastest growing home swap community in the world 🌍</h5>
             </div>
           </div>
         </div>
       </div>
+      <hr></hr>
       <div className="homepage-second-layer">
         <div className="users-index">
-          {properties ? properties.slice(1, 43).map(property => (
+          {properties ? properties.slice(1, 50).map(property => (
             <div key={property.id}>
               <img src={property.owner.profile_image} />
             </div>
@@ -101,11 +104,13 @@ function Home() {
           }
         </div>
         <div className="home-reviews">
-          <h5>“An property website like no other, Sharebnb provides the most incredible design-led homes in urban and rural locations around the world” — Evening Standard</h5>
+          {/* <h5>“An property website like no other, Sharebnb provides the most incredible design-led homes in urban and rural locations around the world” — Evening Standard</h5> */}
+          <h2>Join the Sharebnb Community</h2>
           <h5>“I adore Sharebnb. I have been using it for years and enjoyed so many incredible trips to amazing homes.” — Shenna Truelove</h5>
           <h5>“With Sharebnb, you don&apos;t just swap homes, you swap cultures. Through my connections on Sharebnb I have been able to explore the world.” — Yon Mineo</h5>
         </div>
       </div>
+      <hr className="hr"/>
       <div className="featured-container">
         <div className="featured-header">
           <h2>Featured Properties</h2>
@@ -149,15 +154,15 @@ function Home() {
           }
         </div>
       </div>
-      <div className="property-types">
+      {/* <div className="property-types">
         <h2>Discover More</h2>
         {propertyTypes ? propertyTypes.map(property => {
           <h4>{property.name}</h4>
         })
           :
           <h4>NoPe</h4>
-        }
-        {/* <h6>City</h6>
+        } */}
+      {/* <h6>City</h6>
         <h6>Countryside</h6>
         <h6>Beach</h6>
         <h6>Mansion</h6>
@@ -172,7 +177,7 @@ function Home() {
         <h6>Peaceful</h6>
         <h6>Lively</h6>
         <h6>Penthouse</h6> */}
-      </div>
+      {/* </div> */}
     </section>
   )
 }
