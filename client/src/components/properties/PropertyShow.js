@@ -92,7 +92,7 @@ function PropertyShow() {
           {isLoggedIn ?
             <>
               <div className="icon-buttons">
-                <Button className="favorite-button" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
+                <Button className="favorite-button" style={{ backgroundColor: '#012349', borderRadius: 100, color: 'white' }} onClick={{ color: 'gold' }}>
                   <Icon name="favorite"/>
                 </Button>
                 <>
@@ -115,8 +115,8 @@ function PropertyShow() {
         </>
         <div className="show-details">
           <h2>{property.name}</h2>
-          <h4>{property.address}</h4>
-          <h4>{property.city}, {property.country}</h4>
+          <p>{property.address}</p>
+          <p>{property.city}, {property.country}</p>
           {/* <h6>{property.types.name[0]}</h6> */}
           <p>{property.description}</p>
         </div>
