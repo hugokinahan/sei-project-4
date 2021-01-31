@@ -42,6 +42,12 @@ export function editProperty(id, formdata) {
   return axios.put(`${baseUrl}/properties/${id}`, formdata, headers())
 }
 
+// Get all property types
+
+export function getAllPropertyTypes() {
+  return axios.get(`${baseUrl}/types/`)
+}
+
 // * Reviews requests
 
 // Get All Reviews

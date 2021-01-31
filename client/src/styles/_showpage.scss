@@ -28,7 +28,7 @@ html {
   margin: 1rem;
   display: flex;
   flex-direction: column;
-  margin-top: -2rem;
+  // margin-top: -2rem;
 }
 
 .icon-buttons {
@@ -36,6 +36,15 @@ html {
   justify-content: flex-end;
   margin-top: 10px;
   background-color: transparent;
+}
+
+#root > section > div:nth-child(2) > button {
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto,
 }
 
 .map-user-container {
