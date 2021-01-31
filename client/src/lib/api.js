@@ -98,6 +98,15 @@ export function editUserProfile(formdata) {
   return axios.put(`${baseUrl}/auth/update-profile/`, formdata, headers())
 }
 
+export function followUser(id) {
+  return axios.post(`${baseUrl}/auth/profile/${id}/follow/`, null, headers())
+}
+
+export function unFollowUser(id) {
+  return axios.delete(`${baseUrl}/auth/profile/${id}/follow/`, headers())
+}
+
+
 //* Make a Offer / Request a swap
 
 export function createPropertyRequest(formdata) {
