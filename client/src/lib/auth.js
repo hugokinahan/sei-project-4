@@ -16,7 +16,7 @@ export function logout() {
 
 function getPayload() {
   const token = getToken()
-  console.log(token)
+  // console.log(token)
   if (!token) return false
   const parts = token.split('.')
   if (parts.length < 3) return false
@@ -26,7 +26,7 @@ function getPayload() {
 
 export function isAuthenticated() {
   const payload = getPayload()
-  console.log(payload)
+  // console.log(payload)
   if (!payload) return false
   const now = Math.round(Date.now() / 1000)
   return now < payload.exp
