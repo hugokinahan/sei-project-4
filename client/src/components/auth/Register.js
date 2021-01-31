@@ -4,6 +4,7 @@ import { Link, useHistory } from 'react-router-dom'
 
 import useForm from '../../utils/useForm'
 import { registerUser } from '../../lib/api'
+import ImageUploadField from '../../utils/ImageUploadField'
 
 
 function Register() {
@@ -67,9 +68,10 @@ function Register() {
             />
           </Form.Field>
           <Form.Field>
-            <label>Image</label>
-            <input placeholder='eg. profile-image.png' 
+            <ImageUploadField
+              placeholder='eg. profile-image.png' 
               onChange={handleChange}
+              labelText="Profile Image"
               name="profile_image"
               value={formdata.profile_image}
             />

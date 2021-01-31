@@ -96,7 +96,7 @@ function OtherUserProfile() {
         Bio
             </Header>
           </Divider>
-          <div>
+          <div className="profile-bio">
             {/* <h2>{profile.first_name}s Bio</h2> */}
             <p>{profile.bio_description}</p>
           </div>
@@ -117,35 +117,36 @@ function OtherUserProfile() {
             {activeItem  ?
               <>
                 <Segment className="ui bottom attached segment active tab">
-                  {profile.created_property ? profile.created_property.map(property => (
-                    <Link to={`/properties/${property.id}`} key={property.id} className="index-grid-div-container" >
-                      <div className="profile-grid-div">
-                        <img src={property.property_image} />
-                        <div className="index-grid-house-info">
-                          <div className="house-name-details">
-                            <p>{property.name}</p>
-                            <p>{property.city}, {property.country}</p>
-                          </div>
-                          <div className="house-details">
-                            <div className="bathrooms">
-                              <Icon name="bath" className="profile-icon"></Icon>
-                              <p>{property.bathrooms} bathrooms </p>
-                
+                  <div>
+                    {profile.created_property ? profile.created_property.map(property => (
+                      <Link to={`/properties/${property.id}`} key={property.id} className="index-grid-div-container" >
+                        <div className="profile-grid-div">
+                          <img src={property.property_image} />
+                          <div className="index-grid-house-info">
+                            <div className="house-name-details">
+                              <p>{property.name}</p>
+                              <p>{property.city}, {property.country}</p>
                             </div>
-                            <div className="bedrooms">
-                              <Icon name="bed" className="profile-icon"></Icon>
-                              <p>{property.bedrooms} bedrooms </p>
+                            <div className="house-details">
+                              <div className="bathrooms">
+                                <Icon name="bath" className="profile-icon"></Icon>
+                                <p>{property.bathrooms} bathrooms </p>
                 
+                              </div>
+                              <div className="bedrooms">
+                                <Icon name="bed" className="profile-icon"></Icon>
+                                <p>{property.bedrooms} bedrooms </p>
+                
+                              </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </Link>
-                  ))
-                    :
-                    ''
-                  }
-                  <h2>Reviews</h2>
+                      </Link>
+                    ))
+                      :
+                      ''
+                    }
+                  </div>
                 </Segment>  
               </>
               :

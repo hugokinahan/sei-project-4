@@ -2,7 +2,7 @@ import React from 'react'
 import { showUserProfile, headers } from '../../lib/api'
 import { Link } from 'react-router-dom'
 import { getUserId } from '../../lib/auth'
-import { Icon, Divider, Header, Segment } from 'semantic-ui-react'
+import { Icon, Divider, Header, Segment, Card, Button, Image } from 'semantic-ui-react'
 import moment from 'moment'
 
 
@@ -53,6 +53,55 @@ function Profile() {
           </div>
           <Divider horizontal>
             <Header as='h4'>
+              <Icon name='mail outline' />
+      Property Swap Requests
+            </Header>
+          </Divider>
+          <Card.Group>
+            {profile.created_property ? profile.created_property.map(property => (
+              property.offers.map(offer => (
+          
+                <Card key={offer.id}>
+                  <Card.Content>
+                    <Image
+                      floated='right'
+                      size='mini'
+                      src='https://react.semantic-ui.com/images/avatar/large/steve.jpg'
+                    />
+                    <Card.Header>From: owner XYZ </Card.Header>
+                    <Card.Meta>Friends of Elliot</Card.Meta>
+                    <Card.Description>
+                      Message: {offer.text}
+                    </Card.Description>
+                    <Card.Description>
+                      From {moment(offer.start_date).format('MMM Do YY')} to {moment(offer.end_date).format('MMM Do YY')}
+                    </Card.Description>
+                    <Card.Description>
+                      Requested Property
+                    </Card.Description>
+                    <Card.Description>
+                      Property to Swap
+                    </Card.Description>
+                  </Card.Content>
+                  <Card.Content extra>
+                    <div className='ui two buttons'>
+                      <Button basic color='green'>
+            Approve
+                      </Button>
+                      <Button basic color='red'>
+            Decline
+                      </Button>
+                    </div>
+                  </Card.Content>
+                </Card>
+              ))
+            ))
+              :
+              ''
+            }
+          </Card.Group>
+          <Divider horizontal>
+            <Header as='h4'>
       Bio
             </Header>
           </Divider>
@@ -62,6 +111,7 @@ function Profile() {
           </div>
           <Divider horizontal>
             <Header as='h4'>
+              <Icon name='home' />
       Properties
             </Header>
           </Divider>
@@ -115,19 +165,7 @@ function Profile() {
               </Segment>
             }
           </>
-          <h1>Offers</h1>
-          {profile.created_property ? profile.created_property.map(property => (
-            property.offers.map(offer => (
-              <div key={offer.id}>
-                <p>From: </p>
-                <p>Message: {offer.text}</p>
-                <p>Requeted Days:{moment(offer.start_date).format('MMM Do YY')} - {moment(offer.end_date).format('MMM Do YY')}</p>
-              </div>
-            ))
-          ))
-            :
-            ''
-          }
+          
         </div>
       </section>
     </>
