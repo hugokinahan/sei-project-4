@@ -84,7 +84,7 @@ function PropertyShow() {
           {isLoggedIn ?
             <>
               <div className="icon-buttons">
-                <Button className="favorite-button" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'gold' }}>
+                <Button className="favorite-button" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
                   <Icon name="favorite"/>
                 </Button>
                 <Button className="edit-button" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>

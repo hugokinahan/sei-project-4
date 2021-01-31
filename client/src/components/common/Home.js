@@ -1,12 +1,14 @@
 import React from 'react'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
-// import { Icon } from 'semantic-ui-react'
+import { Icon, Button } from 'semantic-ui-react'
 import HeroCarousel from 'react-hero-carousel'
+import { getAllPropertyTypes } from '../../lib/api'
 
 function Home() {
 
   const [properties, setProperties] = React.useState(null)
+  const [propertyTypes, setPropertyTypes] = React.useState([])
 
   React.useEffect(() => {
     const getProperties = async () => {
@@ -23,6 +25,23 @@ function Home() {
   }, [])
 
   console.log(properties)
+
+  React.useEffect(() => {
+    const getPropertyTypes = async () => {
+      try {
+        const { data } = await getAllPropertyTypes()
+        console.log(data)
+        setPropertyTypes(data)
+        // setFilteredProperties(data)
+
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    getPropertyTypes()
+  }, [])
+
+  console.log(propertyTypes)
 
   return (
     <section className="home-page-section">
@@ -60,6 +79,13 @@ function Home() {
           <div className="headers">
             <h1>Welcome To Sharebnb</h1>
             <h4>Trade your property with one of our millions* of users and enjoy a unique stay at a destination chosen by you.</h4>
+            <h5>Sign Up today</h5>
+            <div className="homepage-buttons">
+              <Button className="sign-up-button" type='submit' style={{ backgroundColor: 'white', borderRadius: 0, color: '#012349', border: '1px solid #012349', width: '100%' }}>Sign Up</Button>
+            </div>
+            <div className="login-button">
+              <Button className="login-button" type='submit' style={{ backgroundColor: 'white', borderRadius: 0, color: '#012349', border: '1px solid #012349', width: '100%' }}>Login</Button>
+            </div>
           </div>
         </div>
       </div>
@@ -79,6 +105,73 @@ function Home() {
           <h5>“I adore Sharebnb. I have been using it for years and enjoyed so many incredible trips to amazing homes.” — Shenna Truelove</h5>
           <h5>“With Sharebnb, you don&apos;t just swap homes, you swap cultures. Through my connections on Sharebnb I have been able to explore the world.” — Yon Mineo</h5>
         </div>
+      </div>
+      <div className="featured-container">
+        <div className="featured-header">
+          <h2>Featured Properties</h2>
+        </div>
+        <div className="index-grid">
+          {properties ? properties.slice(40, 43).map(property => (
+            <Link to={`/properties/${property.id}`} key={property.id} className="index-grid-div-container" >
+              <div className="index-grid-div">
+                <img src={property.property_image} />
+                <div className="index-grid-house-info">
+                  <div className="house-name-details">
+                    <p>{property.name}</p>
+                    <p>{property.city}, {property.country}</p>
+                  </div>
+                  <div className="house-details">
+                    <div className="bathrooms">
+                      <Icon name="bath" className="index-icon"></Icon>
+                      <p>{property.bathrooms} bathrooms </p>
+                      
+                    </div>
+                    <div className="bedrooms">
+                      <Icon name="bed" className="index-icon"></Icon>
+                      <p>{property.bedrooms} bedrooms </p>
+                      
+                    </div>
+                  </div>
+                </div>
+                <div className="index-user-info">
+                  <div className="index-owner-details">
+                    <div className="user-profile-image">
+                      <img src={property.owner.profile_image}></img>
+                    </div>
+                    <p>Added by {property.owner.first_name} {property.owner.last_name}</p>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          ))
+            :
+            ''
+          }
+        </div>
+      </div>
+      <div className="property-types">
+        <h2>Discover More</h2>
+        {propertyTypes ? propertyTypes.map(property => {
+          <h4>{property.name}</h4>
+        })
+          :
+          <h4>NoPe</h4>
+        }
+        {/* <h6>City</h6>
+        <h6>Countryside</h6>
+        <h6>Beach</h6>
+        <h6>Mansion</h6>
+        <h6>Cosy</h6>
+        <h6>Spacious</h6>
+        <h6>Modern</h6>
+        <h6>Traditional</h6>
+        <h6>Apartment</h6>
+        <h6>Chalet</h6>
+        <h6>Pet Friendly</h6>
+        <h6>Bungalow</h6>
+        <h6>Peaceful</h6>
+        <h6>Lively</h6>
+        <h6>Penthouse</h6> */}
       </div>
     </section>
   )
