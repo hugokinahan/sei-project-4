@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { getToken } from './auth'
 
-function headers() {
+export function headers() {
   return {
     headers: { Authorization: `Bearer ${getToken()}` }
   }
@@ -96,12 +96,12 @@ export function loginUser(formdata) {
   return axios.post(`${baseUrl}/auth/login/`, formdata)
 }
 
-export function showUserProfile() {
-  return axios.get(`${baseUrl}/profile/`, headers())
+export function showUserProfile(id) {
+  return axios.get(`${baseUrl}/auth/profile/${id}`, headers())
 }
 
 export function editUserProfile(formdata) {
-  return axios.put(`${baseUrl}/update-profile/`, formdata, headers())
+  return axios.put(`${baseUrl}/auth/update-profile/`, formdata, headers())
 }
 
 //* Make a Offer / Request a swap

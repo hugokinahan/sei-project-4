@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, useLocation, useHistory } from 'react-router-dom'
 import { Menu, Button, Icon } from 'semantic-ui-react'
-import { logout, isAuthenticated } from '../../lib/auth'
+import { logout, isAuthenticated, getUserId } from '../../lib/auth'
 
 function Nav() {
 
@@ -55,7 +55,7 @@ function Nav() {
               <Button as="" onClick={handleLogout}>
           Log Out
               </Button>
-              <Link to="/profile">
+              <Link to={`/profile/${getUserId()}`}>
                 <Button type="submit">
           Profile
                 </Button>

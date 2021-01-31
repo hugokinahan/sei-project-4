@@ -124,7 +124,7 @@ function PropertyIndex() {
             <Input
               className="search-button"
               icon='search'
-              placeholder="Search by City, Country, Continent..."
+              placeholder="Search by City, Country or Continent..."
               onChange={handleSearch}
               value={searchValue}
               

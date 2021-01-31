@@ -1,11 +1,11 @@
 import React from 'react'
-import { getSingleProperty, getAllProperties } from '../../lib/api'
-import { useParams, Link, useLocation } from 'react-router-dom'
+import { getSingleProperty, getAllProperties, deleteProperty } from '../../lib/api'
+import { useParams, Link, useLocation, useHistory } from 'react-router-dom'
 import { Button, Icon, Menu, Search  } from 'semantic-ui-react'
 
 // import Popup from 'reactjs-popup'
 // import useForm from '../../utils/useForm'
-import { isAuthenticated } from '../../lib/auth'
+import { isAuthenticated, isOwner } from '../../lib/auth'
 
 import PropertyShowMap from './PropertyShowMap'
 import PropertyShowPopup from './PropertyShowPopup'
@@ -14,16 +14,18 @@ import PropertyShowPopup from './PropertyShowPopup'
 function PropertyShow() {
 
   const isLoggedIn = isAuthenticated()
-  // const history = useHistory()
+  const history = useHistory()
   useLocation()
 
   const [property, setProperty] = React.useState([])
   console.log(property)
 
+  const { id } = useParams()
+
   
 
   // const history = useHistory()
-  const { id } = useParams()
+  // const { id } = useParams()
 
   const [properties, setProperties] = React.useState([])
   
@@ -58,6 +60,16 @@ function PropertyShow() {
 
   console.log(property)
 
+  const handleDelete = async event => {
+    event.preventDefault()
+    try {
+      await deleteProperty(id)
+      history.pushState('/properties')
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
 
 
 
@@ -87,12 +99,18 @@ function PropertyShow() {
                 <Button className="favorite-button" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
                   <Icon name="favorite"/>
                 </Button>
-                <Button className="edit-button" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
-                  <Icon name="edit" />
-                </Button>
-                <Button className="delete-button" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
-                  <Icon name="trash alternate"/>
-                </Button>
+                <>
+                  {isOwner(property.owner ? property.owner.id : '') &&
+                <>
+                  <Button as={Link} to={`/properties/${id}/edit`} className="edit-button" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
+                    <Icon name="edit" />
+                  </Button>
+                  <Button onClick={handleDelete} className="delete-button" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
+                    <Icon name="trash alternate"/>
+                  </Button>
+                </>
+                  }
+                </>
               </div>
             </>
             :
@@ -106,7 +124,7 @@ function PropertyShow() {
           {/* <h6>{property.types.name[0]}</h6> */}
           <p>{property.description}</p>
         </div>
-        <PropertyShowPopup property={property} />
+        <PropertyShowPopup property={property} id={id} />
       </div>
       <div className="map-user-container">
         <div className="user-details">
@@ -123,8 +141,8 @@ function PropertyShow() {
                     <img src={property.owner.profile_image} />
                   </div>
                   <div className="contact-button">
-                    <Button className="request-button" type="submit" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
-                      {property.owner ? `Contact ${property.owner.first_name} ${property.owner.last_name}` : '' }
+                    <Button as={Link} to={`/users/profile/${property.owner.id}`}className="request-button"  style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
+                      {property.owner ? `View ${property.owner.first_name}s profile` : '' }
                     </Button>
                   </div>
                 </div>

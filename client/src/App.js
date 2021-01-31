@@ -14,6 +14,7 @@ import Register from './components/auth/Register'
 import Login from './components/auth/Login'
 
 import Profile from './components/users/Profile'
+import OtherUserProfile from './components/users/OtherUserProfile'
 import PropertyRegister from './components/properties/PropertyRegister'
 
 function App() {
@@ -31,7 +32,8 @@ function App() {
         <Route path="/register/property" component={PropertyRegister} />
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
-        <Route path="/profile" component={Profile} />
+        <Route path="/profile/:id" component={Profile} />
+        <Route path="/users/profile/:id" component={OtherUserProfile} />
       </Switch>
     </BrowserRouter>
   )

@@ -2,24 +2,25 @@ import React from 'react'
 import Popup from 'reactjs-popup'
 import useForm from '../../utils/useForm'
 import { Button, Icon, Checkbox, Form } from 'semantic-ui-react'
-import { getAllProperties, createPropertyRequest } from '../../lib/api'
+import { getAllProperties, createPropertyRequest ,  getSingleProperty } from '../../lib/api'
 import { getUserId } from '../../lib/auth'
 
-import { useParams } from 'react-router-dom'
+// import { useParams } from 'react-router-dom'
 
 
 
-function PropertyShowPopup ( property ) {
+function PropertyShowPopup ({ id }) {
 
-  const { id } = useParams()
+  // const { id } = useParams()
 
   const [properties, setProperties] = React.useState(null)
+  const [property, setProperty] = React.useState([])
 
   React.useEffect(() => {
     const getProperties = async () => {
       try {
         const { data } = await getAllProperties()
-        console.log(data)
+        // console.log(data)
         setProperties(data)
 
       } catch (err) {
@@ -29,8 +30,22 @@ function PropertyShowPopup ( property ) {
     getProperties()
   }, [])
 
+  React.useEffect(() => {
 
-  const { formdata, errors, handleChange, setErrors } = useForm({
+    const getData = async () => {
+      try {
+        const { data } = await getSingleProperty(id)
+        setProperty(data)
+        // setViewport({ latitude: Number(data.latitude), longitude: Number(data.longitude), zoom: 7 })
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    getData()
+  }, [id])
+
+
+  const { formdata, handleChange } = useForm({
     start_date: '',
     end_date: '',
     offered_property: '',
@@ -43,8 +58,6 @@ function PropertyShowPopup ( property ) {
     event.preventDefault()
     try {
       const newRequest = { ...formdata, owner: getUserId(), requested_property: Number(id) }
-      console.log(property.id)
-      console.log('NEW REQUEST', newRequest)
       await createPropertyRequest(newRequest) 
       console.log('Request made')
     } catch (err) {
@@ -52,10 +65,10 @@ function PropertyShowPopup ( property ) {
     }
   }
 
-  console.log(errors)
-  console.log(setErrors)
+  // console.log(errors)
+  // console.log(setErrors)
 
-  console.log(formdata)
+  // console.log(formdata)
 
 
   return (
