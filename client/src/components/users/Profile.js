@@ -26,12 +26,17 @@ function Profile() {
     getProfile()
   })
 
-  // console.log(profile)
+  console.log(profile)
 
   const [activeItem, setActiveItem] = React.useState(true)
+  const [isRecievedRequests, setIsRecievedRequests] = React.useState(true)
 
   const handleClickItem = () => {
     setActiveItem(!activeItem)
+  }
+
+  const handleClickRequestTab = () => {
+    setIsRecievedRequests(!isRecievedRequests)
   }
  
   return (
@@ -57,49 +62,68 @@ function Profile() {
       Property Swap Requests
             </Header>
           </Divider>
-          <Card.Group>
-            {profile.created_property ? profile.created_property.map(property => (
-              property.offers.map(offer => (
+          <div className="ui attached tabular menu">
+            <div className={isRecievedRequests ? 'active item' : 'item' }>
+              <div onClick={handleClickRequestTab}> Recieved </div>
+            </div>
+            <div className={isRecievedRequests ? 'item' : 'active item'}>
+              <div onClick={handleClickRequestTab}> Sent </div>
+            </div>
+          </div>
+          <>
+            {isRecievedRequests  ?
+              <>
+                <Card.Group>
+                  {profile.created_property ? profile.created_property.map(property => (
+                    property.offers.map(offer => (
           
-                <Card key={offer.id}>
-                  <Card.Content>
-                    <Image
-                      floated='right'
-                      size='mini'
-                      src='https://react.semantic-ui.com/images/avatar/large/steve.jpg'
-                    />
-                    <Card.Header>From: owner XYZ </Card.Header>
-                    <Card.Meta>Friends of Elliot</Card.Meta>
-                    <Card.Description>
+                      <Card key={offer.id}>
+                        <Card.Content>
+                          <Image
+                            floated='right'
+                            size='mini'
+                            src='https://react.semantic-ui.com/images/avatar/large/steve.jpg'
+                          />
+                          <Card.Header>From: owner XYZ </Card.Header>
+                          <Card.Meta>Friends of Elliot</Card.Meta>
+                          <Card.Description>
                       Message: {offer.text}
-                    </Card.Description>
-                    <Card.Description>
+                          </Card.Description>
+                          <Card.Description>
                       From {moment(offer.start_date).format('MMM Do YY')} to {moment(offer.end_date).format('MMM Do YY')}
-                    </Card.Description>
-                    <Card.Description>
+                          </Card.Description>
+                          <Card.Description>
                       Requested Property
-                    </Card.Description>
-                    <Card.Description>
+                          </Card.Description>
+                          <Card.Description>
                       Property to Swap
-                    </Card.Description>
-                  </Card.Content>
-                  <Card.Content extra>
-                    <div className='ui two buttons'>
-                      <Button basic color='green'>
+                          </Card.Description>
+                        </Card.Content>
+                        <Card.Content extra>
+                          <div className='ui two buttons'>
+                            <Button basic color='green'>
             Approve
-                      </Button>
-                      <Button basic color='red'>
+                            </Button>
+                            <Button basic color='red'>
             Decline
-                      </Button>
-                    </div>
-                  </Card.Content>
-                </Card>
-              ))
-            ))
+                            </Button>
+                          </div>
+                        </Card.Content>
+                      </Card>
+                    ))
+                  ))
+                    :
+                    ''
+                  }
+                </Card.Group> 
+              </>
               :
-              ''
+        
+              <Segment className="ui bottom attached segment active tab">
+                <h2>Sent Requests</h2>
+              </Segment>
             }
-          </Card.Group>
+          </>
           <Divider horizontal>
             <Header as='h4'>
       Bio

@@ -8,6 +8,9 @@ import { setToken } from '../../lib/auth'
 
 
 function Login() {
+
+  const [loginErrors, setLoginErrors] = React.useState(false)
+
   const { formdata, handleChange, errors, setErrors } = useForm({
     email: '',
     password: ''
@@ -23,7 +26,7 @@ function Login() {
       setToken(data.token)
       history.push('/properties')
     } catch (err) {
-      console.log(err)
+      setLoginErrors(true)
     }
   }
 
@@ -35,7 +38,7 @@ function Login() {
       
       <section className="login-section">
         <h1>Log In</h1>
-        <Form inverted onSubmit={handleSubmit}>
+        <Form inverted onSubmit={handleSubmit} className="ui form error">
           <Form.Field>
             <label>Email</label>
             <input placeholder='eg. john.smith@gmail.com'
@@ -55,7 +58,15 @@ function Login() {
           </Form.Field>
           <Button type='submit'>Log In</Button>
         </Form>
-        <p>Dont have an account? Sign up <Link to="/register">here</Link></p>
+        {loginErrors ?
+        
+          <div className="ui error message small">
+            <div className="header">Incorrect Password or Email</div>
+            <p>Sorry, your username or password are incorrect.</p>
+          </div>
+          :
+          <p>Dont have an account? Sign up <Link to="/register">here</Link></p>
+        }
       </section>
     </div>
   )

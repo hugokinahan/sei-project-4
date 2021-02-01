@@ -4,7 +4,7 @@
 
 .index-container {
   margin: auto;
-  margin-top: 64px;
+  margin-top: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,12 +21,14 @@
 
 div .ui.menu.index-page {
   display: flex;
+  height: 70px;
   justify-content: space-evenly;
   align-items: center;
 }
 
 .index-menu-banner {
   width: 100%;
+
   .search {
     padding: 10px;
   }
