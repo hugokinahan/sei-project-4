@@ -1,7 +1,8 @@
 import React from 'react'
 import { getSingleProperty, getAllProperties, deleteProperty } from '../../lib/api'
 import { useParams, Link, useLocation, useHistory } from 'react-router-dom'
-import { Button, Icon } from 'semantic-ui-react'
+import { Button, Icon, Comment, Form } from 'semantic-ui-react'
+import Popup from 'reactjs-popup'
 
 // import Popup from 'reactjs-popup'
 // import useForm from '../../utils/useForm'
@@ -85,50 +86,107 @@ function PropertyShow() {
 
   return (
     <section className="show-page">
-      <PropertyNavBar handleSearch={handleShowSearch} />
+      <PropertyNavBar handleSearch={handleShowSearch} className="navbar"/>
       <div>
-        <img src={property.property_image} />
-        <>
-          {isLoggedIn ?
-            <>
-              <div className="icon-buttons">
-                <Button className="favorite-button" style={{ backgroundColor: '#012349', borderRadius: 100, color: 'white' }} onClick={{ color: 'gold' }}>
-                  <Icon name="favorite"/>
-                </Button>
-                <>
-                  {isOwner(property.owner ? property.owner.id : '') &&
+        <div className="homepage-top-layer">
+          <img src={property.property_image} />
+          <>
+            {isLoggedIn ?
+              <>
+                <div className="icon-buttons">
+                  <Button className="favorite-button" style={{ backgroundColor: '#012349', borderRadius: 100, color: 'white' }} onClick={{ color: 'gold' }}>
+                    <Icon name="favorite"/>
+                  </Button>
+                  <>
+                    {isOwner(property.owner ? property.owner.id : '') &&
                 <>
                   <Button as={Link} to={`/properties/${id}/edit`} className="edit-button" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
                     <Icon name="edit" />
                   </Button>
-                  <Button onClick={handleDelete} className="delete-button" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
+                  {/* <Button onClick={handleDelete} className="delete-button" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
                     <Icon name="trash alternate"/>
-                  </Button>
+                  </Button> */}
+                  <Popup
+                    trigger={<Button onClick={handleDelete} className="delete-button" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
+                      <Icon name="trash alternate"/>
+                    </Button>}
+                    modal
+                    nested
+                  >
+                    {close => (
+                      <div className="delete-modal">
+                        <button className="close" onClick={close}>
+&times;
+                        </button>
+                        <div className="header"> 
+                          <h3>Are you sure you want to delete this property?</h3>
+                        </div>
+                        <div className="delete-popup-buttons">
+                          <Button onClick={handleDelete} >Yes</Button>
+                          <Button as={Link} to={'/properties/'}>No</Button>
+                        </div>
+                      </div>
+                    )}
+                  </Popup>
                 </>
-                  }
-                </>
-              </div>
-            </>
-            :
-            ''
-          }
-        </>
+                    }
+                  </>
+                </div>
+              
+              </>
+              :
+              ''
+            }
+          </>
+        </div>
         <div className="show-details">
           <h2>{property.name}</h2>
           <p>{property.address}</p>
           <p>{property.city}, {property.country}</p>
           {/* <h6>{property.types.name[0]}</h6> */}
           <p>{property.description}</p>
+          <Icon name="bath" className="index-icon"></Icon>
+          <p>{property.bathrooms} bathrooms </p>
+          <Icon name="bed" className="index-icon"></Icon>
+          <p>{property.bedrooms} bedrooms </p>
         </div>
         <>
           {isLoggedIn ?
             <>
               <PropertyShowPopup property={property} id={id} />
+              <Popup
+                trigger={<Button as={Link} className="review-button" type="submit" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
+                Leave a Review <Icon name="review" className="review-icon"/>
+                </Button>}
+                modal
+                nested
+              >
+                {close => (
+                  <div className="review-modal">
+                    <button className="close" onClick={close}>
+&times;
+                    </button>
+                    <div className="delete-popup-buttons">
+                      <Form.Field>
+                        <label>Leave A Review</label>
+                        <textarea placeholder='eg. I loved this property!'
+                          // onChange={handleChange}
+                          name="text"
+                          // value={formdata.text}
+                        />
+                        <Button className="submit-review" type="submit" style={{ backgroundColor: 'white', borderRadius: 0, color: '#012349' }}>Submit Review</Button>
+                      </Form.Field>
+                    </div>
+                  </div>
+                )}
+              </Popup>
             </>
             :
-            <Button as={Link} to='' className="request-button" type="submit" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
+            <div>
+              <Button as={Link} to='' className="request-button" type="submit" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
         Request A Swap <Icon name="exchange" className="exchange-icon"/>
-            </Button>
+              </Button>
+            </div>
           }
         </>
       </div>
@@ -144,7 +202,7 @@ function PropertyShow() {
                 </div>
                 <div className="user-image-button">
                   <div className="user-image">
-                    <img src={property.owner.profile_image} />
+                    <img src={property.owner ? property.owner.profile_image : '' } />
                   </div>
                   <div className="contact-button">
                     <Button as={Link} to={isLoggedIn ? `/users/profile/${property.owner.id}` : '/login'}className="request-button"  style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
@@ -154,12 +212,34 @@ function PropertyShow() {
                 </div>
               </div>
             </div>
-            
             :
             ''
           }
         </div>
         <PropertyShowMap property={property}/>
+      </div>
+      <div className="reviews-container">
+        <h2>Reviews</h2>
+        <div className="reviews-info">
+          <Comment.Group>
+            <Comment>
+              {/* <Comment.Avatar as='a' src={property ? property.owner.profile_image : '' } /> */}
+              <Comment.Content>
+                <Comment.Author>{property.owner ? property.owner.first_name : '' } {property.owner ? property.owner.last_name : '' }</Comment.Author>
+                <Comment.Metadata>
+                  <div>2 days ago</div>
+                  <div>
+                    <Icon name='star' />5 Faves
+                  </div>
+                </Comment.Metadata>
+                <Comment.Text>
+          Hey guys, I hope this example comment is helping you read this
+          documentation.
+                </Comment.Text>
+              </Comment.Content>
+            </Comment>
+          </Comment.Group>
+        </div>
       </div>
       <div className="featured-container">
         <div className="featured-header">

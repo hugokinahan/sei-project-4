@@ -127,7 +127,7 @@ function PropertyIndex( { setFilteredProperties, searchValue, handleSearch }) {
                 />
               </div>
             </div> */}
-          <h1>Properties</h1>
+          {/* <h1>Properties</h1> */}
           <Link to="/properties/map" className="navbar-item">
             <Menu.Item
               className="home"
