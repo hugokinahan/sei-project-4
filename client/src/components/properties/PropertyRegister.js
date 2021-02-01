@@ -2,8 +2,11 @@ import React from 'react'
 import { Form, Checkbox, Button } from 'semantic-ui-react'
 import { useHistory } from 'react-router-dom'
 import Select from 'react-select'
+
+
 import useForm from '../../utils/useForm'
-import { createProperty, getAllProperties } from '../../lib/api'
+import { createProperty } from '../../lib/api'
+
 
 
 function Register() {
@@ -14,7 +17,7 @@ function Register() {
     name: '',
     address: '',
     city: '',
-    county: '',
+    country: '',
     continent: '',
     description: '',
     property_image: '',
@@ -23,50 +26,54 @@ function Register() {
     longitude: '',
     bathrooms: '',
     bedrooms: '',
-    types: ''
+    types: [],
+    owner: ''
   })
 
-  const [properties, setProperties] = React.useState(null)
 
-  React.useEffect(() => {
-    const getProperties = async () => {
-      try {
-        const { data } = await getAllProperties()
-        console.log(data)
-        setProperties(data)
+  const types = [ 
+    { label: 'City', value: 1 },
+    { label: 'Countryside', value: 2 },
+    { label: 'Beach', value: 3 },
+    { label: 'Mansion', value: 4 },
+    { label: 'Cosy', value: 5 },
+    { label: 'Spacious', value: 6 },
+    { label: 'Modern', value: 7 },
+    { label: 'Traditional', value: 8 },
+    { label: 'Apartment', value: 9 },
+    { label: 'Chalet', value: 10 },
+    { label: 'Pet-friendly', value: 11 },
+    { label: 'Bungalow', value: 12 },
+    { label: 'Peaceful', value: 13 },
+    { label: 'Lively', value: 14 },
+    { label: 'Penthouse', value: 15 }
+  ]
 
-      } catch (err) {
-        console.log(err)
-      }
-    }
-    getProperties()
-  }, [])
+
+  // Submit Functions
 
   const handleSubmit = async event => {
     event.preventDefault()
     try {
       console.log('User has registered property')
-      await createProperty(formdata)
+      console.log(formdata)
+      const newProperty = { ...formdata, is_available: true }
+      console.log(newProperty)
+      await createProperty(newProperty)
       history.push('/login')
     } catch (err) {
       console.log(err)
     }
   }
 
-  const handleMultiChange = (selected, name) => {
-    const propertyTypes = properties ? properties.map(property => property.types.name) : []
-    handleChange({
-      target: { name, propertyTypes }
-    })
+  console.log(formdata)
+
+  const handleMultiSelectChange = (selected, name) => {
+    const selectedItems = selected ? selected.map(item => item.value) : []
+    handleChange({ target: { name, value: selectedItems } })
   }
 
-  // const propertyTypes = []
-  // properties.map(property => {
-  //   propertyTypes.push({ value: property.types.name, label: property.types.name })
-  // })
 
-  // console.log(errors)
-  // console.log(setErrors)
 
   return (
     <div className="register-container">
@@ -108,7 +115,16 @@ function Register() {
                 value={formdata.country}
               />
             </Form.Field>
+            <Form.Field>
+              <label>Continent</label>
+              <input placeholder='eg. Europe' 
+                onChange={handleChange}
+                name="continent"
+                value={formdata.continent}
+              />
+            </Form.Field>
           </Form.Group>
+          
           <Form.Group widths='equal'>
             <Form.Field>
               <label>Latitude</label>
@@ -130,17 +146,19 @@ function Register() {
           <Form.Group widths='equal'>
             <Form.Field>
               <label>Bedrooms</label>
-              <select placeholder='eg. 5'
+              <input placeholder='eg. 5'
                 onChange={handleChange}
                 name="bedrooms"
+                type="number"
                 value={formdata.bedrooms}
               />
             </Form.Field>
             <Form.Field>
               <label>Bathrooms</label>
-              <select placeholder='eg. 4'
+              <input placeholder='eg. 4'
                 onChange={handleChange}
                 name="bathrooms"
+                type="number"
                 value={formdata.bathrooms}
               />
             </Form.Field>
@@ -157,10 +175,10 @@ function Register() {
             <label className="label">Select Relevant Property Types</label>
             <div className="control">
               <Select 
-                options={'properties.types ? properties.types.name : [] '}
+                options={types}
                 isMulti // boolean implied to be true without = {}
                 name="types"
-                onChange={(selected) => handleMultiChange(selected, 'types')}
+                onChange={selected => handleMultiSelectChange(selected, 'types')}
               />
             </div>
           </div>
@@ -168,8 +186,8 @@ function Register() {
             <label>Description</label>
             <textarea placeholder='eg. Exquisite Custom Gated Contemporary Estate in prime London. Amazing View lot with jetliner views. Over 11,000 sqft of luxury living on ¾ of an acre.' 
               onChange={handleChange}
-              name="username"
-              value={formdata.username}
+              name="description"
+              value={formdata.description}
             />
           </Form.Field>
           <Form.Field>

@@ -9,7 +9,7 @@ from .serializers.populated import PopulatedPropertySerializer
 
 class PropertyListView(APIView):
 
-    permission_classes = (IsAuthenticatedOrReadOnly, )
+    # permission_classes = (IsAuthenticatedOrReadOnly, )
 
     def get(self, _request):
         properties = Property.objects.all() #querying property from index

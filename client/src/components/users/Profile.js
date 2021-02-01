@@ -1,11 +1,10 @@
 import React from 'react'
-import { showUserProfile, headers, deletePropertyRequest } from '../../lib/api'
+import { showUserProfile, headers, deletePropertyRequest, editPropertyRequest } from '../../lib/api'
 import { Link } from 'react-router-dom'
 import { getUserId } from '../../lib/auth'
 import { Icon, Divider, Header, Segment, Card, Button, Image } from 'semantic-ui-react'
 import moment from 'moment'
-
-
+import useForm from '../../utils/useForm'
 
 function Profile() {
 
@@ -13,18 +12,30 @@ function Profile() {
 
   const [profile, setProfile] = React.useState({})
 
+  const { formdata,  setFormdata } = useForm({
+    start_date: '',
+    end_date: '',
+    offered_property: '',
+    requested_property: '',
+    owner: '',
+    text: '',
+    is_accepted: ''
+  })
+
   React.useEffect(() => {
     const getProfile = async () => {
       try {
         const { data } = await showUserProfile(getUserId(), headers())
         // console.log(data)
         setProfile(data)
+        const updatedData = { ...data }
+        setFormdata(updatedData.created_property.offers[0])
       } catch (err) {
         console.log(err)
       }
     }
     getProfile()
-  }, [])
+  }, [getUserId()])
 
   console.log(profile)
 
@@ -45,6 +56,19 @@ function Profile() {
       console.log(event.target.name)
       const requestId = event.target.name
       await deletePropertyRequest(requestId)
+      // console.log(data)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  const handleAcceptRequest = async event => {
+    event.preventDefault()
+    try {
+      console.log(event.target.name)
+      const requestId = event.target.name
+      formdata.is_accepted = true
+      await editPropertyRequest(requestId, formdata)
       // console.log(data)
     } catch (err) {
       console.log(err)
@@ -85,11 +109,11 @@ function Profile() {
           <>
             {isRecievedRequests  ?
               <>
-                <Card.Group>
+                <Card.Group className="request-cards">
                   {profile.created_property ? profile.created_property.map(property => (
                     property.offers.map(offer => (
           
-                      <Card key={offer.id} name={offer.id}>
+                      <Card key={offer.id} name={offer.id} className="request-cards">
                         <Card.Content>
                           <Image
                             floated='right'
@@ -102,24 +126,35 @@ function Profile() {
                       Message: {offer.text}
                           </Card.Description>
                           <Card.Description>
-                      From {moment(offer.start_date).format('MMM Do YY')} to {moment(offer.end_date).format('MMM Do YY')}
+                      Dates: {moment(offer.start_date).format('MMM Do YY')} to {moment(offer.end_date).format('MMM Do YY')}
                           </Card.Description>
                           <Card.Description>
-                      Requested Property
+                      Wants to swap: {offer.requested_property.name}
                           </Card.Description>
                           <Card.Description>
-                      Property to Swap
+                      Their Property: {offer.offered_property.name}
                           </Card.Description>
                         </Card.Content>
                         <Card.Content extra>
-                          <div className='ui two buttons'>
-                            <Button basic color='green'>
+                          {!offer.is_accepted ? 
+                            <div className='ui two buttons'>
+                              <Button basic color='green' name={offer.id} onClick={handleAcceptRequest}>
             Accept
-                            </Button>
-                            <Button basic color='red'>
+                              </Button>
+                              <Button basic color='red'>
             Decline
-                            </Button>
-                          </div>
+                              </Button>
+                            </div>
+                            :
+                            <div className='ui two buttons'>
+                              <Button basic color='green'>
+        Accepted
+                              </Button>
+                              <Button as={Link} to={`/properties/${offer.offered_property.id}`} basic color='green'>
+                            View Property
+                              </Button>
+                            </div>
+                          }
                         </Card.Content>
                       </Card>
                     ))
@@ -158,19 +193,25 @@ function Profile() {
                         <div>
                           <>
                             {offer.is_accepted ? 
-                              <Button basic color='green'>
+                              <div className='ui two buttons'>
+                                <Button basic color='green'>
         Accepted
-                              </Button>
+                                </Button>
+                                <Button as={Link} to={`/properties/${offer.requested_property.id}`} basic color='red' >
+                            
+                              View Property
+                                </Button>
+                              </div>
                               :
                               <Button basic color='red'>
         Pending
                               </Button>
                             }
                           </>
-                          <Button basic color='red' onClick={handleRequestDelete} name={offer.id}>
-        Delete
+                          
+                          <Button onClick={handleRequestDelete} name={offer.id}>
+                            <Icon onClick={handleRequestDelete} value={offer.id} name="trash alternate outline"></Icon>
                           </Button>
-
                         </div>
                        
                       </Card.Content>

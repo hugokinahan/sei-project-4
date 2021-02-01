@@ -27,7 +27,7 @@ export function getSingleProperty(id) {
 // Create a Property
 
 export function createProperty(formdata) {
-  return axios.post(`${baseUrl}/properties`, formdata, headers())
+  return axios.post(`${baseUrl}/properties/`, formdata, headers())
 }
 
 // Delete a property 
@@ -122,4 +122,8 @@ export function createPropertyRequest(formdata) {
 
 export function deletePropertyRequest(id) {
   return axios.delete(`${baseUrl}/offers/${id}/`, headers())
+}
+
+export function editPropertyRequest(id, formdata) {
+  return axios.put(`${baseUrl}/offers/${id}/`, formdata, headers())
 }
