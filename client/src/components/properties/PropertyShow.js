@@ -1,5 +1,5 @@
 import React from 'react'
-import { getSingleProperty, getAllProperties, deleteProperty, createPropertyReview } from '../../lib/api'
+import { getSingleProperty, getAllProperties, deleteProperty, favouriteAProperty, unFavouriteProperty, createPropertyReview } from '../../lib/api'
 import { useParams, Link, useLocation, useHistory } from 'react-router-dom'
 import { Button, Icon, Comment, Form } from 'semantic-ui-react'
 import Popup from 'reactjs-popup'
@@ -8,7 +8,8 @@ import moment from 'moment'
 
 // import Popup from 'reactjs-popup'
 // import useForm from '../../utils/useForm'
-import { getUserId, isAuthenticated, isOwner } from '../../lib/auth'
+import { isAuthenticated, isOwner, getUserId } from '../../lib/auth'
+
 
 import PropertyShowMap from './PropertyShowMap'
 import PropertyShowPopup from './PropertyShowPopup'
@@ -35,6 +36,19 @@ function PropertyShow() {
   // const { id } = useParams()
 
   const [properties, setProperties] = React.useState([])
+  const [isFavourite, setIsFavourite] = React.useState(false)
+ 
+
+  const handleFavouriteProperty = async event => {
+    event.preventDefault()
+    try {
+      await favouriteAProperty(id)
+      setIsFavourite(!isFavourite)
+    } catch (err) {
+      console.log(err)
+    }
+    //* Add to favourites
+  }
 
   const { formdata, handleChange, errors, setErrors } = useForm({
     text: '', 
@@ -44,6 +58,18 @@ function PropertyShow() {
   })
   console.log(errors)
   
+ 
+
+  const handleUnFavourite = async event => {
+    event.preventDefault()
+    try {
+      setIsFavourite(!isFavourite)
+      await unFavouriteProperty(id)
+    } catch (err) {
+      console.log(err)
+    }
+    //* Remove from favourites
+  }
 
   React.useEffect(() => {
     const getProperties = async () => {
@@ -66,6 +92,13 @@ function PropertyShow() {
       try {
         const { data } = await getSingleProperty(id)
         setProperty(data)
+        console.log(data)
+        const found = data.favorited_by.some(owner => owner.id === getUserId())
+        console.log(found)
+        if (found) {
+          setIsFavourite(true)
+        }
+     
         if (data.reviews) {
           setReviews(data.reviews)
         }
@@ -80,12 +113,13 @@ function PropertyShow() {
   console.log(reviews)
 
   console.log(property)
+  // console.log(found)
 
   const handleDelete = async event => {
     event.preventDefault()
     try {
       await deleteProperty(id)
-      history.pushState('/properties')
+      history.push('/properties')
     } catch (err) {
       console.log(err)
     }
@@ -97,7 +131,7 @@ function PropertyShow() {
 
 
   const handleShowSearch = () => {
-    history.push('/properties/')
+    history.push('/properties')
   }
 
   // const handleCommentDelete = async (reviewId) => {
@@ -145,10 +179,18 @@ function PropertyShow() {
           <>
             {isLoggedIn ?
               <>
+              
                 <div className="icon-buttons">
-                  <Button className="favorite-button" style={{ backgroundColor: '#012349', borderRadius: 100, color: 'white' }} onClick={{ color: 'gold' }}>
-                    <Icon name="favorite"/>
-                  </Button>
+                  {
+                    !isFavourite ?
+                      <Button className="favorite-button" style={{ backgroundColor: '#012349', borderRadius: 100, color: 'white' }} onClick={handleFavouriteProperty}>
+                        <Icon name="favorite"/>
+                      </Button>
+                      :
+                      <Button className="favorite-button" onClick={handleUnFavourite} style={{ backgroundColor: '#012349', borderRadius: 100, color: 'gold' }} >
+                        <Icon name="favorite"/>
+                      </Button>
+                  }
                   <>
                     {isOwner(property.owner ? property.owner.id : '') &&
                 <>

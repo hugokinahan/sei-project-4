@@ -113,6 +113,17 @@ export function unFollowUser(id) {
 }
 
 
+// Add to Favourites
+
+export function favouriteAProperty(id) {
+  return axios.post(`${baseUrl}/properties/${id}/favorite/`, null, headers())
+}
+
+export function unFavouriteProperty(id) {
+  return axios.delete(`${baseUrl}/properties/${id}/favorite/`, headers())
+}
+
+
 //* Make a Offer / Request a swap
 
 export function createPropertyRequest(formdata) {

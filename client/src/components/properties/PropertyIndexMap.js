@@ -33,7 +33,7 @@ function PropertyIndexMap() {
 
 
   const handleShowSearch = () => {
-    history.push('/properties/')
+    history.push('/properties')
   }
 
   
