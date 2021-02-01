@@ -18,3 +18,16 @@
   justify-content: center;
   // border: 1px white solid;
 }
+
+//errors
+
+.border-error {
+  border-color: red;
+}
+
+.error-message {
+  color: darkred;
+  margin: 0;
+  font-size: 0.8rem;
+  text-align: left;
+}

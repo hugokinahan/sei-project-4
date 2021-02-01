@@ -111,7 +111,7 @@ function Home() {
         </div>
       </div>
       <hr className="hr"/>
-      <div className="featured-container">
+      <div className="featured-container-section">
         <div className="featured-header">
           <h2>Featured Properties</h2>
         </div>

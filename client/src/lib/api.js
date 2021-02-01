@@ -64,8 +64,8 @@ export function getSingleReview(id) {
 
 // Create a Property Review
 
-export function createPropertyReview(formdata, id) {
-  return axios.post(`${baseUrl}/properties/${id}/reviews`, formdata, headers())
+export function createPropertyReview(formdata) {
+  return axios.post(`${baseUrl}/reviews/`, formdata, headers())
 }
 
 // Create a User Review

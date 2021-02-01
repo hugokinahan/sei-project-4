@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 import Nav from './components/common/Nav'
-import Home from './components/common/Home'
+import Home2 from './components/common/Home'
 
 import PropertyIndex from './components/properties/PropertyIndex'
 import PropertyIndexMap from './components/properties/PropertyIndexMap'
@@ -23,7 +23,7 @@ function App() {
     <BrowserRouter>
       <Nav />
       <Switch>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/" component={Home2} />
         <Route path="/properties/new" component={PropertyNew} />
         <Route path="/properties/:id/edit" component={PropertyEdit} />
         <Route path="/properties/map" component={PropertyIndexMap} />
