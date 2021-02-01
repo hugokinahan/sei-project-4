@@ -40,10 +40,10 @@ function Register() {
     <div className="register-container">
       <section className="register-section">
         <h1>Sign Up</h1>
-        <Form inverted onSubmit={handleSubmit} className="small form">
+        <Form success inverted onSubmit={handleSubmit} className="small form">
           <Form.Group widths='equal'>
             <Form.Field>
-              <label fluid>First Name</label>
+              <label fluid>First Name *</label>
               <input placeholder='eg. John'
                 onChange={handleChange}
                 name="first_name"
@@ -51,7 +51,7 @@ function Register() {
               />
             </Form.Field>
             <Form.Field>
-              <label>Last Name</label>
+              <label>Last Name *</label>
               <input placeholder='eg. Smith'
                 onChange={handleChange}
                 name="last_name"
@@ -60,7 +60,7 @@ function Register() {
             </Form.Field>
           </Form.Group>
           <Form.Field>
-            <label>Email</label>
+            <label>Email *</label>
             <input placeholder='eg. john.smith@gmail.com'
               onChange={handleChange}
               name="email"
@@ -71,13 +71,13 @@ function Register() {
             <ImageUploadField
               placeholder='eg. profile-image.png' 
               onChange={handleChange}
-              labelText="Profile Image"
+              labelText="Profile Image *"
               name="profile_image"
               value={formdata.profile_image}
             />
           </Form.Field>
           <Form.Field>
-            <label>Username</label>
+            <label>Username *</label>
             <input placeholder='eg. johnsmith123' 
               onChange={handleChange}
               name="username"
@@ -85,7 +85,7 @@ function Register() {
             />
           </Form.Field>
           <Form.Field>
-            <label>Tell Us About You</label>
+            <label>Tell Us About You *</label>
             <textarea placeholder='eg. I live in L.A and love travelling around the world.'
               onChange={handleChange}
               name="bio_description"
@@ -93,7 +93,7 @@ function Register() {
             />
           </Form.Field>
           <Form.Field>
-            <label>Password</label>
+            <label>Password *</label>
             <input placeholder='Password must be 8 characters long'
               type='password'
               onChange={handleChange}
@@ -102,7 +102,7 @@ function Register() {
             />
           </Form.Field>
           <Form.Field>
-            <label>Password Confirmation</label>
+            <label>Password Confirmation *</label>
             <input placeholder='Password Confirmation'
               type='password'
               onChange={handleChange}
@@ -113,7 +113,7 @@ function Register() {
           <Form.Field>
             <Checkbox label='I agree to the Terms and Conditions' />
           </Form.Field>
-          <Button type='submit'>Sign Up</Button>
+          <Button type='submit'>Next</Button>
         </Form>
         <p>Already with us? Login <Link to="/login">here</Link></p>
       </section>

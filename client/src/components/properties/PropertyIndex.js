@@ -1,6 +1,7 @@
 import React from 'react'
 import { Icon } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
+// import InfiniteScroll from 'react-infinite-scroller'
 
 import { getAllProperties } from '../../lib/api'
 import PropertyNavBar from './PropertyNavBar'

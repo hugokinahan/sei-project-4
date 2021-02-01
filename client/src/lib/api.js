@@ -119,3 +119,7 @@ export function createPropertyRequest(formdata) {
   console.log(formdata)
   return axios.post(`${baseUrl}/offers/`, formdata, headers())
 }
+
+export function deletePropertyRequest(id) {
+  return axios.delete(`${baseUrl}/offers/${id}/`, headers())
+}

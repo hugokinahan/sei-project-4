@@ -8,3 +8,8 @@ class PropertySerializer(serializers.ModelSerializer):
     class Meta:
         model = Property
         fields = '__all__'
+
+class NestedPropertySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Property
+        fields = ('id', 'name', 'property_image', 'city', 'country', 'owner')

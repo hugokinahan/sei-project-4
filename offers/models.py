@@ -16,11 +16,11 @@ class Offer(models.Model):
         related_name="offered_property",
         on_delete=models.CASCADE
     )
-    # owner = models.ForeignKey(
-    #     "jwt_auth.User",
-    #     related_name="posted_offers",
-    #     on_delete=models.CASCADE
-    # )
+    owner = models.ForeignKey(
+        "jwt_auth.User",
+        related_name="posted_offers",
+        on_delete=models.CASCADE
+    )
 
     def __str__(self):
         return f"Offer- {self.id} on Property - {self.requested_property} -in return for {self.offered_property}"
