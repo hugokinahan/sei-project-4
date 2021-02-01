@@ -2,6 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.exceptions import NotFound
 from rest_framework import status
+from rest_framework.permissions import IsAuthenticated
 
 from .serializers.common import OfferSerializer
 from .models import Offer
@@ -18,6 +19,8 @@ class OfferListView(APIView):
 
 class OfferDetailView(APIView):
     """ Controller for delete requests to /offers/id(pk) endpoint """
+
+    permission_classes = (IsAuthenticated, )
 
     def delete(self, _request, pk):
         try:
