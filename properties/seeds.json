@@ -28,7 +28,7 @@
   "model": "properties.property",
   "pk": 4,
   "fields": {
-    "name": "4 bedfroom Country House",
+    "name": "4 bedroom Country House",
     "address": "Carriage Drive",
     "city": "Littleborough, Lancashire",
     "country": "UK",

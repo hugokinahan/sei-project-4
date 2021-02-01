@@ -1,9 +1,12 @@
 import React from 'react'
-import { showUserProfile, headers, deletePropertyRequest } from '../../lib/api'
+import { showUserProfile, headers, deletePropertyRequest, editPropertyRequest } from '../../lib/api'
 import { Link } from 'react-router-dom'
 import { getUserId } from '../../lib/auth'
 import { Icon, Divider, Header, Segment, Card, Button, Image } from 'semantic-ui-react'
 import moment from 'moment'
+import useForm from '../../utils/useForm'
+
+
 
 
 
@@ -13,18 +16,30 @@ function Profile() {
 
   const [profile, setProfile] = React.useState({})
 
+  const { formdata,  setFormdata } = useForm({
+    start_date: '',
+    end_date: '',
+    offered_property: '',
+    requested_property: '',
+    owner: '',
+    text: '',
+    is_accepted: ''
+  })
+
   React.useEffect(() => {
     const getProfile = async () => {
       try {
         const { data } = await showUserProfile(getUserId(), headers())
         // console.log(data)
         setProfile(data)
+        const updatedData = { ...data }
+        setFormdata(updatedData.created_property.offers[0])
       } catch (err) {
         console.log(err)
       }
     }
     getProfile()
-  }, [])
+  }, [getUserId()])
 
   console.log(profile)
 
@@ -50,6 +65,25 @@ function Profile() {
       console.log(err)
     }
   }
+
+  const handleAcceptRequest = async event => {
+    event.preventDefault()
+    try {
+      console.log(event.target.name)
+      const requestId = event.target.name
+      formdata.is_accepted = true
+      await editPropertyRequest(requestId, formdata)
+      // console.log(data)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  // const findOffer = (offerId) => {
+  //   profile.created_property.offers.findIndex(offer => offer.id === offerId )
+  // }
+
+  // console.log(findOffer(8))
  
   return (
     <>
@@ -113,7 +147,7 @@ function Profile() {
                         </Card.Content>
                         <Card.Content extra>
                           <div className='ui two buttons'>
-                            <Button basic color='green'>
+                            <Button basic color='green' name={offer.id} onClick={handleAcceptRequest}>
             Accept
                             </Button>
                             <Button basic color='red'>
