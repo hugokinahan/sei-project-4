@@ -27,7 +27,7 @@ export function getSingleProperty(id) {
 // Create a Property
 
 export function createProperty(formdata) {
-  return axios.post(`${baseUrl}/properties`, formdata, headers())
+  return axios.post(`${baseUrl}/properties/`, formdata, headers())
 }
 
 // Delete a property 

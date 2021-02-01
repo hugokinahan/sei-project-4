@@ -3,8 +3,9 @@ import { Form, Checkbox, Button } from 'semantic-ui-react'
 import { Link, useHistory } from 'react-router-dom'
 
 import useForm from '../../utils/useForm'
-import { registerUser } from '../../lib/api'
+import { registerUser, loginUser } from '../../lib/api'
 import ImageUploadField from '../../utils/ImageUploadField'
+import { setToken } from '../../lib/auth'
 
 
 function Register() {
@@ -27,6 +28,10 @@ function Register() {
     try {
       console.log('User has registered')
       await registerUser(formdata)
+      
+      const { data } = await loginUser(formdata)
+      setToken(data.token)
+      console.log(data.token)
       history.push('/register/property')
     } catch (err) {
       console.log(err)
