@@ -7,50 +7,74 @@ html {
 } 
 
 .index-menu-banner{
-  margin-top: -10px;
+  width: 100%;
+  margin-top: -17px;
+  margin-bottom: -10px;
+  padding: 10px 0;
 }
 
 .show-page {
   width: 100%;
-  height: 200vh;
+  height: 150vh;
   margin-top: 5rem;
   display: flex;
   flex-direction: column;
   background-color: #f5f1ed;
 
   img {
-    width: 100%;
+    width: 50%;
     height: auto;
   }
 }
 
+// .homepage-top-layer {
+//   display: flex;
+//   flex-direction: row;
+  
+// }
+
 .show-details {
-  margin: 1rem;
+
   display: flex;
   flex-direction: column;
+  width: 48%;
+  margin: -33rem 0rem 20rem 52rem;
+  text-align: center;
+  .index-icon {
+    margin: 0 auto;
+  }
 }
 
 .icon-buttons {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   margin-top: 10px;
-  margin-right: 2rem;
+  margin-left: 2rem;
   border-radius: 50px;
   background-color: transparent;
 }
 
 #root > section > div:nth-child(2) > button {
   display: flex;
-  width: 50%;
-  flex-direction: column;
+  width: 30%;
+  flex-direction: row;
   justify-content: center;
-  align-items: center;
-  margin: 0 auto,
+  margin: -17rem 0rem 20rem 62rem;
+}
+
+#root > section > div:nth-child(2) > a {
+  display: flex;
+  width: 30%;
+  flex-direction: row;
+  justify-content: center;
+  margin: -19rem 0rem 20rem 62rem;
 }
 
 .map-user-container {
   margin: 1rem auto;
-  width: 100%;
+  margin-left: 1rem;
+  margin-top: -13rem;
+  width: 50%;
   display: flex;
   justify-content: space-evenly;
   height: 200px;
@@ -58,6 +82,7 @@ html {
 
 .user-details {
   margin: 1rem;
+  // margin-top: -15rem;
   width: 70%;
   display: flex;
   flex-direction: row;
@@ -71,13 +96,14 @@ html {
 
 .user-deets {
   width: 50%;
+  margin-top: 3rem;
 }
 
 
 .user-image-button {
   width: 50%;
   margin: 0 auto;
-  margin-left: 10rem;
+  // margin-left: 10rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -116,8 +142,19 @@ html {
   justify-content: center;
 }
 
+.reviews-container {
+  margin-left: 53rem;
+  margin-top: -15rem;
+  text-align: center;
+}
+
+.reviews-info {
+  text-align: left;
+}
+
 .featured-header {
   margin: 1rem;
+  margin-top: 10rem;
 }
 
 .index-container {
@@ -284,3 +321,109 @@ p {
   border: 1px solid #cfcece;
 }
 
+// Delete Property
+
+.delete-modal {
+  font-size: 12px;
+  background-color:  #012349;
+  color: white;
+  width: 30vw;
+  height: 30vh;
+  margin: 0 auto;
+}
+.delete-modal > .header {
+  margin: 0 auto;
+  text-align: left;
+  text-transform: uppercase;
+  width: 75%;
+  border-bottom: 1px solid gray;
+  font-size: 12px;
+  padding: 5px;
+}
+.delete-modal > .content {
+  margin: 0 auto;
+  text-align: center;
+  width: 75%;
+  padding: 10px 5px;
+}
+.delete-modal > .actions {
+  width: 100%;
+  padding: 10px 5px;
+  margin: auto;
+  text-align: center;
+}
+
+.delete-modal > .close {
+  cursor: pointer;
+  position: relative;
+  display: block;
+  padding: 2px 5px;
+  line-height: 20px;
+  right: -10px;
+  top: -10px;
+  font-size: 24px;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #cfcece;
+}
+
+// Review Modal
+
+.review-modal {
+  font-size: 12px;
+  background-color:  #012349;
+  color: white;
+  width: 30vw;
+  height: 30vh;
+  margin: 0 auto;
+  label {
+    font-size: 18px;
+    margin: 0 11rem;
+    text-align: center;
+  }
+  textarea {
+    width: 300px;
+    height: 100px;
+    margin-top: 3rem;
+    margin-left: 5rem;
+  }
+  .submit-review {
+    margin-left: 5rem;
+  }
+}
+// .review-modal > .header {
+//   margin: 0 auto;
+//   text-align: left;
+//   text-transform: uppercase;
+//   width: 75%;
+//   border-bottom: 1px solid gray;
+//   font-size: 12px;
+//   padding: 5px;
+// }
+// // .review-modal > .content {
+// //   margin: 0 auto;
+// //   text-align: center;
+// //   width: 100%;
+// //   padding: 10px 5px;
+// //   flex-direction: column;
+// // }
+// // .review-modal > .actions {
+// //   width: 100%;
+// //   padding: 10px 5px;
+// //   margin: auto;
+// //   text-align: center;
+// // }
+
+.review-modal > .close {
+  cursor: pointer;
+  position: relative;
+  display: block;
+  padding: 2px 5px;
+  line-height: 20px;
+  right: -10px;
+  top: -10px;
+  font-size: 24px;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #cfcece;
+}
