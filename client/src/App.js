@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 import Nav from './components/common/Nav'
-import Home2 from './components/common/Home'
+import Home2 from './components/common/Home2.0'
 
 import PropertyIndex from './components/properties/PropertyIndex'
 import PropertyIndexMap from './components/properties/PropertyIndexMap'
