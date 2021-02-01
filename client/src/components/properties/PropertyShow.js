@@ -1,12 +1,14 @@
 import React from 'react'
-import { getSingleProperty, getAllProperties, deleteProperty } from '../../lib/api'
+import { getSingleProperty, getAllProperties, deleteProperty, createPropertyReview } from '../../lib/api'
 import { useParams, Link, useLocation, useHistory } from 'react-router-dom'
 import { Button, Icon, Comment, Form } from 'semantic-ui-react'
 import Popup from 'reactjs-popup'
+import useForm from '../../utils/useForm'
+import moment from 'moment'
 
 // import Popup from 'reactjs-popup'
 // import useForm from '../../utils/useForm'
-import { isAuthenticated, isOwner } from '../../lib/auth'
+import { getUserId, isAuthenticated, isOwner } from '../../lib/auth'
 
 import PropertyShowMap from './PropertyShowMap'
 import PropertyShowPopup from './PropertyShowPopup'
@@ -20,6 +22,9 @@ function PropertyShow() {
   useLocation()
 
   const [property, setProperty] = React.useState([])
+  const [newReview, setNewReview] = React.useState()
+
+
   console.log(property)
 
   const { id } = useParams()
@@ -30,6 +35,14 @@ function PropertyShow() {
   // const { id } = useParams()
 
   const [properties, setProperties] = React.useState([])
+
+  const { formdata, handleChange, errors, setErrors } = useForm({
+    text: '', 
+    rating: '',
+    owner: {}, 
+    property: ''
+  })
+  console.log(errors)
   
 
   React.useEffect(() => {
@@ -45,7 +58,7 @@ function PropertyShow() {
     getProperties()
   }, [])
 
- 
+  const [reviews, setReviews] = React.useState(null) 
 
   React.useEffect(() => {
 
@@ -53,13 +66,18 @@ function PropertyShow() {
       try {
         const { data } = await getSingleProperty(id)
         setProperty(data)
+        if (data.reviews) {
+          setReviews(data.reviews)
+        }
+        console.log(reviews)
         // setViewport({ latitude: Number(data.latitude), longitude: Number(data.longitude), zoom: 7 })
       } catch (err) {
         console.log(err)
       }
     }
     getData()
-  }, [id])
+  }, [id, newReview])
+  console.log(reviews)
 
   console.log(property)
 
@@ -81,6 +99,40 @@ function PropertyShow() {
   const handleShowSearch = () => {
     history.push('/properties/')
   }
+
+  // const handleCommentDelete = async (reviewId) => {
+  //   try {
+  //     await deletePropertyReview(id, reviewId)
+  //     const { data } = await getSingleProperty(id)
+  //     setProperty(data)
+  //   } catch (err) {
+  //     console.log(err)
+  //   }
+  // }
+
+  moment().format()
+
+  // * Submit Reviews
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try {
+      const propertyId = e.target.name
+      console.log(e.target.name)
+      const reviewToAdd = { ...formdata, property: propertyId, owner: getUserId() }
+      
+      console.log(reviewToAdd)
+      await createPropertyReview(reviewToAdd)
+      setNewReview({ propertyId, formdata })
+      // const { data } = await getSingleProperty(id)
+      // setProperty(data)
+      formdata.text = ''
+      formdata.rating = ''
+    } catch (err) {
+      setErrors(err.response.data.errors)
+    }
+  }
+
+
 
 
 
@@ -170,11 +222,24 @@ function PropertyShow() {
                       <Form.Field>
                         <label>Leave A Review</label>
                         <textarea placeholder='eg. I loved this property!'
-                          // onChange={handleChange}
+                          onChange={handleChange}
                           name="text"
-                          // value={formdata.text}
+                          value={formdata.text}
                         />
-                        <Button className="submit-review" type="submit" style={{ backgroundColor: 'white', borderRadius: 0, color: '#012349' }}>Submit Review</Button>
+                        <p>Rating</p>
+                        {/* <select placeholder="e.g. 5" onClick={handleChange} value={formdata.rating}>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option> */}
+                        {/* </select> */}
+                        <input placeholder='eg. 5'
+                          onChange={handleChange}
+                          name="rating"
+                          value={formdata.rating}
+                        />
+                        <Button onClick={handleSubmit} name={property.id} className="submit-review" type="submit" style={{ backgroundColor: 'white', borderRadius: 0, color: '#012349' }}>Submit Review</Button>
                       </Form.Field>
                     </div>
                   </div>
@@ -222,22 +287,26 @@ function PropertyShow() {
         <h2>Reviews</h2>
         <div className="reviews-info">
           <Comment.Group>
-            <Comment>
-              {/* <Comment.Avatar as='a' src={property ? property.owner.profile_image : '' } /> */}
-              <Comment.Content>
-                <Comment.Author>{property.owner ? property.owner.first_name : '' } {property.owner ? property.owner.last_name : '' }</Comment.Author>
-                <Comment.Metadata>
-                  <div>2 days ago</div>
-                  <div>
-                    <Icon name='star' />5 Faves
-                  </div>
-                </Comment.Metadata>
-                <Comment.Text>
-          Hey guys, I hope this example comment is helping you read this
-          documentation.
-                </Comment.Text>
-              </Comment.Content>
-            </Comment>
+            {reviews ? reviews.map(review => {
+              return <Comment key={review.id}>
+                <Comment.Avatar as='a' src={review.owner.profile_image} />
+                <Comment.Content>
+                  <Comment.Author>{review.owner.first_name} {review.owner.last_name}</Comment.Author>
+                  <Comment.Metadata>
+                    <div>{<p><small className="text-muted px-1">{moment(review.created_at).fromNow()}</small></p>}</div>
+                    <div>
+                      <Icon name='star' />{review.rating}
+                    </div>
+                  </Comment.Metadata>
+                  <Comment.Text>
+                    <p>{review.text}</p>
+                  </Comment.Text>
+                </Comment.Content>
+              </Comment>
+            })
+              :
+              ''
+            }
           </Comment.Group>
         </div>
       </div>
@@ -284,6 +353,7 @@ function PropertyShow() {
           }
         </div>
       </div>
+      
     </section>
   )
 }

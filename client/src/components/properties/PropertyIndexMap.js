@@ -69,20 +69,18 @@ function PropertyIndexMap() {
               </Marker>
             ))}
             {popup &&
-          <Link to={`/properties/${popup.id}`}>
             <Popup
               closeOnClick={true}
-              onClose={() => setPopup(null)}
+              // onClose={() => setPopup(null)}
               latitude={Number(popup.latitude)}
               longitude={Number(popup.longitude)}
+              closeButton={false}
             >
-              
-              <img src={popup.property_image} width="150px"/>
-             
-              <p> {popup.name}</p>
-              
+              <Link to={`/properties/${popup.id}`}>
+                <img src={popup.property_image} width="150px"/>
+                <p> {popup.name}</p>
+              </Link>
             </Popup>
-          </Link>
             }
           </ReactMapGL>
         </div>

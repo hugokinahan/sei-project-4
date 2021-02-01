@@ -154,7 +154,7 @@ html {
 
 .featured-header {
   margin: 1rem;
-  margin-top: 10rem;
+  margin-top: 17rem;
 }
 
 .index-container {
@@ -370,11 +370,13 @@ p {
 // Review Modal
 
 .review-modal {
+  display: flex;
+  flex-direction: column;
   font-size: 12px;
   background-color:  #012349;
   color: white;
   width: 30vw;
-  height: 30vh;
+  height: 40vh;
   margin: 0 auto;
   label {
     font-size: 18px;
@@ -382,37 +384,24 @@ p {
     text-align: center;
   }
   textarea {
+    padding: 10px;
     width: 300px;
     height: 100px;
-    margin-top: 3rem;
+    margin-top: 1rem;
     margin-left: 5rem;
+  }
+  p {
+    margin-left: 100px;
+  }
+  input {
+    width: 20%;
+    height: 30px;
+    margin: 0 72px;
   }
   .submit-review {
     margin-left: 5rem;
   }
 }
-// .review-modal > .header {
-//   margin: 0 auto;
-//   text-align: left;
-//   text-transform: uppercase;
-//   width: 75%;
-//   border-bottom: 1px solid gray;
-//   font-size: 12px;
-//   padding: 5px;
-// }
-// // .review-modal > .content {
-// //   margin: 0 auto;
-// //   text-align: center;
-// //   width: 100%;
-// //   padding: 10px 5px;
-// //   flex-direction: column;
-// // }
-// // .review-modal > .actions {
-// //   width: 100%;
-// //   padding: 10px 5px;
-// //   margin: auto;
-// //   text-align: center;
-// // }
 
 .review-modal > .close {
   cursor: pointer;
@@ -420,6 +409,7 @@ p {
   display: block;
   padding: 2px 5px;
   line-height: 20px;
+  width: 40px;
   right: -10px;
   top: -10px;
   font-size: 24px;
