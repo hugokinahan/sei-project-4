@@ -7,6 +7,7 @@ import Home2 from './components/common/Home'
 import PropertyIndex from './components/properties/PropertyIndex'
 import PropertyIndexMap from './components/properties/PropertyIndexMap'
 import PropertyShow from './components/properties/PropertyShow'
+// import PropertyShowPageRefresh from './components/properties/PropertyShowPageRefresh'
 import PropertyNew from './components/properties/PropertyNew'
 import PropertyEdit from './components/properties/PropertyEdit'
 
