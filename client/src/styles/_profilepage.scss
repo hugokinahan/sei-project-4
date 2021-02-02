@@ -1,8 +1,10 @@
 // @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
+
 .profile-page {
 background-color: #012349;
-height: 120vh;
+min-height: 100vh;
+height: 100%;
 margin-top: 60px;
 display: flex;
 flex-direction: column;
@@ -10,6 +12,9 @@ align-items: center;
     font-family: 'Avenir', Helvetica, sans-serif;
     font-weight: 100;
 // justify-content: center;
+p {
+  color: #012349;
+}
 
 }
 
@@ -23,8 +28,18 @@ padding: 10px;
 // justify-content: center;
 background-color: white;
 h1, p {
-  color: black;
+  color: #012349;
+  font-family: 'Avenir', Helvetica, sans-serif;
 }
+h1 {
+  font-weight: 200;
+}
+
+}
+
+div.horizontal.ui.divider > h4 {
+font-family: 'Avenir', Helvetica, sans-serif;
+font-weight: 500;
 }
 
 .profile-page-header {
@@ -33,6 +48,9 @@ h1, p {
   align-items: center;
   justify-content: center;
   margin-top: 20px;
+  p {
+    margin-top: 5px;
+  }
 }
 
 .profile-title {
@@ -50,6 +68,7 @@ h1, p {
 }
 
 
+
 .profile-icon {
   color: black;
 }
@@ -58,19 +77,44 @@ h1, p {
 display: flex;
 flex-direction: row;
 p {
-  margin: 10px;
+  margin: 12px;
   text-align: center;
 }
 }
 
+.profile-div-grid{
+  width: 900px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .profile-grid-div {
   display: flex;
-  width: 450px;
+  width: 400px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  margin: 10px;
 }
+
+.profile-house-name-details {
+  p {
+    margin: 2px;;
+  }
+}
+
+.profile-bedrooms, .profile-bathrooms {
+  display: flex;
+  margin-left: 92px;
+  // padding: 2px;
+  p {
+    // margin-left: 1px;
+    text-align: right;
+    font-family: 'Avenir', Helvetica, sans-serif;
+    font-weight: 100;
+  }
+  }
 
 .profile-bio {
   p {
@@ -91,4 +135,61 @@ padding: 10px;
   a {
     color: black;
   }
+}
+
+// Delete Request modal
+
+
+.delete-request-modal {
+  font-size: 12px;
+  background-color:  #012349;
+  color: white;
+  width: 25vw;
+  height: 25vh;
+  margin: 0 auto;
+  h3 {
+    font-family: 'Avenir', Helvetica, sans-serif;
+    text-align: center;
+    font-size: 15px;
+  }
+}
+.delete-request-modal > .header {
+  margin: 0 auto;
+  text-align: left;
+  text-transform: uppercase;
+  font-family: 'Avenir', Helvetica, sans-serif;
+  width: 75%;
+  border-bottom: 1px solid gray;
+  font-size: 12px;
+  padding: 5px;
+}
+
+.delete-request-popup-buttons {
+
+// padding: 40px;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-top: 25px;
+// margin-left: 50px;
+.ui.button {
+  background-color: white;
+}
+a.ui.button {
+  background-color: white;
+}
+}
+
+.delete-request-modal > .close {
+  cursor: pointer;
+  position: relative;
+  display: block;
+  padding: 2px 5px;
+  line-height: 20px;
+  right: 2px;
+  top: -6px;
+  font-size: 24px;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #cfcece;
 }

@@ -86,7 +86,7 @@ function PropertyShowPopup ({ id }) {
       nested
     >
       {close => (
-        <div className="modal">
+        <div className={!isSent ?  'modal' : 'sent-modal'}>
           <button className="close" onClick={close}>
           &times;
           </button>
@@ -185,7 +185,7 @@ function PropertyShowPopup ({ id }) {
                 <Button className="popup-auth-request" type='submit' style={{ backgroundColor: 'white', borderRadius: 0, color: '#012349', border: 'none', width: '100%' }}>Request Property Exchange</Button>
               </Form>
               :
-              <div>
+              <div className="review-sent-message">
                 <h1>Request sent!</h1>
               </div>
             }

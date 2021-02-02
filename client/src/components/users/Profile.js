@@ -103,7 +103,7 @@ function Profile() {
           
           </div>
           <Divider horizontal>
-            <Header as='h4'>
+            <Header as='h4' color='#012349'>
               <Icon name='mail outline' />
       Property Swap Requests
             </Header>
@@ -199,7 +199,7 @@ function Profile() {
                             nested
                           >
                             {close => (
-                              <div className="delete-modal">
+                              <div className="delete-request-modal">
                                 <button className="close" onClick={close}>
 &times;
                                 </button>
@@ -209,9 +209,9 @@ function Profile() {
                                     <div className="header"> 
                                       <h3>Are you sure you want to delete this Request?</h3>
                                     </div>
-                                    <div className="delete-popup-buttons">
+                                    <div className="delete-request-popup-buttons">
                                       <Button onClick={handleRequestDelete} name={offer.id}>Yes</Button>
-                                      <Button as={Link} to={'/properties/'}>No</Button>
+                                      <Button onClick={close}>No</Button>
                                     </div>
                                   </>
                                   :
@@ -284,7 +284,7 @@ function Profile() {
             }
           </>
           <Divider horizontal>
-            <Header as='h4'>
+            <Header as='h4' color='#012349'>
       Bio
             </Header>
           </Divider>
@@ -293,7 +293,7 @@ function Profile() {
             <p className="profile-bio-description">{profile.bio_description}</p>
           </div>
           <Divider horizontal>
-            <Header as='h4'>
+            <Header as='h4' color='#012349'>
               <Icon name='home' />
       Properties
             </Header>
@@ -311,21 +311,21 @@ function Profile() {
               <>
                 <Segment className="ui bottom attached segment active tab">
                   {profile.created_property ? profile.created_property.map(property => (
-                    <Link to={`/properties/${property.id}`} key={property.id} className="index-grid-div-container" >
+                    <Link to={`/properties/${property.id}`} key={property.id} className="profile-grid-div-container" >
                       <div className="profile-grid-div">
                         <img src={property.property_image} />
                         <div className="index-grid-house-info">
-                          <div className="house-name-details">
+                          <div className="profile-house-name-details">
                             <p>{property.name}</p>
                             <p>{property.city}, {property.country}</p>
                           </div>
                           <div className="house-details">
-                            <div className="bathrooms">
+                            <div className="profile-bathrooms">
                               <Icon name="bath" className="profile-icon"></Icon>
                               <p>{property.bathrooms} bathrooms </p>
               
                             </div>
-                            <div className="bedrooms">
+                            <div className="profile-bedrooms">
                               <Icon name="bed" className="profile-icon"></Icon>
                               <p>{property.bedrooms} bedrooms </p>
               
@@ -352,34 +352,36 @@ function Profile() {
               :
         
               <Segment className="ui bottom attached segment active tab">
-                {profile.favorited_property ? profile.favorited_property.map(property => (
-                  <Link to={`/properties/${property.id}`} key={property.id} className="index-grid-div-container" >
-                    <div className="profile-grid-div">
-                      <img src={property.property_image} />
-                      <div className="index-grid-house-info">
-                        <div className="house-name-details">
-                          <p>{property.name}</p>
-                          <p>{property.city}, {property.country}</p>
-                        </div>
-                        <div className="house-details">
-                          <div className="bathrooms">
-                            <Icon name="bath" className="profile-icon"></Icon>
-                            <p>{property.bathrooms} bathrooms </p>
-              
+                <div className="profile-div-grid">
+                  {profile.favorited_property ? profile.favorited_property.map(property => (
+                    <Link to={`/properties/${property.id}`} key={property.id} className="profile-grid-div-container" >
+                      <div className="profile-grid-div">
+                        <img src={property.property_image} />
+                        <div className="index-grid-house-info">
+                          <div className="profile-house-name-details">
+                            <p>{property.name}</p>
+                            <p>{property.city}, {property.country}</p>
                           </div>
-                          <div className="bedrooms">
-                            <Icon name="bed" className="profile-icon"></Icon>
-                            <p>{property.bedrooms} bedrooms </p>
+                          <div className="house-details">
+                            <div className="profile-bathrooms">
+                              <Icon name="bath" className="profile-icon"></Icon>
+                              <p>{property.bathrooms} bathrooms </p>
               
+                            </div>
+                            <div className="profile-bedrooms">
+                              <Icon name="bed" className="profile-icon"></Icon>
+                              <p>{property.bedrooms} bedrooms </p>
+              
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </Link>
-                ))
-                  :
-                  ''
-                }
+                    </Link>
+                  ))
+                    :
+                    ''
+                  }
+                </div>
               </Segment>
             }
           </>

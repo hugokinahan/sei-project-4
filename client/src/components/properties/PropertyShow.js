@@ -7,7 +7,7 @@ import useForm from '../../utils/useForm'
 import moment from 'moment'
 
 
-import { getSingleProperty, getAllProperties, deleteProperty, favouriteAProperty, unFavouriteProperty, createPropertyReview } from '../../lib/api'
+import { getSingleProperty, getAllProperties, deleteProperty, favouriteAProperty, unFavouriteProperty, createPropertyReview, deletePropertyReview } from '../../lib/api'
 // import Popup from 'reactjs-popup'
 // import useForm from '../../utils/useForm'
 import { isAuthenticated, isOwner, getUserId } from '../../lib/auth'
@@ -121,7 +121,7 @@ function PropertyShow() {
     try {
       setIsDeleted(true)
       await deleteProperty(id)
-      history.push('/properties')
+      history.push('/properties/')
     } catch (err) {
       console.log(err)
     }
@@ -135,7 +135,7 @@ function PropertyShow() {
     history.push('/properties')
   }
 
-
+  const [reviewPosted, setReviewPosted] = React.useState(false)
 
   // * Submit Reviews
   const handleSubmit = async (e) => {
@@ -148,6 +148,7 @@ function PropertyShow() {
       console.log(reviewToAdd)
       await createPropertyReview(reviewToAdd)
       setNewReview({ propertyId, formdata })
+      setReviewPosted(true)
       // const { data } = await getSingleProperty(id)
       // setProperty(data)
       formdata.text = ''
@@ -158,7 +159,19 @@ function PropertyShow() {
     }
   }
 
+  // Delete a Review
 
+  const handleDeleteReview = async event => {
+    event.preventDefault()
+    try {
+      const reviewId = event.target.name
+      await deletePropertyReview(reviewId)
+      setNewReview({ id, formdata })
+      // setRefreshData(true)
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
 
 
@@ -211,9 +224,9 @@ function PropertyShow() {
                             <div className="header"> 
                               <h3>Are you sure you want to delete this property?</h3>
                             </div>
-                            <div className="delete-popup-buttons">
+                            <div className="delete-showpage-popup-buttons">
                               <Button onClick={handleDelete} >Yes</Button>
-                              <Button as={Link} to={'/properties/'}>No</Button>
+                              <Button onClick={close}>No</Button>
                             </div>
                           </>
                           :
@@ -265,34 +278,45 @@ function PropertyShow() {
                 {close => (
                   <div className="review-modal">
                     <button className="close" onClick={close}>
+                      
 &times;
                     </button>
-                    <div className="delete-popup-buttons">
-                      <Form.Field>
-                        <label>Leave A Review</label>
-                        <textarea placeholder='eg. I loved this property!'
-                          onChange={handleChange}
-                          name="text"
-                          value={formdata.text}
-                        />
-                        <p>Rating</p>
-                        <input placeholder='eg. 5'
-                          onChange={handleChange}
-                          type="number"
-                          name="rating"
-                          value={formdata.rating}
-                        />
-                        {/* <Rating className="rating" icon='star' defaultRating={1} maxRating={5}/> */}
-                        <Button onClick={handleSubmit} name={property.id} className="submit-review" type="submit" style={{ backgroundColor: 'white', borderRadius: 0, color: '#012349' }}>Submit Review</Button>
-                        {reviewErrors ?
+                    
+                    <div>
+                      {!reviewPosted ?
+                        <Form.Field>
+                          <label>Leave A Review</label>
+                          <textarea placeholder='eg. I loved this property!'
+                            onChange={handleChange}
+                            name="text"
+                            value={formdata.text}
+                          />
+                
+                          <p>Rating</p>
+                          <input placeholder='eg. 1-5'
+                            onChange={handleChange}
+                            type="number"
+                            name="rating"
+                            value={formdata.rating}
+                          />
+                        
+                          {/* <Rating className="rating" icon='star' defaultRating={1} maxRating={5}/> */}
+                          <Button onClick={handleSubmit} name={property.id} className="submit-review" type="submit" style={{ backgroundColor: 'white', borderRadius: 0, color: '#012349' }}>Submit Review</Button>
+                          {reviewErrors ?
         
-                          <div className="ui error message small">
-                            <div className="header">Please ensure each field is completed</div>
-                          </div>
-                          :
-                          ''
-                        }
-                      </Form.Field>
+                            <div className="ui error message small">
+                              <div className="header">Please ensure each field is completed</div>
+                            </div>
+                            :
+                            ''
+                          }
+                        
+                        </Form.Field>
+                        :
+                        <div>
+                          <h1>Review Added!</h1>
+                        </div>
+                      }
                     </div>
                   </div>
                 )}
@@ -354,6 +378,11 @@ function PropertyShow() {
                     <Comment.Text>
                       <p>{review.text}</p>
                     </Comment.Text>
+                    {isOwner(review.owner ? review.owner.id : '') &&
+                            <Comment.Actions>
+                              <Comment.Action onClick={handleDeleteReview} name={review.id}>Delete</Comment.Action>
+                            </Comment.Actions>
+                    }
                   </Comment.Content>
                 </Comment>
               })
