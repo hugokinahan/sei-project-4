@@ -4,7 +4,7 @@
 
 .home-page-section {
   margin-top: 4rem;
-  background-color: white;
+  background-color: #f5f1ed;
 }
 
 .homepage-layout {
@@ -27,8 +27,22 @@
     width: 200px;
     margin: 10px auto;
     margin-bottom: 20px;
+    .sign-up-button {
+      background-color: white;
+      color: #012349;
+    }
+    .sign-up-button:hover {
+      background-color: #012349;
+      color: white;
+    }
     .login-button {
       margin-top: 20px;
+      background-color: white;
+      color: #012349;
+    }
+    .login-button:hover {
+      background-color: #012349;
+      color: white;
     }
   }
   h5 {
@@ -83,4 +97,5 @@ hr {
 
 .hr {
   margin-top: 60px;
+  color: #012349;
 }
