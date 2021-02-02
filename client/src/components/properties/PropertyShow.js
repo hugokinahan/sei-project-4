@@ -7,7 +7,7 @@ import useForm from '../../utils/useForm'
 import moment from 'moment'
 
 
-import { getSingleProperty, getAllProperties, deleteProperty, favouriteAProperty, unFavouriteProperty, createPropertyReview } from '../../lib/api'
+import { getSingleProperty, getAllProperties, deleteProperty, favouriteAProperty, unFavouriteProperty, createPropertyReview, deletePropertyReview } from '../../lib/api'
 // import Popup from 'reactjs-popup'
 // import useForm from '../../utils/useForm'
 import { isAuthenticated, isOwner, getUserId } from '../../lib/auth'
@@ -121,7 +121,7 @@ function PropertyShow() {
     try {
       setIsDeleted(true)
       await deleteProperty(id)
-      history.push('/properties')
+      history.push('/properties/')
     } catch (err) {
       console.log(err)
     }
@@ -159,7 +159,19 @@ function PropertyShow() {
     }
   }
 
+  // Delete a Review
 
+  const handleDeleteReview = async event => {
+    event.preventDefault()
+    try {
+      const reviewId = event.target.name
+      await deletePropertyReview(reviewId)
+      setNewReview({ id, formdata })
+      // setRefreshData(true)
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
 
 
@@ -214,7 +226,7 @@ function PropertyShow() {
                             </div>
                             <div className="delete-showpage-popup-buttons">
                               <Button onClick={handleDelete} >Yes</Button>
-                              <Button as={Link} to={'/properties/'}>No</Button>
+                              <Button onClick={close}>No</Button>
                             </div>
                           </>
                           :
@@ -366,6 +378,11 @@ function PropertyShow() {
                     <Comment.Text>
                       <p>{review.text}</p>
                     </Comment.Text>
+                    {isOwner(review.owner ? review.owner.id : '') &&
+                            <Comment.Actions>
+                              <Comment.Action onClick={handleDeleteReview} name={review.id}>Delete</Comment.Action>
+                            </Comment.Actions>
+                    }
                   </Comment.Content>
                 </Comment>
               })

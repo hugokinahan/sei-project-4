@@ -211,7 +211,7 @@ function Profile() {
                                     </div>
                                     <div className="delete-request-popup-buttons">
                                       <Button onClick={handleRequestDelete} name={offer.id}>Yes</Button>
-                                      <Button as={Link} to={'/properties/'}>No</Button>
+                                      <Button onClick={close}>No</Button>
                                     </div>
                                   </>
                                   :

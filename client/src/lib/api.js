@@ -68,23 +68,23 @@ export function createPropertyReview(formdata) {
   return axios.post(`${baseUrl}/reviews/`, formdata, headers())
 }
 
-// Create a User Review
-
-export function createUserReview(formdata, id) {
-  return axios.post(`${baseUrl}/profile/${id}/reviews`, formdata, headers())
+export function deletePropertyReview(id) {
+  return axios.delete(`${baseUrl}/reviews/${id}`, headers())
 }
 
-// Delete Property Review
 
-export function deletePropertyReview(id, reviewId) {
-  return axios.delete(`${baseUrl}/properties/${id}/reviews/${reviewId}`, headers())
-}
+// // Create a User Review
 
-// Delete User Review
+// export function createUserReview(formdata, id) {
+//   return axios.post(`${baseUrl}/profile/${id}/reviews`, formdata, headers())
+// }
 
-export function deleteUserReviw(id, reviewId) {
-  return axios.delete(`${baseUrl}/profile/${id}/reviews/${reviewId}`, headers())
-}
+
+// // Delete User Review
+
+// export function deleteUserReviw(id, reviewId) {
+//   return axios.delete(`${baseUrl}/profile/${id}/reviews/${reviewId}`, headers())
+// }
 
 // * Auth Requests
 
