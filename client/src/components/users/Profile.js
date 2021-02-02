@@ -280,13 +280,12 @@ function Profile() {
                     :
                     ''
                   }
-                  <h2>Reviews</h2>
+                  {/* <h2>Reviews</h2> */}
                 </Segment>  
               </>
               :
         
               <Segment className="ui bottom attached segment active tab">
-                <h2>Favourite Properties</h2>
                 {profile.favorited_property ? profile.favorited_property.map(property => (
                   <Link to={`/properties/${property.id}`} key={property.id} className="index-grid-div-container" >
                     <div className="profile-grid-div">

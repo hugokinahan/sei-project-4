@@ -29,7 +29,14 @@ function Nav() {
           name='Explore'
         />
       </Link>
-
+      {isLoggedIn &&
+      <Link to="/register/property" className="navbar-item">
+        <Menu.Item
+          className="home"
+          name='Add Sharebnb'
+        />
+      </Link>
+      }
       <Menu.Item className="logo">
         <Link to="/">
           <h1 className="logo-header">Sharebnb</h1>

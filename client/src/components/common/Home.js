@@ -113,7 +113,7 @@ function Home() {
       <hr className="hr"/>
       <div className="featured-container-section">
         <div className="featured-header">
-          <h2>Featured Properties</h2>
+          <h2>Hottest Properties</h2>
         </div>
         <div className="index-grid">
           {properties ? properties.slice(40, 43).map(property => (

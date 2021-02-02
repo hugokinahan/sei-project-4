@@ -38,6 +38,11 @@ div .ui.menu.fixed {
   color: white;
 }
 
+
+#root > div > a:nth-child(3) > div {
+  color: white;
+}
+
 #root > div.ui.menu.fixed > div.right.item {
   margin: 0;
 }
