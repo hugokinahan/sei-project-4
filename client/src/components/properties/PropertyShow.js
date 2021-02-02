@@ -112,11 +112,13 @@ function PropertyShow() {
   }
 
   
+  const [isDeleted, setIsDeleted] = React.useState(false)
 
   // Delete Property
   const handleDelete = async event => {
     event.preventDefault()
     try {
+      setIsDeleted(true)
       await deleteProperty(id)
       history.push('/properties')
     } catch (err) {
@@ -201,13 +203,23 @@ function PropertyShow() {
                         <button className="close" onClick={close}>
 &times;
                         </button>
-                        <div className="header"> 
-                          <h3>Are you sure you want to delete this property?</h3>
-                        </div>
-                        <div className="delete-popup-buttons">
-                          <Button onClick={handleDelete} >Yes</Button>
-                          <Button as={Link} to={'/properties/'}>No</Button>
-                        </div>
+                        {!isDeleted ?
+
+                          <>
+                            <div className="header"> 
+                              <h3>Are you sure you want to delete this property?</h3>
+                            </div>
+                            <div className="delete-popup-buttons">
+                              <Button onClick={handleDelete} >Yes</Button>
+                              <Button as={Link} to={'/properties/'}>No</Button>
+                            </div>
+                          </>
+                          :
+                        
+                          <div className="header"> 
+                            <h3>Property Deleted!</h3>
+                          </div>
+                        }
                       </div>
                     )}
                   </Popup>
