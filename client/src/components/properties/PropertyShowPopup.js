@@ -150,6 +150,7 @@ function PropertyShowPopup ({ id }) {
                       value={formdata.offered_property}
                     >
                       <>
+                        <option key={property.id} value={property.id}>Select Property</option>
                         {profile.created_property ? profile.created_property.map((property) => (
                           <>
                             

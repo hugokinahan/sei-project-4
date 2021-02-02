@@ -44,13 +44,39 @@ function PropertyIndex() {
     setSearchValue(event.target.value)
     filterProperties(event)
   }
+
+
+  // Filter Continents 
+
+  // const [filteredContinents, setFilteredContinents] = React.useState(null)
+
+
+  const filterContinents = (selected) => {
+    if (selected) { 
+      const results = properties.forEach(property => {
+        property.filter(property => {
+          return property.continent.includes(selected.value)
+        })
+      })
+      console.log(results)
+      // setFilteredProperties(results)
+      // setFilteredContinents(results)
+    } else {
+      return
+    }
+  }
+
+  const handleMultiContinentSelect = (selected) => {
+    // setFilteredContinents(selected)
+    filterContinents(selected)
+  }
   
 
   return (
     <>
       <div className="index-container">
-        <PropertyNavBar setFilteredProperties={setFilteredProperties} searchValue={searchValue} handleSearch={handleSearch}/>
-        <>{!searchValue && 
+        <PropertyNavBar setFilteredProperties={setFilteredProperties}  handleSearch={handleSearch} searchValue={searchValue} handleMultiContinentSelect={handleMultiContinentSelect} />
+        <>{!searchValue &&  
         <>
           <h1>Recently Added Properties</h1>
           <div className="index-grid">
