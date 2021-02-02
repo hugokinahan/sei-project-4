@@ -13,6 +13,8 @@ function Register() {
 
   const history = useHistory()
 
+  const [registerErrors, setRegisterErrors] = React.useState(false)
+
   const { formdata,  handleChange } = useForm({
     name: '',
     address: '',
@@ -62,6 +64,7 @@ function Register() {
       await createProperty(newProperty)
       history.push('/login')
     } catch (err) {
+      setRegisterErrors(true)
       console.log(err)
     }
   }
@@ -195,6 +198,14 @@ function Register() {
           </Form.Field>
           <Button type='submit'>Register Property</Button>
         </Form>
+        {registerErrors ?
+        
+          <div className="ui error message small">
+            <div className="header">Please ensure each field is completed</div>
+          </div>
+          :
+          ''
+        }
         {/* <p>Already with us? Login <Link to="/login">here</Link></p> */}
       </section>
     </div>

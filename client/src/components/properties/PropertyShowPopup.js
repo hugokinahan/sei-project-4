@@ -11,24 +11,10 @@ import { getUserId } from '../../lib/auth'
 
 function PropertyShowPopup ({ id }) {
 
-  // const { id } = useParams()
 
-  // const [properties, setProperties] = React.useState(null)
+
   const [property, setProperty] = React.useState([])
-
-  // React.useEffect(() => {
-  //   const getProperties = async () => {
-  //     try {
-  //       const { data } = await getAllProperties()
-  //       // console.log(data)
-  //       setProperties(data)
-
-  //     } catch (err) {
-  //       console.log(err)
-  //     }
-  //   }
-  //   getProperties()
-  // }, [])
+  const [requestErrors, setRequestErrors] = React.useState(false)
 
   React.useEffect(() => {
 
@@ -80,6 +66,7 @@ function PropertyShowPopup ({ id }) {
       setIsSent(true)
       console.log('Request made')
     } catch (err) {
+      setRequestErrors(true)
       console.log(err)
     }
   }
@@ -200,6 +187,14 @@ function PropertyShowPopup ({ id }) {
               <div>
                 <h1>Request sent!</h1>
               </div>
+            }
+            {requestErrors ?
+        
+              <div className="ui error message small">
+                <div className="header">Please ensure each field is completed</div>
+              </div>
+              :
+              ''
             }
           </div>
           <div className="actions">

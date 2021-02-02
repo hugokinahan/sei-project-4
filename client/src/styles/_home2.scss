@@ -1,3 +1,4 @@
+
 * {
   box-sizing: border-box;
 } 
@@ -9,8 +10,7 @@
 
 .homepage-layout {
   display: flex;
-  // flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: center;
   height: 375px;
   img {
     width: 450px;
@@ -19,48 +19,90 @@
   }
 }
 
+// h2 { 
+//   font-family: "Gill Sans"; 
+//   font-size: 18px; 
+//   font-style: normal; 
+//   font-variant: normal; 
+//   font-weight: 100; 
+//   line-height: 27px; 
+// }
+
+#root > section > div.hero > div.homepage-layout > div.HeroCarousel_wrapper__2J_Tt {
+  margin-left: 150px;
+}
+
 .headers {
   width: auto;
-  margin: 40px 50px 40px 0px;
+  margin: 40px 200px 40px 0px;
   text-align: center;
+  color: #012349;
+  h1 {
+    font-family: 'Avenir', Helvetica, sans-serif;
+    font-weight: 400;
+  }
   .homepage-buttons {
     width: 200px;
     margin: 10px auto;
     margin-bottom: 20px;
+    
     .sign-up-button {
       background-color: white;
       color: #012349;
+      font-family: 'Avenir', Helvetica, sans-serif;
+      font-weight: 100;
     }
     .sign-up-button:hover {
       background-color: #012349;
       color: white;
+      font-family: 'Avenir', Helvetica, sans-serif;
+      font-weight: 100;
     }
     .login-button {
       margin-top: 20px;
       background-color: white;
       color: #012349;
+      font-family: 'Avenir', Helvetica, sans-serif;
+      font-weight: 100;
     }
     .login-button:hover {
       background-color: #012349;
       color: white;
+      font-family: 'Avenir', Helvetica, sans-serif;
+      font-weight: 100;
     }
+  }
+  h4 {
+    font-family: 'Avenir', Helvetica, sans-serif;
+    font-weight: 100;
   }
   h5 {
     text-align: center;
     line-height: 1.5;
+    font-family: 'Avenir', Helvetica, sans-serif;
+    font-weight: 100;
   }
 }
 
 .homepage-second-layer {
+  color: #012349;
   display: flex;
   flex-direction: row;
   margin: 20px;
   line-height: 1.5;
+  h5 {
+    font-family: 'Avenir', Helvetica, sans-serif;
+    font-weight: 100;
+  }
   .home-reviews {
     margin: 70px 5px;
     width: 1000px;
     line-height: 1.5;
     text-align: center;
+    h2 {
+      font-family: 'Avenir', Helvetica, sans-serif;
+      font-weight: 400;
+    }
   }
   .users-index {
     width: 1000px;
@@ -84,9 +126,13 @@
 
 
 .featured-container-section {
+  color: #012349;
   margin-top: -15rem;
   h2 {
-    margin: 0 auto;
+    font-family: 'Avenir', Helvetica, sans-serif;
+    font-weight: 400;
+    text-transform: capitalize;
+    margin-left: 43%;
   }
 }
 
