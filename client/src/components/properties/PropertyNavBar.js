@@ -4,7 +4,7 @@ import { Menu, Input } from 'semantic-ui-react'
 import ReactMultiSelectCheckboxes from 'react-multiselect-checkboxes'
 import { Link, useLocation } from 'react-router-dom'
 
-function PropertyIndex( { setFilteredProperties, searchValue, handleSearch, handleMultiContinentSelect }) {
+function PropertyIndex( { setFilteredProperties, searchValue, handleSearch, handleMultiTypeSelect }) {
 
   const [properties, setProperties] = React.useState([])
   const location = useLocation()
@@ -35,24 +35,24 @@ function PropertyIndex( { setFilteredProperties, searchValue, handleSearch, hand
   // }
 
 
-  const continents = [ 
-    { label: 'North America', value: 'North America' },
-    { label: 'Central America', value: 'Central America' },
-    { label: 'South America', value: 'South America' },
-    { label: 'Europe', value: 'Europe' },
-    { label: 'Asia', value: 'Asia' },
-    { label: 'Africa', value: 'Africa' },
-    { label: 'Australasia', value: 'Oceania' }
-  ]
-  const bedrooms = [ 
-    { label: '0-5', value: 1 },
-    { label: '5+', value: 5 },
-    { label: '8+', value: 8 },
-    { label: '12+', value: 12 },
-    { label: '16+', value: 16 },
-    { label: '20+', value: 20 }
+  // const continents = [ 
+  //   { label: 'North America', value: 'North America' },
+  //   { label: 'Central America', value: 'Central America' },
+  //   { label: 'South America', value: 'South America' },
+  //   { label: 'Europe', value: 'Europe' },
+  //   { label: 'Asia', value: 'Asia' },
+  //   { label: 'Africa', value: 'Africa' },
+  //   { label: 'Australasia', value: 'Oceania' }
+  // ]
+  // const bedrooms = [ 
+  //   { label: '0-5', value: 1 },
+  //   { label: '5+', value: 5 },
+  //   { label: '8+', value: 8 },
+  //   { label: '12+', value: 12 },
+  //   { label: '16+', value: 16 },
+  //   { label: '20+', value: 20 }
    
-  ]
+  // ]
 
   const types = [ 
     { label: 'City', value: 'City' },
@@ -86,25 +86,17 @@ function PropertyIndex( { setFilteredProperties, searchValue, handleSearch, hand
 
 
 
-  const handleMultiBedroomSelect = (selected) => {
-    // setMultiSelectValue(selected)
-    console.log(selected)
-    // const results = properties.filter(property => {
-    //   return property.continent.toLowerCase().includes(selected.value.toLowerCase())
-    // })
-    // console.log(results)
-    // filterMultiProperties(selected)
-  }
+  // const handleMultiBedroomSelect = (selected) => {
+  //   // setMultiSelectValue(selected)
+  //   console.log(selected)
+  //   // const results = properties.filter(property => {
+  //   //   return property.continent.toLowerCase().includes(selected.value.toLowerCase())
+  //   // })
+  //   // console.log(results)
+  //   // filterMultiProperties(selected)
+  // }
 
-  const handleMultiTypeSelect = (selected) => {
-    // setMultiSelectValue(selected)
-    console.log(selected)
-    // const results = properties.filter(property => {
-    //   return property.continent.toLowerCase().includes(selected.value.toLowerCase())
-    // })
-    // console.log(results)
-    // filterMultiProperties(selected)
-  }
+  
 
 
   return (
@@ -174,10 +166,10 @@ function PropertyIndex( { setFilteredProperties, searchValue, handleSearch, hand
           </Link>
           {location.pathname === '/properties' &&
           <>
-            <ReactMultiSelectCheckboxes options={continents} placeholder="Continent"  
+            {/* <ReactMultiSelectCheckboxes options={continents} placeholder="Continent"  
               onChange={selected => handleMultiContinentSelect(selected, 'continents')}
             />
-            <ReactMultiSelectCheckboxes options={bedrooms} placeholder="Bedrooms"  onChange={selected => handleMultiBedroomSelect(selected, 'bedrooms')}/>
+            <ReactMultiSelectCheckboxes options={bedrooms} placeholder="Bedrooms"  onChange={selected => handleMultiBedroomSelect(selected, 'bedrooms')}/> */}
             <ReactMultiSelectCheckboxes options={types} placeholder="Types"  onChange={selected => handleMultiTypeSelect(selected, 'types')}/>
           </>
           }

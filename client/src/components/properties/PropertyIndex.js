@@ -51,31 +51,40 @@ function PropertyIndex() {
   // const [filteredContinents, setFilteredContinents] = React.useState(null)
 
 
-  const filterContinents = (selected) => {
+  const filterTypes = (selected) => {
     if (selected) { 
-      const results = properties.forEach(property => {
-        property.filter(property => {
-          return property.continent.includes(selected.value)
-        })
+      const results = properties.filter(function(property) {
+        return selected[0].value.toLowerCase().includes(property.types.name.toLowerCase())
       })
       console.log(results)
-      // setFilteredProperties(results)
-      // setFilteredContinents(results)
+      setFilteredProperties(results)
+      
     } else {
       return
     }
   }
 
-  const handleMultiContinentSelect = (selected) => {
-    // setFilteredContinents(selected)
-    filterContinents(selected)
+  // const handleMultiContinentSelect = (selected) => {
+  //   // setFilteredContinents(selected)
+  //   filterContinents(selected)
+  // }
+
+  const handleMultiTypeSelect = (selected) => {
+    // setMultiSelectValue(selected)
+    console.log(selected)
+    filterTypes(selected)
+    // const results = properties.filter(property => {
+    //   return property.continent.toLowerCase().includes(selected.value.toLowerCase())
+    // })
+    // console.log(results)
+    // filterMultiProperties(selected)
   }
   
 
   return (
     <>
       <div className="index-container">
-        <PropertyNavBar setFilteredProperties={setFilteredProperties}  handleSearch={handleSearch} searchValue={searchValue} handleMultiContinentSelect={handleMultiContinentSelect} />
+        <PropertyNavBar setFilteredProperties={setFilteredProperties}  handleSearch={handleSearch} searchValue={searchValue} handleMultiTypeSelect={handleMultiTypeSelect} />
         <>{!searchValue &&  
         <>
           <h1>Recently Added Properties</h1>

@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 import Nav from './components/common/Nav'
 import Home2 from './components/common/Home2.0'
+import Footer from './components/common/Footer'
 
 import PropertyIndex from './components/properties/PropertyIndex'
 import PropertyIndexMap from './components/properties/PropertyIndexMap'
@@ -36,6 +37,7 @@ function App() {
         <Route path="/profile/:id" component={Profile} />
         <Route path="/users/profile/:id" component={OtherUserProfile} />
       </Switch>
+      <Footer />
     </BrowserRouter>
   )
 }
