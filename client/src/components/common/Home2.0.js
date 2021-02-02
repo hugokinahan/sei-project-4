@@ -81,8 +81,8 @@ function Home2() {
             <h1>Welcome To Sharebnb</h1>
             <h4>Trade your property with one of our millions* of users and enjoy a unique stay at a destination chosen by you.</h4>
             <div className="homepage-buttons">
-              <Button as={Link} to={'/register/'} className="sign-up-button" type='submit' style={{ backgroundColor: 'white', borderRadius: 0, color: '#012349', border: '1px solid #012349', width: '100%' }}>Sign Up</Button>
-              <Button as={Link} to={'/login/'} className="login-button" type='submit' style={{ backgroundColor: 'white', borderRadius: 0, color: '#012349', border: '1px solid #012349', width: '100%' }}>Login</Button>
+              <Button as={Link} to={'/register/'} className="sign-up-button" type='submit' style={{ borderRadius: 0, border: '1px solid #012349', width: '100%' }}>Sign Up</Button>
+              <Button as={Link} to={'/login/'} className="login-button" type='submit' style={{ borderRadius: 0, border: '1px solid #012349', width: '100%' }}>Login</Button>
               <h5>Sign Up today and join the fastest growing home swap community in the world 🌍</h5>
             </div>
           </div>
@@ -95,7 +95,7 @@ function Home2() {
             <h5>“With Sharebnb, you don&apos;t just swap homes, you swap cultures. Through my connections on Sharebnb I have been able to explore the world.” — Yon Mineo</h5>
           </div>
           <div className="users-index">
-            {properties ? properties.slice(1, 50).map(property => (
+            {properties ? properties.slice(0, 52).map(property => (
               <div key={property.id}>
                 <img src={property.owner.profile_image} />
               </div>

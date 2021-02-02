@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { useParams, Link, useLocation, useHistory } from 'react-router-dom'
-import { Button, Icon,  Form, Comment } from 'semantic-ui-react'
+import { Button, Icon,  Form, Comment, TextArea } from 'semantic-ui-react'
 import Popup from 'reactjs-popup'
 import useForm from '../../utils/useForm'
 import moment from 'moment'
@@ -268,11 +268,14 @@ function PropertyShow() {
                     <div className="delete-popup-buttons">
                       <Form.Field>
                         <label>Leave A Review</label>
-                        <textarea placeholder='eg. I loved this property!'
+                        {/* <textarea placeholder='eg. I loved this property!'
                           onChange={handleChange}
                           name="text"
                           value={formdata.text}
-                        />
+                        /> */}
+                        <Form>
+                          <TextArea className="review-textarea" placeholder='e.g. Tell us more...' style={{ width: 300 }}/>
+                        </Form>
                         <p>Rating</p>
                         {/* <select placeholder="e.g. 5" onClick={handleChange} value={formdata.rating}>
                           <option value="1">1</option>
@@ -287,6 +290,7 @@ function PropertyShow() {
                           name="rating"
                           value={formdata.rating}
                         />
+                        {/* <Rating className="rating" icon='star' defaultRating={1} maxRating={5}/> */}
                         <Button onClick={handleSubmit} name={property.id} className="submit-review" type="submit" style={{ backgroundColor: 'white', borderRadius: 0, color: '#012349' }}>Submit Review</Button>
                       </Form.Field>
                     </div>
