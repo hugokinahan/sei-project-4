@@ -1,11 +1,13 @@
 import React from 'react'
-import { getSingleProperty, getAllProperties, deleteProperty, favouriteAProperty, unFavouriteProperty, createPropertyReview } from '../../lib/api'
+
 import { useParams, Link, useLocation, useHistory } from 'react-router-dom'
-import { Button, Icon, Comment, Form } from 'semantic-ui-react'
+import { Button, Icon,  Form, Comment } from 'semantic-ui-react'
 import Popup from 'reactjs-popup'
 import useForm from '../../utils/useForm'
 import moment from 'moment'
 
+
+import { getSingleProperty, getAllProperties, deleteProperty, favouriteAProperty, unFavouriteProperty, createPropertyReview } from '../../lib/api'
 // import Popup from 'reactjs-popup'
 // import useForm from '../../utils/useForm'
 import { isAuthenticated, isOwner, getUserId } from '../../lib/auth'
@@ -15,41 +17,24 @@ import PropertyShowMap from './PropertyShowMap'
 import PropertyShowPopup from './PropertyShowPopup'
 import PropertyNavBar from './PropertyNavBar'
 
-
 function PropertyShow() {
 
+  moment().format()
+  const { id } = useParams()
+  
   const isLoggedIn = isAuthenticated()
   const history = useHistory()
   useLocation()
 
   const [property, setProperty] = React.useState([])
+  const [properties, setProperties] = React.useState([])
+  
+  const [isFavourite, setIsFavourite] = React.useState(false)
+
+  const [reviews, setReviews] = React.useState(null) 
   const [newReview, setNewReview] = React.useState()
 
-
-  console.log(property)
-
-  const { id } = useParams()
-
-  
-
-  // const history = useHistory()
-  // const { id } = useParams()
-
-  const [properties, setProperties] = React.useState([])
-  const [isFavourite, setIsFavourite] = React.useState(false)
  
-
-  const handleFavouriteProperty = async event => {
-    event.preventDefault()
-    try {
-      await favouriteAProperty(id)
-      setIsFavourite(!isFavourite)
-    } catch (err) {
-      console.log(err)
-    }
-    //* Add to favourites
-  }
-
   const { formdata, handleChange, errors, setErrors } = useForm({
     text: '', 
     rating: '',
@@ -57,19 +42,6 @@ function PropertyShow() {
     property: ''
   })
   console.log(errors)
-  
- 
-
-  const handleUnFavourite = async event => {
-    event.preventDefault()
-    try {
-      setIsFavourite(!isFavourite)
-      await unFavouriteProperty(id)
-    } catch (err) {
-      console.log(err)
-    }
-    //* Remove from favourites
-  }
 
   React.useEffect(() => {
     const getProperties = async () => {
@@ -84,7 +56,7 @@ function PropertyShow() {
     getProperties()
   }, [])
 
-  const [reviews, setReviews] = React.useState(null) 
+ 
 
   React.useEffect(() => {
 
@@ -110,11 +82,38 @@ function PropertyShow() {
     }
     getData()
   }, [id, newReview])
-  console.log(reviews)
+ 
 
-  console.log(property)
-  // console.log(found)
 
+
+
+  // Favourite A Property
+
+  const handleFavouriteProperty = async event => {
+    event.preventDefault()
+    try {
+      await favouriteAProperty(id)
+      setIsFavourite(!isFavourite)
+    } catch (err) {
+      console.log(err)
+    }
+    //* Add to favourites
+  }
+
+  const handleUnFavourite = async event => {
+    event.preventDefault()
+    try {
+      setIsFavourite(!isFavourite)
+      await unFavouriteProperty(id)
+    } catch (err) {
+      console.log(err)
+    }
+    //* Remove from favourites
+  }
+
+  
+
+  // Delete Property
   const handleDelete = async event => {
     event.preventDefault()
     try {
@@ -126,7 +125,6 @@ function PropertyShow() {
   }
 
 
-  // const [filteredProperties, setFilteredProperties] = React.useState([])
 
 
 
@@ -134,17 +132,7 @@ function PropertyShow() {
     history.push('/properties')
   }
 
-  // const handleCommentDelete = async (reviewId) => {
-  //   try {
-  //     await deletePropertyReview(id, reviewId)
-  //     const { data } = await getSingleProperty(id)
-  //     setProperty(data)
-  //   } catch (err) {
-  //     console.log(err)
-  //   }
-  // }
 
-  moment().format()
 
   // * Submit Reviews
   const handleSubmit = async (e) => {
@@ -170,11 +158,12 @@ function PropertyShow() {
 
 
 
+
   return (
     <section className="show-page">
       <PropertyNavBar handleSearch={handleShowSearch} className="navbar"/>
       <div>
-        <div className="homepage-top-layer">
+        <div className="showpage-top-layer">
           <img src={property.property_image} />
           <>
             {isLoggedIn ?
@@ -229,7 +218,11 @@ function PropertyShow() {
               
               </>
               :
-              ''
+              <div className="icon-buttons">
+                <Button className="favorite-button" style={{ backgroundColor: '#012349', borderRadius: 100, color: 'white' }} onClick={handleFavouriteProperty}>
+                  <Icon name="favorite"/>
+                </Button>
+              </div>
             }
           </>
         </div>
@@ -278,6 +271,7 @@ function PropertyShow() {
                         {/* </select> */}
                         <input placeholder='eg. 5'
                           onChange={handleChange}
+                          type="number"
                           name="rating"
                           value={formdata.rating}
                         />
@@ -290,69 +284,73 @@ function PropertyShow() {
             </>
             :
             <div>
-              <Button as={Link} to='' className="request-button" type="submit" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
+              {/* <Button as={Link} to='' className="request-button" type="submit" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
         Request A Swap <Icon name="exchange" className="exchange-icon"/>
-              </Button>
+              </Button> */}
             </div>
           }
         </>
       </div>
-      <div className="map-user-container">
-        <div className="user-details">
-          {property.owner ? 
-            <div className="user-fields">
-              <h2>{property.owner.first_name} {property.owner.last_name}</h2>
-              <div className="user-info">
-                <div className="user-deets">
-                  <p>{property.owner.email}</p>
-                  <p>{property.owner.bio_description}</p>
-                </div>
-                <div className="user-image-button">
-                  <div className="user-image">
-                    <img src={property.owner ? property.owner.profile_image : '' } />
+      <div className="middle-section">
+        <div className="map-user-container">
+          <div className="user-details">
+            {property.owner ? 
+              <div className="user-fields">
+                <h2>{property.owner.first_name} {property.owner.last_name}</h2>
+                <div className="user-info">
+                  <div className="user-deets">
+                    <p>{property.owner.email}</p>
+                    <p>{property.owner.bio_description}</p>
                   </div>
-                  <div className="contact-button">
-                    <Button as={Link} to={isLoggedIn ? `/users/profile/${property.owner.id}` : '/login'}className="request-button"  style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
-                      {property.owner ? `View ${property.owner.first_name}s profile` : '' }
-                    </Button>
+                  <div className="user-image-button">
+                    <div className="user-image">
+                      <img src={property.owner ? property.owner.profile_image : '' } />
+                    </div>
+                    <div className="contact-button">
+                      <Button as={Link} to={isLoggedIn ? `/users/profile/${property.owner.id}` : '/login'}className="request-button"  style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
+                        {property.owner ? `View ${property.owner.first_name}s profile` : '' }
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            :
-            ''
-          }
-        </div>
-        <PropertyShowMap property={property}/>
-      </div>
-      <div className="reviews-container">
-        <h2>Reviews</h2>
-        <div className="reviews-info">
-          <Comment.Group>
-            {reviews ? reviews.map(review => {
-              return <Comment key={review.id}>
-                <Comment.Avatar as='a' src={review.owner.profile_image} />
-                <Comment.Content>
-                  <Comment.Author>{review.owner.first_name} {review.owner.last_name}</Comment.Author>
-                  <Comment.Metadata>
-                    <div>{<p><small className="text-muted px-1">{moment(review.created_at).fromNow()}</small></p>}</div>
-                    <div>
-                      <Icon name='star' />{review.rating}
-                    </div>
-                  </Comment.Metadata>
-                  <Comment.Text>
-                    <p>{review.text}</p>
-                  </Comment.Text>
-                </Comment.Content>
-              </Comment>
-            })
               :
               ''
             }
-          </Comment.Group>
+          </div>
+          <PropertyShowMap property={property}/>
+        </div>
+        <div className="reviews-container">
+          <h2>Reviews</h2>
+          <div className="reviews-info">
+            <Comment.Group>
+              {reviews ? reviews.map(review => {
+                return <Comment key={review.id}>
+                  <Comment.Avatar as='a' src={review.owner.profile_image} />
+                  <Comment.Content>
+                    <Comment.Author>{review.owner.first_name} {review.owner.last_name}</Comment.Author>
+                    <Comment.Metadata>
+                      <div>{<p><small className="text-muted px-1">{moment(review.created_at).fromNow()}</small></p>}</div>
+                      <div>
+                        <Icon name='star' />{review.rating}
+                      </div>
+                    </Comment.Metadata>
+                    <Comment.Text>
+                      <p>{review.text}</p>
+                    </Comment.Text>
+                  </Comment.Content>
+                </Comment>
+              })
+                :
+                ''
+              }
+            </Comment.Group>
+          </div>
+       
         </div>
       </div>
-      <div className="featured-container">
+      
+      <div>
         <div className="featured-header">
           <h2>Featured Properties</h2>
         </div>
