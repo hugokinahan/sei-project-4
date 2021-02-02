@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
 
 
@@ -10,10 +10,13 @@
   justify-content: center;
   flex-direction: column;
   background-color: #f5f1ed;
+  font-family: 'Avenir', Helvetica, sans-serif;
+  font-weight: 100;
   h1 {
     margin-top: 80px;
     font-size: 20px;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Avenir', Helvetica, sans-serif;
+    font-weight: 100;
     color: black;
   }
 }
@@ -24,6 +27,8 @@ div .ui.menu.index-page {
   height: 70px;
   justify-content: space-evenly;
   align-items: center;
+  font-family: 'Avenir', Helvetica, sans-serif;
+  font-weight: 100;
 }
 
 .index-menu-banner {
@@ -35,6 +40,8 @@ div .ui.menu.index-page {
   h1 {
     margin: 0;
     text-align: center;
+    font-family: 'Avenir', Helvetica, sans-serif;
+    font-weight: 100;
   }
 }
 
@@ -48,19 +55,24 @@ div .ui.menu.index-page {
   flex-wrap: wrap;
   width: 1500px;
   max-width: 100%;
+  font-family: 'Avenir', Helvetica, sans-serif;
+  font-weight: 100;
 }
 
 .index-grid-div {
   height: 350px;
   width: 100%;
   margin: 20px;
+  font-family: 'Avenir', Helvetica, sans-serif;
+  font-weight: 100;
   img { 
     height: 250px;
     width: 400px;
   }
   p {
-    font-family: 'Playfair Display', serif;
-    color: black;
+    font-family: 'Avenir', Helvetica, sans-serif;
+    font-weight: 100;
+    color:#012349;
     margin: 1px;
   }
 }
@@ -70,15 +82,25 @@ div .ui.menu.index-page {
 .index-grid-house-info {
   display: flex;
   width: 400px;
+  font-family: 'Avenir', Helvetica, sans-serif;
+  font-weight: 100;
   .house-name-details {
     width: 200px;
+    p {
+      font-family: 'Avenir', Helvetica, sans-serif;
+      font-weight: 100;
+    }
   }
   .house-details {
     width: 200px;
     margin-left: auto;
     order: 2;
+    font-family: 'Avenir', Helvetica, sans-serif;
+    font-weight: 100;
     p {
       text-align: right;
+      font-family: 'Avenir', Helvetica, sans-serif;
+      font-weight: 100;
     }
   }
 }
@@ -91,11 +113,13 @@ padding: 2px;
 p {
   margin-left: 5px;
   text-align: right;
+  font-family: 'Avenir', Helvetica, sans-serif;
+  font-weight: 100;
 }
 }
 
 .index-icon {
-  color: black;
+  color: #012349;
 }
 
 // User Info on each grid
@@ -104,18 +128,30 @@ p {
   display: flex;
   width: 400px;
   margin-top: 10px;
-  p {margin-top: 10px; }
+  font-family: 'Avenir', Helvetica, sans-serif;
+  font-weight: 100;
+  p {
+    margin-top: 10px; 
+    font-family: 'Avenir', Helvetica, sans-serif;
+    font-weight: 100;
+  }
 }
 
 .index-owner-details {
   display: flex;
+  font-family: 'Avenir', Helvetica, sans-serif;
+  font-weight: 100;
   p {
     margin-top: 10px;
+    font-family: 'Avenir', Helvetica, sans-serif;
+    font-weight: 100;
   }
 }
 
 .user-profile-image {
  margin-right: 5px;
+ font-family: 'Avenir', Helvetica, sans-serif;
+ font-weight: 100;
   img {
     height: 30px;
     width: 30px;
@@ -140,4 +176,5 @@ p {
 #root > div.index-container > div.index-menu-banner > div > div.ui.icon.input.search-button {
   margin: 15px;
   width: 300px;
+  
 }

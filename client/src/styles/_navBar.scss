@@ -1,17 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
 .logo-header {
+  font-family: 'Avenir', Helvetica, sans-serif;
+  font-weight: 100;
   color: white;
+  margin-right: 77px;
   a {
     color: white;
     font-family: 'Playfair Display', serif;
   }
 }
 
-
-
 .navbar-item {
   margin-left: 20px;
+  margin-top: 1px;
+  // font-family: 'Josefin Sans', sans-serif;
+  letter-spacing: 1px;
 }
 
 .ui.menu.fixed {

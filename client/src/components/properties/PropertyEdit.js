@@ -13,6 +13,8 @@ function PropertyEdit() {
   const history = useHistory()
   const { id } = useParams()
 
+  const [editErrors, setEditErrors] = React.useState(false)
+
   const { formdata, setFormdata,  handleChange } = useForm({
     name: '',
     address: '',
@@ -80,6 +82,7 @@ function PropertyEdit() {
       await editProperty(id, newProperty)
       history.push(`/properties/${id}`)
     } catch (err) {
+      setEditErrors(true)
       console.log(err)
     }
   }
@@ -210,7 +213,15 @@ function PropertyEdit() {
             <Checkbox label='Available For Exchange' />
           </Form.Field>
           <Button type='submit'>Edit Property</Button>
-        </Form>
+        </Form>     
+        {editErrors ?
+        
+          <div className="ui error message small">
+            <div className="header">Please ensure each field is completed</div>
+          </div>
+          :
+          ''
+        }
         {/* <p>Already with us? Login <Link to="/login">here</Link></p> */}
       </section>
     </div>

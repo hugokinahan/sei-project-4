@@ -26,14 +26,14 @@ function Nav() {
       <Link to="/properties" className="navbar-item">
         <Menu.Item
           className="home"
-          name='Explore'
+          name='EXPLORE'
         />
       </Link>
       {isLoggedIn &&
       <Link to="/register/property" className="navbar-item">
         <Menu.Item
           className="home"
-          name='Add Sharebnb'
+          name='ADD PROPERTY'
         />
       </Link>
       }
