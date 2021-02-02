@@ -39,7 +39,7 @@ export function deleteProperty(id) {
 // Edit a Property
 
 export function editProperty(id, formdata) {
-  return axios.put(`${baseUrl}/properties/${id}`, formdata, headers())
+  return axios.put(`${baseUrl}/properties/${id}/`, formdata, headers())
 }
 
 // Get all property types

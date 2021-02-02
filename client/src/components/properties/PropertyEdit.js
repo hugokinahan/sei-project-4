@@ -1,17 +1,19 @@
 import React from 'react'
 import { Form, Checkbox, Button } from 'semantic-ui-react'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import Select from 'react-select'
 
 
 import useForm from '../../utils/useForm'
-import { createProperty } from '../../lib/api'
+import { editProperty, getSingleProperty } from '../../lib/api'
+import { getUserId } from '../../lib/auth'
 
 function PropertyEdit() {
 
   const history = useHistory()
+  const { id } = useParams()
 
-  const { formdata,  handleChange } = useForm({
+  const { formdata, setFormdata,  handleChange } = useForm({
     name: '',
     address: '',
     city: '',
@@ -27,6 +29,24 @@ function PropertyEdit() {
     types: [],
     owner: ''
   })
+
+  const [property, setProperty] = React.useState([])
+
+  React.useEffect(() => {
+
+    const getData = async () => {
+      try {
+        const { data } = await getSingleProperty(id)
+        setProperty(data)
+        console.log(data)
+        setFormdata(data)
+        console.log(property)
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    getData()
+  }, [id])
 
 
   const types = [ 
@@ -53,12 +73,12 @@ function PropertyEdit() {
   const handleSubmit = async event => {
     event.preventDefault()
     try {
-      console.log('User has edit property')
+      console.log('User has edited property')
       console.log(formdata)
-      const newProperty = { ...formdata, is_available: true }
+      const newProperty = { ...formdata, is_available: true, owner: getUserId() }
       console.log(newProperty)
-      await createProperty(newProperty)
-      history.push('/profile/')
+      await editProperty(id, newProperty)
+      history.push(`/properties/${id}`)
     } catch (err) {
       console.log(err)
     }
@@ -72,7 +92,7 @@ function PropertyEdit() {
   }
 
   return (
-    <div className="register-container">
+    <div className="edit-container">
       <section className="register-section">
         <h1>Edit Your Property</h1>
         <Form inverted onSubmit={handleSubmit} className="small form">
