@@ -5,8 +5,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  h1, p {
+  h1 {
     color: white;
+    font-family: 'Avenir', Helvetica, sans-serif;
+    font-weight: 400;
+  }
+  p {
+    color: white;
+    font-family: 'Avenir', Helvetica, sans-serif;
+    font-weight: 100;
   }
 }
 
