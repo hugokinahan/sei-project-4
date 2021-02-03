@@ -24,15 +24,6 @@
   margin: 0 auto;
 }
 
-// h2 { 
-//   font-family: "Gill Sans"; 
-//   font-size: 18px; 
-//   font-style: normal; 
-//   font-variant: normal; 
-//   font-weight: 100; 
-//   line-height: 27px; 
-// }
-
 #root > section > div.hero > div.homepage-layout > div.HeroCarousel_wrapper__2J_Tt {
   margin-left: 150px;
 }
@@ -121,6 +112,8 @@
   flex-wrap: wrap;
   flex-direction: row;
   width: 50%;
+  margin-left: 50px;
+  margin-top: 30px;
 
   img {
     border-radius: 80px;
@@ -170,11 +163,11 @@ hr {
     flex-direction: column;
     justify-content: center;
     height: 375px;
-    margin-left: 150px;
+    margin-left: 190px;
     img {
       width: 450px;
       margin-top: 360px;
-      margin-left: -60px;
+      margin-left: -85px;
       height: auto;
     }
   }
@@ -213,7 +206,7 @@ hr {
 
   .featured-container-section {
     color: #012349;
-    margin-top: -35rem;
+    margin-top: -21rem;
     h2 {
       font-family: 'Avenir', Helvetica, sans-serif;
       font-weight: 400;

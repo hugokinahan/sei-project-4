@@ -176,3 +176,9 @@ p {
   width: 300px;
   
 }
+
+@media only screen and (max-width: 960px) {
+  #root > div.index-container > h1:nth-child(5) {
+    margin-top: -590px;
+  }
+}
