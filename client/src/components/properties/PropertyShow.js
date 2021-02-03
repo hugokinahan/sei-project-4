@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams, Link, useLocation, useHistory } from 'react-router-dom'
-import { Button, Icon,  Form, Comment } from 'semantic-ui-react'
+import { Button, Icon,  Form, Comment, Divider, Header } from 'semantic-ui-react'
 import Popup from 'reactjs-popup'
 import useForm from '../../utils/useForm'
 import moment from 'moment'
@@ -265,9 +265,95 @@ function PropertyShow() {
           {isLoggedIn ?
             <>
               <PropertyShowPopup property={property} id={id} />
+            </>
+            :
+            <div>
+            </div>
+          }
+        </>
+      </div>
+      <div className="middle-section">
+        <div className="map-user-container">
+          <div className="user-details">
+            {property.owner ? 
+              <div className="user-fields">
+                <h2>{property.owner.first_name} {property.owner.last_name}</h2>
+                <div className="user-info">
+                  <div className="user-deets">
+                    <p>{property.owner.email}</p>
+                    <p>{property.owner.bio_description}</p>
+                  </div>
+                  <div className="user-image-button">
+                    <div className="user-image">
+                      <img src={property.owner ? property.owner.profile_image : '' } />
+                    </div>
+                    <div className="contact-button">
+                      <Button as={Link} to={isLoggedIn ? `/users/profile/${property.owner.id}` : '/login'}className="request-button"  style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
+                        {property.owner ? `View ${property.owner.first_name}s profile` : '' }
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              :
+              ''
+            }
+          </div>
+          <PropertyShowMap property={property}/>
+        </div>
+        <div className="reviews-container">
+          <Divider horizontal>
+            <Header as='h3' color='#012349'>
+      Reviews
+            </Header>
+          </Divider>
+          <div className="reviews-info">
+            <Comment.Group>
+              <Comment className="showpage-comment">
+                <Comment.Avatar as='a' src="https://randomuser.me/api/portraits/women/7.jpg" />
+                <Comment.Content>
+                  <Comment.Author>Jane Smith</Comment.Author>
+                  <Comment.Metadata>
+                    <div>{<p><small className="text-muted px-1">2 days ago</small></p>}</div>
+                    <div>
+                      <Icon name='star' />4
+                    </div>
+                  </Comment.Metadata>
+                  <Comment.Text>
+                    <p>We had the best time at {property.name}! Couldnt thank {property.owner ? property.owner.first_name : 'Caro'} enough! </p>
+                  </Comment.Text>
+                </Comment.Content>
+              </Comment>
+              {reviews ? reviews.map(review => {
+                return <Comment className="showpage-comment" key={review.id}>
+                  <Comment.Avatar as='a' src={review.owner.profile_image} />
+                  <Comment.Content>
+                    <Comment.Author><Link to={`/users/profile/${review.owner.id}`}>{review.owner.first_name} {review.owner.last_name}</Link></Comment.Author>
+                    <Comment.Metadata>
+                      <div>{<p><small className="text-muted px-1">{moment(review.created_at).fromNow()}</small></p>}</div>
+                      <div>
+                        <Icon name='star' />{review.rating}
+                      </div>
+                    </Comment.Metadata>
+                    <Comment.Text>
+                      <p>{review.text}</p>
+                    </Comment.Text>
+                    {isOwner(review.owner ? review.owner.id : '') &&
+                            <Comment.Actions>
+                              <Comment.Action onClick={handleDeleteReview} name={review.id}>Delete</Comment.Action>
+                            </Comment.Actions>
+                    }
+                  </Comment.Content>
+                </Comment>
+              })
+                :
+                <h4>Be the first to leave a review on {property.name}</h4>
+              }
+            </Comment.Group>
+            <div className="leave-review-button">
               <Popup
                 trigger={<Button as={Link} className="review-button" type="submit" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
-                Leave a Review <Icon name="review" className="review-icon"/>
+                Leave a Review <Icon name="edit outline" className="review-icon"/>
                 </Button>}
                 modal
                 nested
@@ -316,72 +402,7 @@ function PropertyShow() {
                   </div>
                 )}
               </Popup>
-            </>
-            :
-            <div>
             </div>
-          }
-        </>
-      </div>
-      <div className="middle-section">
-        <div className="map-user-container">
-          <div className="user-details">
-            {property.owner ? 
-              <div className="user-fields">
-                <h2>{property.owner.first_name} {property.owner.last_name}</h2>
-                <div className="user-info">
-                  <div className="user-deets">
-                    <p>{property.owner.email}</p>
-                    <p>{property.owner.bio_description}</p>
-                  </div>
-                  <div className="user-image-button">
-                    <div className="user-image">
-                      <img src={property.owner ? property.owner.profile_image : '' } />
-                    </div>
-                    <div className="contact-button">
-                      <Button as={Link} to={isLoggedIn ? `/users/profile/${property.owner.id}` : '/login'}className="request-button"  style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
-                        {property.owner ? `View ${property.owner.first_name}s profile` : '' }
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              :
-              ''
-            }
-          </div>
-          <PropertyShowMap property={property}/>
-        </div>
-        <div className="reviews-container">
-          <h2>Reviews</h2>
-          <div className="reviews-info">
-            <Comment.Group>
-              {reviews ? reviews.map(review => {
-                return <Comment className="showpage-comment" key={review.id}>
-                  <Comment.Avatar as='a' src={review.owner.profile_image} />
-                  <Comment.Content>
-                    <Comment.Author>{review.owner.first_name} {review.owner.last_name}</Comment.Author>
-                    <Comment.Metadata>
-                      <div>{<p><small className="text-muted px-1">{moment(review.created_at).fromNow()}</small></p>}</div>
-                      <div>
-                        <Icon name='star' />{review.rating}
-                      </div>
-                    </Comment.Metadata>
-                    <Comment.Text>
-                      <p>{review.text}</p>
-                    </Comment.Text>
-                    {isOwner(review.owner ? review.owner.id : '') &&
-                            <Comment.Actions>
-                              <Comment.Action onClick={handleDeleteReview} name={review.id}>Delete</Comment.Action>
-                            </Comment.Actions>
-                    }
-                  </Comment.Content>
-                </Comment>
-              })
-                :
-                <h4>Be the first to leave a review on {property.name}</h4>
-              }
-            </Comment.Group>
           </div>
         </div>
       </div>

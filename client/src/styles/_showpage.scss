@@ -161,6 +161,10 @@ html {
 }
 
 
+.exchange-icon {
+  padding-left: 10px;
+}
+
 .map-container {
   height: 300px;
   width: 300px;
@@ -183,7 +187,15 @@ html {
   justify-content: center;
 }
 
+.leave-review-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ text-align: center;
+}
+
 .reviews-container {
+  padding-left: 40px;
   h2 {
     text-align: center;
     font-family: 'Avenir', Helvetica, sans-serif;
@@ -202,9 +214,27 @@ html {
   text-align: left;
 }
 
+.review-icon{
+  padding-left: 10px;
+}
+
+div.horizontal.ui.divider > h3 {
+  font-family: 'Avenir', Helvetica, sans-serif;
+  font-weight: 500;
+  }
+
 
 .ui.comments .comment {
   margin: 20px;
+  margin-left: 40px;
+}
+
+.author {
+  a {
+    font-size: 1em;
+    color: rgba(0,0,0,.87);
+    font-weight: 700;
+  }
 }
 
 

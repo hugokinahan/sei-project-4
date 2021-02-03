@@ -1,11 +1,10 @@
 
 
 .register-container {
-  margin-top: -4rem;
   background-color: #012349;
-  height: 150vh;
+  // height: 150vh;
   display: flex;
-  align-items: center;
+  // align-items: center;
   justify-content: center;
   h1, p {
     color: white;
@@ -20,4 +19,14 @@
   align-items: center;
   justify-content: center;
   // border: 1px white solid;
+  .register-button {
+ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+}
+p {
+  margin: 20px;
+}
 }
