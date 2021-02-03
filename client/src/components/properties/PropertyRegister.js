@@ -206,7 +206,6 @@ function Register() {
           :
           ''
         }
-        {/* <p>Already with us? Login <Link to="/login">here</Link></p> */}
       </section>
     </div>
   )

@@ -5,7 +5,6 @@ import { Icon } from 'semantic-ui-react'
 
 function PropertyShowMap({ property }) {
 
- 
   const [popup, setPopup] = React.useState(null)
   console.log(popup)
 
@@ -44,37 +43,14 @@ function PropertyShowMap({ property }) {
                 aria-label="map-marker"
                 onClick={() => setPopup(property.owner.first_name)}
               >
-                {/* <img src={property.owner ? property.owner.profile_image : '' }/> */}
                 <Icon className="icon" name="map marker alternate" />
               </span>
             </Marker>
             :
             ''
           }
-          {/* {popup &&
-    // <Popup
-    //   closeOnClick={true}
-    //   latitude={popup.latitude}
-    //   longitude={popup.longitude}
-    //   closeButton={false}
-    // >
-      <h4>{popup.name}, {popup.city}</h4>
-      <h4>Events:</h4>
-      <div>{events.map(event => {
-        if (event.venue.name === popup.name) {
-          return <p>
-            <Link to={`/events/${event._id}`}>{event.name}</Link>
-          </p>
-        }
-      })}
-      </div>
-    </Popup>
-      } */}
         </ReactMapGL>
         : 
-      // <div className="ring-loader">
-      //   <RingLoader color="purple" size={60} />
-      // </div>
         ''
       }
     </div>

@@ -34,7 +34,6 @@ function Home2() {
         const { data } = await getAllPropertyTypes()
         console.log(data)
         setPropertyTypes(data)
-        // setFilteredProperties(data)
 
       } catch (err) {
         console.log(err)
@@ -49,9 +48,6 @@ function Home2() {
     <section className="home-page-section">
       <div className="hero">
         <div className="homepage-layout">
-          {/* <img
-            src="https://ogroup.com/wp-content/uploads/2018/09/1206amalfi-high-2-1.jpg"
-          /> */}
           <HeroCarousel interval={8000}>
             <img
               src="https://ogroup.com/wp-content/uploads/2018/09/1206amalfi-high-2-1.jpg"

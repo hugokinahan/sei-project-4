@@ -41,9 +41,6 @@ function Register() {
     }
   }
 
-  // console.log(errors)
-  // console.log(setErrors)
-
   return (
     <div className="register-container">
       <section className="register-section">

@@ -5,8 +5,6 @@ import { Button, Icon, Checkbox, Form } from 'semantic-ui-react'
 import { createPropertyRequest ,  getSingleProperty, showUserProfile, headers } from '../../lib/api'
 import { getUserId } from '../../lib/auth'
 
-// import { useParams } from 'react-router-dom'
-
 
 
 function PropertyShowPopup ({ id }) {
@@ -22,7 +20,6 @@ function PropertyShowPopup ({ id }) {
       try {
         const { data } = await getSingleProperty(id)
         setProperty(data)
-        // setViewport({ latitude: Number(data.latitude), longitude: Number(data.longitude), zoom: 7 })
       } catch (err) {
         console.log(err)
       }
@@ -37,7 +34,6 @@ function PropertyShowPopup ({ id }) {
     const getProfile = async () => {
       try {
         const { data } = await showUserProfile(getUserId(), headers())
-        // console.log(data)
         setProfile(data)
       } catch (err) {
         console.log(err)
@@ -71,10 +67,6 @@ function PropertyShowPopup ({ id }) {
     }
   }
 
-  // console.log(errors)
-  // console.log(setErrors)
-
-  // console.log(formdata)
 
 
   return (
@@ -199,18 +191,6 @@ function PropertyShowPopup ({ id }) {
             }
           </div>
           <div className="actions">
-            {/* <Popup
-              trigger={<button className="button"> Trigger </button>}
-              position="top center"
-              nested
-            >
-              <span>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae
-              magni omnis delectus nemo, maxime molestiae dolorem numquam
-              mollitia, voluptate ea, accusamus excepturi deleniti ratione
-              sapiente! Laudantium, aperiam doloribus. Odit, aut.
-              </span>
-            </Popup> */}
             <Button className="popup-auth-request" onClick={() => {
               console.log('modal closed ')
               close()
