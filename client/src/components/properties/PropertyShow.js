@@ -394,49 +394,49 @@ function PropertyShow() {
         </div>
       </div>
       
-      <div>
-        <div className="featured-header">
-          <h2>Featured Properties</h2>
-        </div>
-        <div className="index-grid">
-          {properties ? properties.slice(40, 43).map(property => (
-            <Link to={`/properties/${property.id}`} key={property.id} className="index-grid-div-container" >
-              <div className="index-grid-div">
-                <img src={property.property_image} />
-                <div className="index-grid-house-info">
-                  <div className="house-name-details">
-                    <p>{property.name}</p>
-                    <p>{property.city}, {property.country}</p>
-                  </div>
-                  <div className="house-details">
-                    <div className="bathrooms">
-                      <Icon name="bath" className="index-icon"></Icon>
-                      <p>{property.bathrooms} bathrooms </p>
-                      
-                    </div>
-                    <div className="bedrooms">
-                      <Icon name="bed" className="index-icon"></Icon>
-                      <p>{property.bedrooms} bedrooms </p>
-                      
-                    </div>
-                  </div>
+    
+      <div className="showpage-featured-header">
+        <h2>Featured Properties</h2>
+      </div>
+      <div className="index-grid">
+        {properties ? properties.slice(40, 43).map(property => (
+          <Link to={`/properties/${property.id}`} key={property.id} className="index-grid-div-container" >
+            <div className="index-grid-div">
+              <img src={property.property_image} />
+              <div className="index-grid-house-info">
+                <div className="house-name-details">
+                  <p>{property.name}</p>
+                  <p>{property.city}, {property.country}</p>
                 </div>
-                <div className="index-user-info">
-                  <div className="index-owner-details">
-                    <div className="user-profile-image">
-                      <img src={property.owner.profile_image}></img>
-                    </div>
-                    <p>Added by {property.owner.first_name} {property.owner.last_name}</p>
+                <div className="house-details">
+                  <div className="bathrooms">
+                    <Icon name="bath" className="index-icon"></Icon>
+                    <p>{property.bathrooms} bathrooms </p>
+                      
+                  </div>
+                  <div className="bedrooms">
+                    <Icon name="bed" className="index-icon"></Icon>
+                    <p>{property.bedrooms} bedrooms </p>
+                      
                   </div>
                 </div>
               </div>
-            </Link>
-          ))
-            :
-            ''
-          }
-        </div>
+              <div className="index-user-info">
+                <div className="index-owner-details">
+                  <div className="user-profile-image">
+                    <img src={property.owner.profile_image}></img>
+                  </div>
+                  <p>Added by {property.owner.first_name} {property.owner.last_name}</p>
+                </div>
+              </div>
+            </div>
+          </Link>
+        ))
+          :
+          ''
+        }
       </div>
+      
       
     </section>
   )
