@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { useParams, Link, useLocation, useHistory } from 'react-router-dom'
 import { Button, Icon,  Form, Comment } from 'semantic-ui-react'
 import Popup from 'reactjs-popup'
@@ -35,12 +34,9 @@ function PropertyShow() {
   const [newReview, setNewReview] = React.useState()
   const [reviewErrors, setReviewErrors] = React.useState(false)
 
-<<<<<<< HEAD
 
-=======
   // Form Data
  
->>>>>>> development
   const { formdata, handleChange, errors, setErrors } = useForm({
     text: '', 
     rating: '',
@@ -64,7 +60,7 @@ function PropertyShow() {
     getProperties()
   }, [id])
 
-
+  // Get Single Property
 
   React.useEffect(() => {
 
@@ -136,14 +132,6 @@ function PropertyShow() {
 
 
 
-
-
-  const handleShowSearch = () => {
-    history.push('/properties')
-  }
-
- 
-
   // * Submit Reviews
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -177,6 +165,12 @@ function PropertyShow() {
     }
   }
 
+  //
+  const handleShowSearch = () => {
+    history.push('/properties')
+  }
+
+ 
 
 
 

@@ -1,10 +1,12 @@
 import React from 'react'
-import { showUserProfile, headers, deletePropertyRequest, editPropertyRequest } from '../../lib/api'
 import { Link } from 'react-router-dom'
 import Popup from 'reactjs-popup'
-import { getUserId } from '../../lib/auth'
 import { Icon, Divider, Header, Segment, Card, Button, Image } from 'semantic-ui-react'
 import moment from 'moment'
+
+
+import { showUserProfile, headers, deletePropertyRequest, editPropertyRequest } from '../../lib/api'
+import { getUserId } from '../../lib/auth'
 import useForm from '../../utils/useForm'
 
 function Profile() {
@@ -25,6 +27,9 @@ function Profile() {
     is_accepted: ''
   })
 
+  const [activeItem, setActiveItem] = React.useState(true)
+  const [isRecievedRequests, setIsRecievedRequests] = React.useState(true)
+
   React.useEffect(() => {
     const getProfile = async () => {
       try {
@@ -42,8 +47,8 @@ function Profile() {
 
   console.log(profile)
 
-  const [activeItem, setActiveItem] = React.useState(true)
-  const [isRecievedRequests, setIsRecievedRequests] = React.useState(true)
+  
+  // Tab Functions
 
   const handleClickItem = () => {
     setActiveItem(!activeItem)
@@ -54,7 +59,7 @@ function Profile() {
   }
 
   
-  
+  // Delete & Accept Requests
 
   const handleRequestDelete = async event => {
     event.preventDefault()
@@ -70,7 +75,6 @@ function Profile() {
     }
   }
 
- 
 
   const handleAcceptRequest = async event => {
     event.preventDefault()
@@ -86,7 +90,7 @@ function Profile() {
     }
   }
 
-  // console.log(isAccepted)
+
  
   return (
     <>

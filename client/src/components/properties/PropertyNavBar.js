@@ -1,8 +1,9 @@
 import React from 'react'
-import { getAllProperties } from '../../lib/api'
 import { Menu, Input } from 'semantic-ui-react'
 import ReactMultiSelectCheckboxes from 'react-multiselect-checkboxes'
 import { Link, useLocation } from 'react-router-dom'
+
+import { getAllProperties } from '../../lib/api'
 
 function PropertyIndex( { setFilteredProperties, searchValue, handleSearch, handleMultiTypeSelect }) {
 

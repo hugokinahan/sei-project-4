@@ -34,22 +34,6 @@ function PropertyEdit() {
 
   const [property, setProperty] = React.useState([])
 
-  React.useEffect(() => {
-
-    const getData = async () => {
-      try {
-        const { data } = await getSingleProperty(id)
-        setProperty(data)
-        console.log(data)
-        setFormdata(data)
-        console.log(property)
-      } catch (err) {
-        console.log(err)
-      }
-    }
-    getData()
-  }, [id])
-
 
   const types = [ 
     { label: 'City', value: 1 },
@@ -69,16 +53,33 @@ function PropertyEdit() {
     { label: 'Penthouse', value: 15 }
   ]
 
+  // Fetch Single Property
 
-  // Submit Functions
+  React.useEffect(() => {
+
+    const getData = async () => {
+      try {
+        const { data } = await getSingleProperty(id)
+        setProperty(data)
+        console.log(data)
+        setFormdata(data)
+        console.log(property)
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    getData()
+  }, [id])
+
+
+
+
+  // Edit Property Function
 
   const handleSubmit = async event => {
     event.preventDefault()
     try {
-      console.log('User has edited property')
-      console.log(formdata)
       const newProperty = { ...formdata, is_available: true, owner: getUserId() }
-      console.log(newProperty)
       await editProperty(id, newProperty)
       history.push(`/properties/${id}`)
     } catch (err) {
@@ -87,7 +88,6 @@ function PropertyEdit() {
     }
   }
 
-  console.log(formdata)
 
   const handleMultiSelectChange = (selected, name) => {
     const selectedItems = selected ? selected.map(item => item.value) : []

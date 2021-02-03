@@ -29,6 +29,8 @@ function PropertyIndex() {
 
   console.log(properties)
 
+  // Filter Property Functions
+
   const filterProperties = (event) => {
     const results = properties.filter(property => {
       return property.city.toLowerCase().includes(event.target.value.toLowerCase()) ||

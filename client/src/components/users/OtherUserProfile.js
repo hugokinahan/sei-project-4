@@ -1,11 +1,10 @@
 import React from 'react'
-import { showUserProfile, followUser, unFollowUser } from '../../lib/api'
 import { useParams, Link } from 'react-router-dom'
 import { Icon, Divider, Header, Segment } from 'semantic-ui-react'
 import moment from 'moment'
 
 import PropertyShowPopup from '../properties/PropertyShowPopup'
-
+import { showUserProfile, followUser, unFollowUser } from '../../lib/api'
 
 function OtherUserProfile() {
 
@@ -13,6 +12,10 @@ function OtherUserProfile() {
 
   const [profile, setProfile] = React.useState({})
   const { id } = useParams()
+
+  const [activeItem, setActiveItem] = React.useState(true)
+  const [isFollowed, setIsFollowed] = React.useState(false)
+  const [followers, setFollowers] = React.useState(0)
 
 
   // const dayCreated = ''
@@ -36,14 +39,13 @@ function OtherUserProfile() {
 
   // const activeItem = ''
 
-  const [activeItem, setActiveItem] = React.useState(true)
+  // Tab Options
 
   const handleClickItem = () => {
     setActiveItem(!activeItem)
   }
 
-  const [isFollowed, setIsFollowed] = React.useState(false)
-  const [followers, setFollowers] = React.useState(0)
+  // Follow A User Function
 
   const handleFollow = async event => {
     event.preventDefault()

@@ -52,7 +52,7 @@ function Register() {
   ]
 
 
-  // Submit Functions
+  // Create New Property 
 
   const handleSubmit = async event => {
     event.preventDefault()

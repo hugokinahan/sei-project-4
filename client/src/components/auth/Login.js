@@ -11,12 +11,14 @@ function Login() {
 
   const [loginErrors, setLoginErrors] = React.useState(false)
 
-  const { formdata, handleChange, errors, setErrors } = useForm({
+  const { formdata, handleChange } = useForm({
     email: '',
     password: ''
   })
 
   const history = useHistory()
+
+  // Log in User
 
   const handleSubmit = async event => {
     event.preventDefault()
@@ -30,8 +32,8 @@ function Login() {
     }
   }
 
-  console.log(errors)
-  console.log(setErrors)
+  // console.log(errors)
+  // console.log(setErrors)
 
   return (
     <div className="login-container">

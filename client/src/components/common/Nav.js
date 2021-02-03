@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, useLocation, useHistory } from 'react-router-dom'
 import { Menu, Button, Icon } from 'semantic-ui-react'
+
 import { logout, isAuthenticated, getUserId } from '../../lib/auth'
 
 function Nav() {
