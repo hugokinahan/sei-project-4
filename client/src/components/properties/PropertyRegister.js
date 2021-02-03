@@ -9,7 +9,7 @@ import { createProperty } from '../../lib/api'
 
 
 
-function Register() {
+function PropertyRegister() {
 
   const history = useHistory()
 
@@ -211,4 +211,4 @@ function Register() {
   )
 }
 
-export default Register
+export default PropertyRegister

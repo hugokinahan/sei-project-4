@@ -1,6 +1,6 @@
 .login-container {
   background-color: #012349;
-  margin-top: 50px;
+  // margin-top: 50px;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -13,10 +13,26 @@
 }
 
 .login-section {
-  width: 500px;
+  width: 350px;
+  height: 400px;
   display: flex;
+  border: white 0.2px solid;
+  border-radius: 3%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   // border: 1px white solid;
+  .login-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  p {
+    margin: 20px;
+    text-align: center;
+  }
+}
+
+.field input.login-input {
+  width: 250px;
 }
