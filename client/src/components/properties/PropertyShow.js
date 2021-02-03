@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams, Link, useLocation, useHistory } from 'react-router-dom'
-import { Button, Icon,  Form, Comment, Divider, Header } from 'semantic-ui-react'
+import { Button, Icon,  Form, Comment, Divider, Header, Dimmer, Loader, Segment } from 'semantic-ui-react'
 import Popup from 'reactjs-popup'
 import useForm from '../../utils/useForm'
 import moment from 'moment'
@@ -173,26 +173,29 @@ function PropertyShow() {
   return (
     <section className="show-page">
       <PropertyNavBar handleSearch={handleShowSearch} className="navbar"/>
-      <div>
-        <div className="showpage-top-layer">
-          <img src={property.property_image} />
+      <>
+        {property ?
           <>
-            {isLoggedIn ?
-              <>
+            <div>
+              <div className="showpage-top-layer">
+                <img src={property.property_image} />
+                <>
+                  {isLoggedIn ?
+                    <>
               
-                <div className="icon-buttons">
-                  {
-                    !isFavourite ?
-                      <Button className="favorite-button" style={{ backgroundColor: '#012349', borderRadius: 100, color: 'white' }} onClick={handleFavouriteProperty}>
-                        <Icon name="favorite"/>
-                      </Button>
-                      :
-                      <Button className="favorite-button" onClick={handleUnFavourite} style={{ backgroundColor: '#012349', borderRadius: 100, color: 'gold' }} >
-                        <Icon name="favorite"/>
-                      </Button>
-                  }
-                  <>
-                    {isOwner(property.owner ? property.owner.id : '') &&
+                      <div className="icon-buttons">
+                        {
+                          !isFavourite ?
+                            <Button className="favorite-button" style={{ backgroundColor: '#012349', borderRadius: 100, color: 'white' }} onClick={handleFavouriteProperty}>
+                              <Icon name="favorite"/>
+                            </Button>
+                            :
+                            <Button className="favorite-button" onClick={handleUnFavourite} style={{ backgroundColor: '#012349', borderRadius: 100, color: 'gold' }} >
+                              <Icon name="favorite"/>
+                            </Button>
+                        }
+                        <>
+                          {isOwner(property.owner ? property.owner.id : '') &&
                 <>
                   <Button as={Link} to={`/properties/${id}/edit`} className="edit-button" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
                     <Icon name="edit" />
@@ -230,220 +233,229 @@ function PropertyShow() {
                     )}
                   </Popup>
                 </>
-                    }
-                  </>
-                </div>
+                          }
+                        </>
+                      </div>
               
-              </>
-              :
-              <div className="icon-buttons">
-                <Button className="favorite-button" style={{ backgroundColor: '#012349', borderRadius: 100, color: 'white' }} onClick={handleFavouriteProperty}>
-                  <Icon name="favorite"/>
-                </Button>
-              </div>
-            }
-          </>
-        </div>
-        <div className="show-details">
-          <h2>{property.name}</h2>
-          <p>{property.address}</p>
-          <p>{property.city}, {property.country}</p>
-          <p>{property.description}</p>
-          <Icon name="bath" className="index-icon"></Icon>
-          <p>{property.bathrooms} bathrooms </p>
-          <Icon name="bed" className="index-icon"></Icon>
-          <p>{property.bedrooms} bedrooms </p>
-        </div>
-        <>
-          {isLoggedIn ?
-            <>
-              <PropertyShowPopup property={property} id={id} />
-            </>
-            :
-            <div>
-            </div>
-          }
-        </>
-      </div>
-      <div className="middle-section">
-        <div className="map-user-container">
-          <div className="user-details">
-            {property.owner ? 
-              <div className="user-fields">
-                <h2>{property.owner.first_name} {property.owner.last_name}</h2>
-                <div className="user-info">
-                  <div className="user-deets">
-                    <p>{property.owner.email}</p>
-                    <p>{property.owner.bio_description}</p>
-                  </div>
-                  <div className="user-image-button">
-                    <div className="user-image">
-                      <img src={property.owner ? property.owner.profile_image : '' } />
-                    </div>
-                    <div className="contact-button">
-                      <Button as={Link} to={isLoggedIn ? `/users/profile/${property.owner.id}` : '/login'}className="request-button"  style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
-                        {property.owner ? `View ${property.owner.first_name}s profile` : '' }
+                    </>
+                    :
+                    <div className="icon-buttons">
+                      <Button className="favorite-button" style={{ backgroundColor: '#012349', borderRadius: 100, color: 'white' }} onClick={handleFavouriteProperty}>
+                        <Icon name="favorite"/>
                       </Button>
                     </div>
-                  </div>
-                </div>
+                  }
+                </>
               </div>
-              :
-              ''
-            }
-          </div>
-          <PropertyShowMap property={property}/>
-        </div>
-        <div className="reviews-container">
-          <Divider horizontal>
-            <Header as='h3' color='#012349'>
-      Reviews
-            </Header>
-          </Divider>
-          <div className="reviews-info">
-            <Comment.Group>
-              <Comment className="showpage-comment">
-                <Comment.Avatar as='a' src="https://randomuser.me/api/portraits/women/7.jpg" />
-                <Comment.Content>
-                  <Comment.Author>Jane Smith</Comment.Author>
-                  <Comment.Metadata>
-                    <div>{<p><small className="text-muted px-1">2 days ago</small></p>}</div>
-                    <div>
-                      <Icon name='star' />4
-                    </div>
-                  </Comment.Metadata>
-                  <Comment.Text>
-                    <p>We had the best time at {property.name}! Couldnt thank {property.owner ? property.owner.first_name : 'Caro'} enough! </p>
-                  </Comment.Text>
-                </Comment.Content>
-              </Comment>
-              {reviews ? reviews.map(review => {
-                return <Comment className="showpage-comment" key={review.id}>
-                  <Comment.Avatar as='a' src={review.owner.profile_image} />
-                  <Comment.Content>
-                    <Comment.Author><Link to={`/users/profile/${review.owner.id}`}>{review.owner.first_name} {review.owner.last_name}</Link></Comment.Author>
-                    <Comment.Metadata>
-                      <div>{<p><small className="text-muted px-1">{moment(review.created_at).fromNow()}</small></p>}</div>
-                      <div>
-                        <Icon name='star' />{review.rating}
+              <div className="show-details">
+                <h2>{property.name}</h2>
+                <p>{property.address}</p>
+                <p>{property.city}, {property.country}</p>
+                <p>{property.description}</p>
+                <Icon name="bath" className="index-icon"></Icon>
+                <p>{property.bathrooms} bathrooms </p>
+                <Icon name="bed" className="index-icon"></Icon>
+                <p>{property.bedrooms} bedrooms </p>
+              </div>
+              <>
+                {isLoggedIn ?
+                  <>
+                    <PropertyShowPopup property={property} id={id} />
+                  </>
+                  :
+                  <div>
+                  </div>
+                }
+              </>
+            </div>
+            <div className="middle-section">
+              <div className="map-user-container">
+                <div className="user-details">
+                  {property.owner ? 
+                    <div className="user-fields">
+                      <h2>{property.owner.first_name} {property.owner.last_name}</h2>
+                      <div className="user-info">
+                        <div className="user-deets">
+                          <p>{property.owner.email}</p>
+                          <p>{property.owner.bio_description}</p>
+                        </div>
+                        <div className="user-image-button">
+                          <div className="user-image">
+                            <img src={property.owner ? property.owner.profile_image : '' } />
+                          </div>
+                          <div className="contact-button">
+                            <Button as={Link} to={isLoggedIn ? `/users/profile/${property.owner.id}` : '/login'}className="request-button"  style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
+                              {property.owner ? `View ${property.owner.first_name}s profile` : '' }
+                            </Button>
+                          </div>
+                        </div>
                       </div>
-                    </Comment.Metadata>
-                    <Comment.Text>
-                      <p>{review.text}</p>
-                    </Comment.Text>
-                    {isOwner(review.owner ? review.owner.id : '') &&
+                    </div>
+                    :
+                    ''
+                  }
+                </div>
+                <PropertyShowMap property={property}/>
+              </div>
+              <div className="reviews-container">
+                <Divider horizontal>
+                  <Header as='h3' color='#012349'>
+      Reviews
+                  </Header>
+                </Divider>
+                <div className="reviews-info">
+                  <Comment.Group>
+                    <Comment className="showpage-comment">
+                      <Comment.Avatar as='a' src="https://randomuser.me/api/portraits/women/7.jpg" />
+                      <Comment.Content>
+                        <Comment.Author>Jane Smith</Comment.Author>
+                        <Comment.Metadata>
+                          <div>{<p><small className="text-muted px-1">2 days ago</small></p>}</div>
+                          <div>
+                            <Icon name='star' />4
+                          </div>
+                        </Comment.Metadata>
+                        <Comment.Text>
+                          <p>We had the best time at {property.name}! Couldnt thank {property.owner ? property.owner.first_name : 'Caro'} enough! </p>
+                        </Comment.Text>
+                      </Comment.Content>
+                    </Comment>
+                    {reviews ? reviews.map(review => {
+                      return <Comment className="showpage-comment" key={review.id}>
+                        <Comment.Avatar as='a' src={review.owner.profile_image} />
+                        <Comment.Content>
+                          <Comment.Author><Link to={`/users/profile/${review.owner.id}`}>{review.owner.first_name} {review.owner.last_name}</Link></Comment.Author>
+                          <Comment.Metadata>
+                            <div>{<p><small className="text-muted px-1">{moment(review.created_at).fromNow()}</small></p>}</div>
+                            <div>
+                              <Icon name='star' />{review.rating}
+                            </div>
+                          </Comment.Metadata>
+                          <Comment.Text>
+                            <p>{review.text}</p>
+                          </Comment.Text>
+                          {isOwner(review.owner ? review.owner.id : '') &&
                             <Comment.Actions>
                               <Comment.Action onClick={handleDeleteReview} name={review.id}>Delete</Comment.Action>
                             </Comment.Actions>
+                          }
+                        </Comment.Content>
+                      </Comment>
+                    })
+                      :
+                      <h4>Be the first to leave a review on {property.name}</h4>
                     }
-                  </Comment.Content>
-                </Comment>
-              })
-                :
-                <h4>Be the first to leave a review on {property.name}</h4>
-              }
-            </Comment.Group>
-            <div className="leave-review-button">
-              <Popup
-                trigger={<Button as={Link} className="review-button" type="submit" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
+                  </Comment.Group>
+                  <div className="leave-review-button">
+                    <Popup
+                      trigger={<Button as={Link} className="review-button" type="submit" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
                 Leave a Review <Icon name="edit outline" className="review-icon"/>
-                </Button>}
-                modal
-                nested
-              >
-                {close => (
-                  <div className="review-modal">
-                    <button className="close" onClick={close}>
+                      </Button>}
+                      modal
+                      nested
+                    >
+                      {close => (
+                        <div className="review-modal">
+                          <button className="close" onClick={close}>
                       
 &times;
-                    </button>
+                          </button>
                     
-                    <div>
-                      {!reviewPosted ?
-                        <Form.Field>
-                          <label>Leave A Review</label>
-                          <textarea placeholder='eg. I loved this property!'
-                            onChange={handleChange}
-                            name="text"
-                            value={formdata.text}
-                          />
+                          <div>
+                            {!reviewPosted ?
+                              <Form.Field>
+                                <label>Leave A Review</label>
+                                <textarea placeholder='eg. I loved this property!'
+                                  onChange={handleChange}
+                                  name="text"
+                                  value={formdata.text}
+                                />
                 
-                          <p>Rating</p>
-                          <input placeholder='eg. 1-5'
-                            onChange={handleChange}
-                            type="number"
-                            name="rating"
-                            value={formdata.rating}
-                          />
-                          <Button onClick={handleSubmit} name={property.id} className="submit-review" type="submit" style={{ backgroundColor: 'white', borderRadius: 0, color: '#012349' }}>Submit Review</Button>
-                          {reviewErrors ?
+                                <p>Rating</p>
+                                <input placeholder='eg. 1-5'
+                                  onChange={handleChange}
+                                  type="number"
+                                  name="rating"
+                                  value={formdata.rating}
+                                />
+                                <Button onClick={handleSubmit} name={property.id} className="submit-review" type="submit" style={{ backgroundColor: 'white', borderRadius: 0, color: '#012349' }}>Submit Review</Button>
+                                {reviewErrors ?
         
-                            <div className="ui error message small">
-                              <div className="header">Please ensure each field is completed</div>
-                            </div>
-                            :
-                            ''
-                          }
+                                  <div className="ui error message small">
+                                    <div className="header">Please ensure each field is completed</div>
+                                  </div>
+                                  :
+                                  ''
+                                }
                         
-                        </Form.Field>
-                        :
-                        <div>
-                          <h1>Review Added!</h1>
+                              </Form.Field>
+                              :
+                              <div>
+                                <h1>Review Added!</h1>
+                              </div>
+                            }
+                          </div>
                         </div>
-                      }
-                    </div>
+                      )}
+                    </Popup>
                   </div>
-                )}
-              </Popup>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
       
     
-      <div className="showpage-featured-header">
-        <h2>Featured Properties</h2>
-      </div>
-      <div className="index-grid">
-        {properties ? properties.slice(40, 43).map(property => (
-          <Link to={`/properties/${property.id}`} key={property.id} className="index-grid-div-container" >
-            <div className="index-grid-div">
-              <img src={property.property_image} />
-              <div className="index-grid-house-info">
-                <div className="house-name-details">
-                  <p>{property.name}</p>
-                  <p>{property.city}, {property.country}</p>
-                </div>
-                <div className="house-details">
-                  <div className="bathrooms">
-                    <Icon name="bath" className="index-icon"></Icon>
-                    <p>{property.bathrooms} bathrooms </p>
-                      
-                  </div>
-                  <div className="bedrooms">
-                    <Icon name="bed" className="index-icon"></Icon>
-                    <p>{property.bedrooms} bedrooms </p>
-                      
-                  </div>
-                </div>
-              </div>
-              <div className="index-user-info">
-                <div className="index-owner-details">
-                  <div className="user-profile-image">
-                    <img src={property.owner.profile_image}></img>
-                  </div>
-                  <p>Added by {property.owner.first_name} {property.owner.last_name}</p>
-                </div>
-              </div>
+            <div className="showpage-featured-header">
+              <h2>Featured Properties</h2>
             </div>
-          </Link>
-        ))
+            <div className="index-grid">
+              {properties ? properties.slice(40, 43).map(property => (
+                <Link to={`/properties/${property.id}`} key={property.id} className="index-grid-div-container" >
+                  <div className="index-grid-div">
+                    <img src={property.property_image} />
+                    <div className="index-grid-house-info">
+                      <div className="house-name-details">
+                        <p>{property.name}</p>
+                        <p>{property.city}, {property.country}</p>
+                      </div>
+                      <div className="house-details">
+                        <div className="bathrooms">
+                          <Icon name="bath" className="index-icon"></Icon>
+                          <p>{property.bathrooms} bathrooms </p>
+                      
+                        </div>
+                        <div className="bedrooms">
+                          <Icon name="bed" className="index-icon"></Icon>
+                          <p>{property.bedrooms} bedrooms </p>
+                      
+                        </div>
+                      </div>
+                    </div>
+                    <div className="index-user-info">
+                      <div className="index-owner-details">
+                        <div className="user-profile-image">
+                          <img src={property.owner.profile_image}></img>
+                        </div>
+                        <p>Added by {property.owner.first_name} {property.owner.last_name}</p>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              ))
+                :
+                ''
+              }
+            </div>
+          </>
           :
-          ''
+          <Segment>
+            <Dimmer active inverted>
+              <Loader inverted>Loading</Loader>
+            </Dimmer>
+    
+            <Image src='/images/wireframe/short-paragraph.png' />
+          </Segment>
         }
-      </div>
-      
-      
+      </>
     </section>
   )
 }

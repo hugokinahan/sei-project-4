@@ -67,9 +67,10 @@ function PropertyIndex() {
 
   return (
     <>
-      <div className="index-container">
-        <PropertyNavBar setFilteredProperties={setFilteredProperties}  handleSearch={handleSearch} searchValue={searchValue} handleMultiTypeSelect={handleMultiTypeSelect} />
-        <>{!searchValue &&  
+      {properties ?
+        <div className="index-container">
+          <PropertyNavBar setFilteredProperties={setFilteredProperties}  handleSearch={handleSearch} searchValue={searchValue} handleMultiTypeSelect={handleMultiTypeSelect} />
+          <>{!searchValue &&  
         <>
           <h1>Recently Added Properties</h1>
           <div className="index-grid">
@@ -119,53 +120,62 @@ function PropertyIndex() {
           <hr></hr>
           <h1>All Sharebnbs</h1>
         </>}
-        {searchValue && <h1>Search Results for...&quot;{searchValue}&quot;</h1>}
-        {/* <hr></hr> */}
-        <div className="index-grid">
-          {filteredProperties ? filteredProperties.map(property => (
-            <Link to={`/properties/${property.id}`} key={property.id} className="index-grid-div-container" >
-              <div className="index-grid-div">
-                <img src={property.property_image} />
-                <div className="index-grid-house-info">
-                  <div className="house-name-details">
-                    <p>{property.name}</p>
-                    <p>{property.city}, {property.country}</p>
-                  </div>
-                  <div className="house-details">
-                    <div className="bathrooms">
-                      <Icon name="bath" className="index-icon"></Icon>
-                      <p>{property.bathrooms} bathrooms </p>
-                      
+          {searchValue && <h1>Search Results for...&quot;{searchValue}&quot;</h1>}
+          {/* <hr></hr> */}
+          <div className="index-grid">
+            {filteredProperties ? filteredProperties.map(property => (
+              <Link to={`/properties/${property.id}`} key={property.id} className="index-grid-div-container" >
+                <div className="index-grid-div">
+                  <img src={property.property_image} />
+                  <div className="index-grid-house-info">
+                    <div className="house-name-details">
+                      <p>{property.name}</p>
+                      <p>{property.city}, {property.country}</p>
                     </div>
-                    <div className="bedrooms">
-                      <Icon name="bed" className="index-icon"></Icon>
-                      <p>{property.bedrooms} bedrooms </p>
+                    <div className="house-details">
+                      <div className="bathrooms">
+                        <Icon name="bath" className="index-icon"></Icon>
+                        <p>{property.bathrooms} bathrooms </p>
                       
+                      </div>
+                      <div className="bedrooms">
+                        <Icon name="bed" className="index-icon"></Icon>
+                        <p>{property.bedrooms} bedrooms </p>
+                      
+                      </div>
+                    </div>
+                  </div>
+                  <div className="index-user-info">
+                    <div className="index-owner-details">
+                      <div className="user-profile-image">
+                        <img src={property.owner.profile_image}></img>
+                      </div>
+                      <p>Added by {property.owner.first_name} {property.owner.last_name}</p>
                     </div>
                   </div>
                 </div>
-                <div className="index-user-info">
-                  <div className="index-owner-details">
-                    <div className="user-profile-image">
-                      <img src={property.owner.profile_image}></img>
-                    </div>
-                    <p>Added by {property.owner.first_name} {property.owner.last_name}</p>
-                  </div>
-                </div>
-              </div>
-            </Link>
-          ))
-            :
-            <Segment>
-              <Dimmer active inverted>
-                <Loader inverted>Loading</Loader>
-              </Dimmer>
-              <Image src='/images/wireframe/short-paragraph.png' />
-            </Segment>
-          }
+              </Link>
+            ))
+              :
+              <Segment>
+                <Dimmer active inverted>
+                  <Loader inverted>Loading</Loader>
+                </Dimmer>
+                <Image src='/images/wireframe/short-paragraph.png' />
+              </Segment>
+            }
+          </div>
+          </>
         </div>
-        </>
-      </div>
+        :
+        <Segment>
+          <Dimmer active inverted>
+            <Loader inverted>Loading</Loader>
+          </Dimmer>
+      
+          {/* <Image src='/images/wireframe/short-paragraph.png' /> */}
+        </Segment>
+      }
     </>
   )
 }
