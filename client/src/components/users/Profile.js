@@ -12,6 +12,8 @@ function Profile() {
   moment().format()
 
   const [profile, setProfile] = React.useState({})
+  const [isAccepted, setisAccepted] = React.useState()
+  const [isDeleted, setIsDeleted] = React.useState(false)
 
   const { formdata,  setFormdata } = useForm({
     start_date: '',
@@ -36,7 +38,7 @@ function Profile() {
       }
     }
     getProfile()
-  }, [getUserId()])
+  }, [getUserId(), isAccepted, isDeleted ])
 
   console.log(profile)
 
@@ -51,7 +53,8 @@ function Profile() {
     setIsRecievedRequests(!isRecievedRequests)
   }
 
-  const [isDeleted, setIsDeleted] = React.useState(false)
+  
+  
 
   const handleRequestDelete = async event => {
     event.preventDefault()
@@ -67,7 +70,7 @@ function Profile() {
     }
   }
 
-  const [isAccepted, setIsAccepted] = React.useState(false)
+ 
 
   const handleAcceptRequest = async event => {
     event.preventDefault()
@@ -76,7 +79,7 @@ function Profile() {
       const requestId = event.target.name
       formdata.is_accepted = true
       await editPropertyRequest(requestId, formdata)
-      setIsAccepted(true)
+      setisAccepted(true)
       // console.log(data)
     } catch (err) {
       console.log(err)
@@ -148,7 +151,7 @@ function Profile() {
                           </Card.Description>
                         </Card.Content>
                         <Card.Content extra>
-                          {!offer.is_accepted  && !isAccepted ? 
+                          {!offer.is_accepted  ? 
                             <div className='ui two buttons'>
                               <Button basic color='green' name={offer.id} onClick={handleAcceptRequest}>
             Accept
