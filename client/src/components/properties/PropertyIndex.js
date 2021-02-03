@@ -1,5 +1,5 @@
 import React from 'react'
-import { Icon } from 'semantic-ui-react'
+import { Icon, Segment, Dimmer, Image, Loader } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 // import InfiniteScroll from 'react-infinite-scroller'
 
@@ -123,7 +123,13 @@ function PropertyIndex() {
               </Link>
             ))
               :
-              ''
+              <Segment>
+                <Dimmer active inverted>
+                  <Loader inverted>Loading</Loader>
+                </Dimmer>
+      
+                <Image src='/images/wireframe/short-paragraph.png' />
+              </Segment>
             }
           </div>
           <hr></hr>
@@ -166,7 +172,13 @@ function PropertyIndex() {
             </Link>
           ))
             :
-            ''
+            <Segment>
+              <Dimmer active inverted>
+                <Loader inverted>Loading</Loader>
+              </Dimmer>
+    
+              <Image src='/images/wireframe/short-paragraph.png' />
+            </Segment>
           }
         </div>
         </>
