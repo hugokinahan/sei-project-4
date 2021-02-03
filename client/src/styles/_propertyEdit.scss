@@ -5,23 +5,29 @@
 
 
 .edit-container {
-  margin-top: -150px;
   background-color: #012349;
-  height: 150vh;
+  height: 100vh;
+  // margin-top: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
-  h1, p {
+  h1 {
     color: white;
     font-family: 'Avenir', Helvetica, sans-serif;
     font-weight: 400;
+    text-align: center;
+  }
+  p {
+    color: white;
+    font-family: 'Avenir', Helvetica, sans-serif;
+    font-weight: 100;
   }
 }
 
-.register-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  // border: 1px white solid;
-}
+// .register-section {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   // justify-content: center;
+//   // border: 1px white solid;
+// }

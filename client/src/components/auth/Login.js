@@ -39,7 +39,7 @@ function Login() {
     <div className="login-container">
       
       <section className="login-section">
-        <h1>Log In</h1>
+        <h1>Login</h1>
         <Form inverted onSubmit={handleSubmit} className="ui form error">
           <Form.Field>
             <label>Email</label>
@@ -47,6 +47,7 @@ function Login() {
               onChange={handleChange}
               name="email"
               value={formdata.email}
+              className="login-input"
             />
           </Form.Field>
           <Form.Field>
@@ -56,9 +57,12 @@ function Login() {
               onChange={handleChange}
               name="password"
               value={formdata.password}
+              className="login-input"
             />
           </Form.Field>
-          <Button type='submit'>Log In</Button>
+          <div className="login-button">
+            <Button type='submit'>Log In</Button>
+          </div>
         </Form>
         {loginErrors ?
         

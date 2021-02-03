@@ -347,7 +347,7 @@ function Profile() {
                   }
                   {/* <h2>Reviews</h2> */}
                   <div>
-                    <Link to="/register/property">
+                    <Link to="/properties/new">
                       <div className="profile-add-new-property">
                         <Icon name="add" />
                       Add New Property

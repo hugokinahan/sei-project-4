@@ -27,7 +27,7 @@ function Nav() {
         />
       </Link>
       {isLoggedIn &&
-      <Link to="/register/property" className="navbar-item">
+      <Link to="/properties/new" className="navbar-item">
         <Menu.Item
           className="home"
           name='ADD PROPERTY'
