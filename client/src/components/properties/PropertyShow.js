@@ -35,15 +35,9 @@ function PropertyShow() {
   const [newReview, setNewReview] = React.useState()
   const [reviewErrors, setReviewErrors] = React.useState(false)
 
-<<<<<<< HEAD
-
-=======
   // Form Data
- 
->>>>>>> development
   const { formdata, handleChange, errors, setErrors } = useForm({
     text: '', 
-    rating: '',
     owner: {}, 
     property: ''
   })
