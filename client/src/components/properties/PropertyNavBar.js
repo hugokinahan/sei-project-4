@@ -1,9 +1,8 @@
 import React from 'react'
+import { getAllProperties } from '../../lib/api'
 import { Menu, Input } from 'semantic-ui-react'
 import ReactMultiSelectCheckboxes from 'react-multiselect-checkboxes'
 import { Link, useLocation } from 'react-router-dom'
-
-import { getAllProperties } from '../../lib/api'
 
 function PropertyIndex( { setFilteredProperties, searchValue, handleSearch, handleMultiTypeSelect }) {
 
@@ -29,13 +28,6 @@ function PropertyIndex( { setFilteredProperties, searchValue, handleSearch, hand
 
   console.log(properties)
 
-    
-
-  // const handleSelect = ()=> {
-  //   console.log('hello')
-  // }
-
-
   // const continents = [ 
   //   { label: 'North America', value: 'North America' },
   //   { label: 'Central America', value: 'Central America' },
@@ -52,7 +44,6 @@ function PropertyIndex( { setFilteredProperties, searchValue, handleSearch, hand
   //   { label: '12+', value: 12 },
   //   { label: '16+', value: 16 },
   //   { label: '20+', value: 20 }
-   
   // ]
 
   const types = [ 
@@ -72,33 +63,6 @@ function PropertyIndex( { setFilteredProperties, searchValue, handleSearch, hand
     { label: 'Lively', value: 'Lively' },
     { label: 'Penthouse', value: 'Penthouse' }
   ]
-
-  // const filterProperties = (event) => {
-  //   const results = properties.filter(property => {
-  //     return property.city.toLowerCase().includes(event.target.value.toLowerCase()) ||
-  //       property.country.toLowerCase().includes(event.target.value.toLowerCase()) ||
-  //       property.continent.toLowerCase().includes(event.target.value.toLowerCase())
-  //   })
-  //   setFilteredProperties(results)
-  // }
-
-
-
-
-
-
-  // const handleMultiBedroomSelect = (selected) => {
-  //   // setMultiSelectValue(selected)
-  //   console.log(selected)
-  //   // const results = properties.filter(property => {
-  //   //   return property.continent.toLowerCase().includes(selected.value.toLowerCase())
-  //   // })
-  //   // console.log(results)
-  //   // filterMultiProperties(selected)
-  // }
-
-  
-
 
   return (
     <>
@@ -128,7 +92,6 @@ function PropertyIndex( { setFilteredProperties, searchValue, handleSearch, hand
                 <Dropdown.Divider />
                 
               </Dropdown.Menu> */}
-           
           {/* <div className="selects">
               <div>
                 <Select 

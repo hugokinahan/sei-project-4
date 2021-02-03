@@ -83,7 +83,7 @@ function PropertyShow() {
     }
     getData()
   }, [id, newReview])
- 
+
 
 
 
@@ -167,8 +167,6 @@ function PropertyShow() {
   const handleShowSearch = () => {
     history.push('/properties')
   }
-
- 
 
 
 
