@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { Icon, Button, Loader, Dimmer, Image, Segment } from 'semantic-ui-react'
 import HeroCarousel from 'react-hero-carousel'
+
 import { getAllPropertyTypes } from '../../lib/api'
 import { isAuthenticated } from '../../lib/auth'
 
@@ -26,7 +27,6 @@ function Home2() {
     getProperties()
   }, [])
 
-  console.log(properties)
 
   React.useEffect(() => {
     const getPropertyTypes = async () => {

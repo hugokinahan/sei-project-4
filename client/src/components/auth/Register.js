@@ -25,6 +25,8 @@ function Register() {
     profile_image: ''
   })
 
+  // Create User
+
   const handleSubmit = async event => {
     event.preventDefault()
     try {

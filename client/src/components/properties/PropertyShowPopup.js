@@ -2,6 +2,8 @@ import React from 'react'
 import Popup from 'reactjs-popup'
 import useForm from '../../utils/useForm'
 import { Button, Icon, Checkbox, Form } from 'semantic-ui-react'
+
+
 import { createPropertyRequest ,  getSingleProperty, showUserProfile, headers } from '../../lib/api'
 import { getUserId } from '../../lib/auth'
 
@@ -13,6 +15,20 @@ function PropertyShowPopup ({ id }) {
 
   const [property, setProperty] = React.useState([])
   const [requestErrors, setRequestErrors] = React.useState(false)
+  const [profile, setProfile] = React.useState({})
+
+
+  const { formdata, handleChange } = useForm({
+    start_date: '',
+    end_date: '',
+    offered_property: '',
+    text: ''
+  })
+
+  const [isSent, setIsSent] = React.useState(false)
+
+
+  // Get Single Property Request 
 
   React.useEffect(() => {
 
@@ -28,7 +44,7 @@ function PropertyShowPopup ({ id }) {
   }, [id])
 
 
-  const [profile, setProfile] = React.useState({})
+  // Get Profile Request 
 
   React.useEffect(() => {
     const getProfile = async () => {
@@ -43,15 +59,7 @@ function PropertyShowPopup ({ id }) {
   }, [getUserId()])
 
 
-
-  const { formdata, handleChange } = useForm({
-    start_date: '',
-    end_date: '',
-    offered_property: '',
-    text: ''
-  })
-
-  const [isSent, setIsSent] = React.useState(false)
+  // Create New Property Swap Request
 
   const handleSubmit = async event => {
     console.log(formdata)
