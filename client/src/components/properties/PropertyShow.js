@@ -28,12 +28,19 @@ function PropertyShow() {
   const [properties, setProperties] = React.useState([])
   
   const [isFavourite, setIsFavourite] = React.useState(false)
+  const [isDeleted, setIsDeleted] = React.useState(false)
 
-  const [reviews, setReviews] = React.useState(null) 
+  const [reviews, setReviews] = React.useState(null)
+  const [reviewPosted, setReviewPosted] = React.useState(false)
   const [newReview, setNewReview] = React.useState()
   const [reviewErrors, setReviewErrors] = React.useState(false)
 
+<<<<<<< HEAD
 
+=======
+  // Form Data
+ 
+>>>>>>> development
   const { formdata, handleChange, errors, setErrors } = useForm({
     text: '', 
     rating: '',
@@ -41,6 +48,8 @@ function PropertyShow() {
     property: ''
   })
   console.log(errors)
+
+  // Use Effect Fetch Data
 
   React.useEffect(() => {
     const getProperties = async () => {
@@ -53,7 +62,7 @@ function PropertyShow() {
       }
     }
     getProperties()
-  }, [])
+  }, [id])
 
 
 
@@ -110,9 +119,10 @@ function PropertyShow() {
   }
 
   
-  const [isDeleted, setIsDeleted] = React.useState(false)
+
 
   // Delete Property
+
   const handleDelete = async event => {
     event.preventDefault()
     try {
@@ -132,7 +142,7 @@ function PropertyShow() {
     history.push('/properties')
   }
 
-  const [reviewPosted, setReviewPosted] = React.useState(false)
+ 
 
   // * Submit Reviews
   const handleSubmit = async (e) => {
@@ -350,7 +360,7 @@ function PropertyShow() {
           <div className="reviews-info">
             <Comment.Group>
               {reviews ? reviews.map(review => {
-                return <Comment key={review.id}>
+                return <Comment className="showpage-comment" key={review.id}>
                   <Comment.Avatar as='a' src={review.owner.profile_image} />
                   <Comment.Content>
                     <Comment.Author>{review.owner.first_name} {review.owner.last_name}</Comment.Author>

@@ -83,6 +83,7 @@ html {
   justify-content: center;
   width: 100%;
   height: 250px;
+  margin-bottom: 0;
 }
 
 .map-user-container {
@@ -189,9 +190,7 @@ html {
     font-weight: 400;
 
   }
-  margin: 1rem auto;
-  margin-left: 1rem;
-  margin-top: -13rem;
+  margin-bottom: 250px;
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -203,6 +202,15 @@ html {
   text-align: left;
 }
 
+
+.ui.comments .comment {
+  margin: 20px;
+}
+
+
+
+
+///
 
 .showpage-featured-header {
   margin: 1rem;
