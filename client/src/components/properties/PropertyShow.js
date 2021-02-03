@@ -8,8 +8,6 @@ import moment from 'moment'
 
 
 import { getSingleProperty, getAllProperties, deleteProperty, favouriteAProperty, unFavouriteProperty, createPropertyReview, deletePropertyReview } from '../../lib/api'
-// import Popup from 'reactjs-popup'
-// import useForm from '../../utils/useForm'
 import { isAuthenticated, isOwner, getUserId } from '../../lib/auth'
 
 
@@ -35,7 +33,7 @@ function PropertyShow() {
   const [newReview, setNewReview] = React.useState()
   const [reviewErrors, setReviewErrors] = React.useState(false)
 
- 
+
   const { formdata, handleChange, errors, setErrors } = useForm({
     text: '', 
     rating: '',
@@ -57,7 +55,7 @@ function PropertyShow() {
     getProperties()
   }, [])
 
- 
+
 
   React.useEffect(() => {
 
@@ -71,12 +69,11 @@ function PropertyShow() {
         if (found) {
           setIsFavourite(true)
         }
-     
+
         if (data.reviews) {
           setReviews(data.reviews)
         }
         console.log(reviews)
-        // setViewport({ latitude: Number(data.latitude), longitude: Number(data.longitude), zoom: 7 })
       } catch (err) {
         console.log(err)
       }
@@ -149,8 +146,6 @@ function PropertyShow() {
       await createPropertyReview(reviewToAdd)
       setNewReview({ propertyId, formdata })
       setReviewPosted(true)
-      // const { data } = await getSingleProperty(id)
-      // setProperty(data)
       formdata.text = ''
       formdata.rating = ''
     } catch (err) {
@@ -166,8 +161,7 @@ function PropertyShow() {
     try {
       const reviewId = event.target.name
       await deletePropertyReview(reviewId)
-      setNewReview({ id, formdata })
-      // setRefreshData(true)
+      setNewReview({ id, formdata })      
     } catch (err) {
       console.log(err)
     }
@@ -203,9 +197,6 @@ function PropertyShow() {
                   <Button as={Link} to={`/properties/${id}/edit`} className="edit-button" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
                     <Icon name="edit" />
                   </Button>
-                  {/* <Button onClick={handleDelete} className="delete-button" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
-                    <Icon name="trash alternate"/>
-                  </Button> */}
                   <Popup
                     trigger={<Button onClick={handleDelete} className="delete-button" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
                       <Icon name="trash alternate"/>
@@ -257,7 +248,6 @@ function PropertyShow() {
           <h2>{property.name}</h2>
           <p>{property.address}</p>
           <p>{property.city}, {property.country}</p>
-          {/* <h6>{property.types.name[0]}</h6> */}
           <p>{property.description}</p>
           <Icon name="bath" className="index-icon"></Icon>
           <p>{property.bathrooms} bathrooms </p>
@@ -299,8 +289,6 @@ function PropertyShow() {
                             name="rating"
                             value={formdata.rating}
                           />
-                        
-                          {/* <Rating className="rating" icon='star' defaultRating={1} maxRating={5}/> */}
                           <Button onClick={handleSubmit} name={property.id} className="submit-review" type="submit" style={{ backgroundColor: 'white', borderRadius: 0, color: '#012349' }}>Submit Review</Button>
                           {reviewErrors ?
         
@@ -324,9 +312,6 @@ function PropertyShow() {
             </>
             :
             <div>
-              {/* <Button as={Link} to='' className="request-button" type="submit" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
-        Request A Swap <Icon name="exchange" className="exchange-icon"/>
-              </Button> */}
             </div>
           }
         </>

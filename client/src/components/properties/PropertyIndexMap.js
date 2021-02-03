@@ -17,7 +17,7 @@ function PropertyIndexMap() {
   })
   const [properties, setProperties] = React.useState([])
   const [popup, setPopup] = React.useState(null)
- 
+
   React.useEffect(() => {
     const getProperties = async () => {
       try {
@@ -61,9 +61,7 @@ function PropertyIndexMap() {
                   role="img"
                   aria-label="map-marker"
                   onMouseOver={() => setPopup(property)}
-
                 >
-
                   <Icon name="map marker alternate icon"></Icon>
                 </span>
               </Marker>
@@ -71,7 +69,6 @@ function PropertyIndexMap() {
             {popup &&
             <Popup
               closeOnClick={true}
-              // onClose={() => setPopup(null)}
               latitude={Number(popup.latitude)}
               longitude={Number(popup.longitude)}
               closeButton={false}

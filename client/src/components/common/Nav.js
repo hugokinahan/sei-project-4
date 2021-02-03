@@ -17,10 +17,6 @@ function Nav() {
   return (
     <div className="ui menu fixed">
       <Link to="/" className="navbar-item">
-        {/* <Menu.Item
-          className="home"
-          name='Home'
-        /> */}
         <Icon name="home" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}/>
       </Link>
       <Link to="/properties" className="navbar-item">
@@ -65,15 +61,9 @@ function Nav() {
               </Link>
               
             </>
-    
-
-     
           }
         </Menu.Item>
       </>
-      
-        
-      
     </div>
   )
 }

@@ -1,7 +1,6 @@
 import React from 'react'
 import { Icon, Segment, Dimmer, Image, Loader } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
-// import InfiniteScroll from 'react-infinite-scroller'
 
 import { getAllProperties } from '../../lib/api'
 import PropertyNavBar from './PropertyNavBar'
@@ -45,12 +44,6 @@ function PropertyIndex() {
     filterProperties(event)
   }
 
-
-  // Filter Continents 
-
-  // const [filteredContinents, setFilteredContinents] = React.useState(null)
-
-
   const filterTypes = (selected) => {
     if (selected) { 
       const results = properties.filter(function(property) {
@@ -64,20 +57,9 @@ function PropertyIndex() {
     }
   }
 
-  // const handleMultiContinentSelect = (selected) => {
-  //   // setFilteredContinents(selected)
-  //   filterContinents(selected)
-  // }
-
   const handleMultiTypeSelect = (selected) => {
-    // setMultiSelectValue(selected)
     console.log(selected)
     filterTypes(selected)
-    // const results = properties.filter(property => {
-    //   return property.continent.toLowerCase().includes(selected.value.toLowerCase())
-    // })
-    // console.log(results)
-    // filterMultiProperties(selected)
   }
   
 
@@ -176,7 +158,6 @@ function PropertyIndex() {
               <Dimmer active inverted>
                 <Loader inverted>Loading</Loader>
               </Dimmer>
-    
               <Image src='/images/wireframe/short-paragraph.png' />
             </Segment>
           }
