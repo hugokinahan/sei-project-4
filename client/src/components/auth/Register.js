@@ -120,7 +120,9 @@ function Register() {
           <Form.Field>
             <Checkbox label='I agree to the Terms and Conditions' />
           </Form.Field>
-          <Button type='submit'>Next</Button>
+          <div className="register-button">
+            <Button type='submit'>Next</Button>
+          </div>
         </Form>
         {registerErrors ?
         

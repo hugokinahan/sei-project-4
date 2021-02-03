@@ -16,7 +16,17 @@
 .register-section {
   display: flex;
   flex-direction: column;
-  // align-items: center;
+  align-items: center;
   justify-content: center;
   // border: 1px white solid;
+  .register-button {
+ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+}
+p {
+  margin: 20px;
+}
 }

@@ -196,7 +196,9 @@ function PropertyRegister() {
           <Form.Field>
             <Checkbox label='Available For Exchange' />
           </Form.Field>
-          <Button type='submit'>Register Property</Button>
+          <div className="register-button">
+            <Button type='submit'>Register Property</Button>
+          </div>
         </Form>
         {registerErrors ?
         
