@@ -557,5 +557,16 @@
     "last_name": "Folk",
     "profile_image": "https://randomuser.me/api/portraits/men/53.jpg",
     "bio_description": "Food trailblazer. Writer. Certified beer lover. Tv aficionado. Communicator. Proud social media scholar."}
+  },
+  {
+    "model": "jwt_auth.user",
+    "pk": 51,
+    "fields": {
+    "username": "hugok",
+    "email": "hk1996@hotmail.com",
+    "first_name": "Hugo",
+    "last_name": "Kinahan",
+    "profile_image": "https://randomuser.me/api/portraits/men/53.jpg",
+    "bio_description": "Food trailblazer. Writer. Certified beer lover. Tv aficionado. Communicator. Proud social media scholar."}
   }
 ] 
