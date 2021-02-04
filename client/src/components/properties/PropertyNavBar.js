@@ -15,7 +15,7 @@ function PropertyIndex( { setFilteredProperties, searchValue, handleSearch, hand
     const getProperties = async () => {
       try {
         const { data } = await getAllProperties()
-        console.log(data)
+        // console.log(data)
         setProperties(data)
         setFilteredProperties(data)
 

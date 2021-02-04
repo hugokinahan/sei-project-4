@@ -452,7 +452,7 @@ function PropertyShow() {
               <Loader inverted>Loading</Loader>
             </Dimmer>
     
-            <Image src='/images/wireframe/short-paragraph.png' />
+            {/* <Image src='/images/wireframe/short-paragraph.png' /> */}
           </Segment>
         }
       </>

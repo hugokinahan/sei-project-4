@@ -21,7 +21,7 @@ export function getAllProperties() {
 // Get single Property 
 
 export function getSingleProperty(id) {
-  return axios.get(`${baseUrl}/properties/${id}`)
+  return axios.get(`${baseUrl}/properties/${id}/`)
 }
 
 // Create a Property
@@ -33,7 +33,7 @@ export function createProperty(formdata) {
 // Delete a property 
 
 export function deleteProperty(id) {
-  return axios.delete(`${baseUrl}/properties/${id}`, headers())
+  return axios.delete(`${baseUrl}/properties/${id}/`, headers())
 }
 
 // Edit a Property
@@ -52,15 +52,15 @@ export function getAllPropertyTypes() {
 
 // Get All Reviews
 
-export function getAllReviews() {
-  return axios.get(`${baseUrl}/reviews`)
-}
+// export function getAllReviews() {
+//   return axios.get(`${baseUrl}/reviews`)
+// }
 
-// Get One Review
+// // Get One Review
 
-export function getSingleReview(id) {
-  return axios.get(`${baseUrl}/reviews/${id}`)
-}
+// export function getSingleReview(id) {
+//   return axios.get(`${baseUrl}/reviews/${id}`)
+// }
 
 // Create a Property Review
 
@@ -69,7 +69,7 @@ export function createPropertyReview(formdata) {
 }
 
 export function deletePropertyReview(id) {
-  return axios.delete(`${baseUrl}/reviews/${id}`, headers())
+  return axios.delete(`${baseUrl}/reviews/${id}/`, headers())
 }
 
 
@@ -97,12 +97,12 @@ export function loginUser(formdata) {
 }
 
 export function showUserProfile(id) {
-  return axios.get(`${baseUrl}/auth/profile/${id}`, headers())
+  return axios.get(`${baseUrl}/auth/profile/${id}/`, headers())
 }
 
-export function editUserProfile(formdata) {
-  return axios.put(`${baseUrl}/auth/update-profile/`, formdata, headers())
-}
+// export function editUserProfile(formdata) {
+//   return axios.put(`${baseUrl}/auth/update-profile/`, formdata, headers())
+// }
 
 export function followUser(id) {
   return axios.post(`${baseUrl}/auth/profile/${id}/follow/`, null, headers())
