@@ -38,7 +38,7 @@ The most challenging element when implementing the backend was understanding the
 
 For example, we had many relationships to handle at once, especially those related to the user. Below you can see our PopulatedUserSerializer which containers 5 different relationships embedded. 
 
-'''
+```
 class PopulatedUserSerializer(UserSerializer):
 
     created_property = PopulatedPropertySerializer(many=True)
@@ -46,7 +46,7 @@ class PopulatedUserSerializer(UserSerializer):
     favorited_property = PropertySerializer(many=True)
     followed_user = UserSerializer(many=True)  
     posted_offers = PopulatedOfferSerializer(many=True)
-'''
+```
 
 The challenging element of this was staying on top of these relationships and understanding where they needed to be used.  
 
