@@ -15,7 +15,7 @@ Our end product was Sharebnb, a clean, upmarket house swap website with social f
 
 # Screenshots
 
-![Sharebnb homepage](file:///Users/hugokinahan/Desktop/sharebnb-homepage.png)
+![](file:///Users/hugokinahan/Desktop/sharebnb-homepage.png)
 
 # Frameworks used
 
