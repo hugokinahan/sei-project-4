@@ -7,7 +7,11 @@ Create a full stack application using a Python Django REST Framework Backend to 
 Please follow the link to the website: https://share-bnb.herokuapp.com/
 
 # Motivation
+As a pair we decided on a house swap website, where users would register their own property to search for another property to swap with. 
 
+Our end product was Sharebnb, a clean, upmarket house swap website with social fucntionality and interconnectivity.
+
+As a pair we wanted to implement our chosen third party API creatively. After deciding on our Superhero API we chose to create a version of the well known game Top Trumps.
 
 # Features
 
