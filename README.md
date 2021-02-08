@@ -9,7 +9,7 @@ Please follow the link to the website: https://share-bnb.herokuapp.com/
 # Motivation
 As a pair we decided on a house swap website, where users would register their own property to search for another property to swap with. 
 
-Our end product was Sharebnb, a clean, upmarket house swap website with social fucntionality and interconnectivity.
+Our end product was Sharebnb, a clean, upmarket house swap website with social fucntionality and interconnectivity. All user data was created at random using external websites while property seed data was created by us. 
 
 # Features
 
