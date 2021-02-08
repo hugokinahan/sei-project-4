@@ -11,8 +11,6 @@ As a pair we decided on a house swap website, where users would register their o
 
 Our end product was Sharebnb, a clean, upmarket house swap website with social fucntionality and interconnectivity.
 
-As a pair we wanted to implement our chosen third party API creatively. After deciding on our Superhero API we chose to create a version of the well known game Top Trumps.
-
 # Features
 
 # Screenshots
