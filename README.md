@@ -22,7 +22,7 @@ Our end product was Sharebnb, a clean, upmarket house swap website with social f
   - SemanticUI
 - Python
   - Django
-- Javascript
+- JavaScript
   -  ECMAScript6
   - React.js
 - mySQL
@@ -32,6 +32,23 @@ Our end product was Sharebnb, a clean, upmarket house swap website with social f
 
 # Challenges
 
+This was my first project using a Python Django backend, so I faced a lot of challenges throughout my time working on the backend. 
+
+The most challenging element when implementing the backend was understanding the relationships (one to many or many to many) and how to create these relationships within serializers. 
+
+For example, we had many relationships to handle at once, especially those related to the user. Below you can see our PopulatedUserSerializer which containers 5 different relationships embedded. 
+
+'''
+class PopulatedUserSerializer(UserSerializer):
+
+    created_property = PopulatedPropertySerializer(many=True)
+    posted_reviews = ReviewSerializer(many=True)
+    favorited_property = PropertySerializer(many=True)
+    followed_user = UserSerializer(many=True)  
+    posted_offers = PopulatedOfferSerializer(many=True)
+'''
+
+The challenging element of this was staying on top of these relationships and understanding where they needed to be used.  
 
 # Wins
 
