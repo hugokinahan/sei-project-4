@@ -15,6 +15,8 @@ Our end product was Sharebnb, a clean, upmarket house swap website with social f
 
 # Screenshots
 
+![](sharebnb-homepage.png)
+
 # Frameworks used
 
 - HTML5
@@ -48,9 +50,10 @@ class PopulatedUserSerializer(UserSerializer):
     posted_offers = PopulatedOfferSerializer(many=True)
 ```
 
-The challenging element of this was staying on top of these relationships and understanding where they needed to be used.  
+The challenging element of this was staying on top of these relationships as we added extra features like favouriting properties and following other users. Understanding where they needed to be used was key to the fluidity of the application. 
 
 # Wins
+
 
   
 # Future Features
