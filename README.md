@@ -1,4 +1,4 @@
-# sei-project-4-he: 
+# Project #4: Sharebnb 
 
 # Brief
 Create a full stack application using a Python Django REST Framework Backend to serve data from a Postgres Database and a React Frontend. Time period: 1 week. Pair project.
