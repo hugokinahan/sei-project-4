@@ -20,20 +20,27 @@ Our end product was Sharebnb, a clean, upmarket house swap website with social f
 - HTML5
 - SCSS
   - SemanticUI
+- Python
+  - Django
 - Javascript
   -  ECMAScript6
   - React.js
-- Python
-- Django
 - mySQL
   - PostgreSQL
 - GitHub
-
+- Insomnia
 
 # Challenges
+
 
 # Wins
 
   
 # Future Features
+If we had more time to complete this project we would have included:
+
+- Dedicated more time to styling
+- Mobile Optimisation
+- Implemented notifications functionality 
+
 
