@@ -17,6 +17,18 @@ Our end product was Sharebnb, a clean, upmarket house swap website with social f
 
 # Frameworks used
 
+- HTML5
+- SCSS
+  - SemanticUI
+- Javascript
+  -  ECMAScript6
+  - React.js
+- Python
+- Django
+- mySQL
+  - PostgreSQL
+- GitHub
+
 
 # Challenges
 
