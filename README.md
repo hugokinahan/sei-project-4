@@ -68,7 +68,7 @@ The below code snippet shows how we implemented these popup modals (some code fr
 
 
 
-'''
+```
     <Popup
       trigger={<Button className="request-button" type="submit" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
         Request A Swap <Icon name="exchange" className="exchange-icon"/>
@@ -112,7 +112,7 @@ The below code snippet shows how we implemented these popup modals (some code fr
         </div>
       )}
     </Popup>
-    '''
+  ```
   
    ![Popup Modal](popup-modal.png) 
   
