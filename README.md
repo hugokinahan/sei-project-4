@@ -64,6 +64,8 @@ Throughout our project we worked hard to give the website a clean and 'upmarket'
 
 To stop users from having to change pages to often I implemented popup modals from React.js-popup. This meant that the user could stay on the same page when making requests. These requests included leavving a review and a rating as well as making a request for a house swap. 
 
+The below code snippet shows how we implemented these popup modals (some code from the form has been ommitted to save space) and the screenshot shows this popup modal in action.
+
 ```
     <Popup
       trigger={<Button className="request-button" type="submit" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
@@ -98,25 +100,6 @@ To stop users from having to change pages to often I implemented popup modals fr
                     // value={formdata.first_name}
                     />
                   </Form.Field>
-                <Form.Field>
-                  <Checkbox label='I agree to the Terms and Conditions *' />
-                </Form.Field>
-                <Button className="popup-auth-request" type='submit' style={{ backgroundColor: 'white', borderRadius: 0, color: '#012349', border: 'none', width: '100%' }}>Request Property Exchange</Button>
-              </Form>
-              :
-              <div className="review-sent-message">
-                <h1>Request sent!</h1>
-              </div>
-            }
-            {requestErrors ?
-        
-              <div className="ui error message small">
-                <div className="header">Please ensure each field is completed</div>
-              </div>
-              :
-              ''
-            }
-          </div>
           <div className="actions">
             <Button className="popup-auth-request" onClick={() => {
               console.log('modal closed ')
@@ -128,6 +111,8 @@ To stop users from having to change pages to often I implemented popup modals fr
       )}
     </Popup>
     ```
+    
+  ![Show Page](sharebnb-showpage-map.png) 
   
 # Future Features
 If we had more time to complete this project we would have included:
