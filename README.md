@@ -66,7 +66,9 @@ To stop users from having to change pages to often I implemented popup modals fr
 
 The below code snippet shows how we implemented these popup modals (some code from the form has been ommitted to save space) and the screenshot shows this popup modal in action.
 
-```
+
+
+'''
     <Popup
       trigger={<Button className="request-button" type="submit" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
         Request A Swap <Icon name="exchange" className="exchange-icon"/>
@@ -110,9 +112,9 @@ The below code snippet shows how we implemented these popup modals (some code fr
         </div>
       )}
     </Popup>
-    ```
-    
-  ![Popup Modal](popup-modal.png) 
+    '''
+  
+   ![Popup Modal](popup-modal.png) 
   
 # Future Features
 If we had more time to complete this project we would have included:
