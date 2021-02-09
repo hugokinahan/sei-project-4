@@ -60,7 +60,74 @@ The challenging element of this was staying on top of these relationships as we 
 
 # Wins
 
+Throughout our project we worked hard to give the website a clean and 'upmarket' finish. One aspect of this was maintaining a fluid user journey throughout their navigation of the site. 
 
+To stop users from having to change pages to often I implemented popup modals from React.js-popup. This meant that the user could stay on the same page when making requests. These requests included leavving a review and a rating as well as making a request for a house swap. 
+
+```
+    <Popup
+      trigger={<Button className="request-button" type="submit" style={{ backgroundColor: '#012349', borderRadius: 0, color: 'white' }}>
+        Request A Swap <Icon name="exchange" className="exchange-icon"/>
+      </Button>}
+      modal
+      nested
+    >
+      {close => (
+        <div className={!isSent ?  'modal' : 'sent-modal'}>
+          <button className="close" onClick={close}>
+          &times;
+          </button>
+          <div className="header"> 
+            {property.owner ?  
+              <div>
+                <p>Request a swap with {property.owner.first_name} </p>
+                <p>{property.address}</p>
+                <p>{property.city}, {property.country}</p>
+              </div>
+              : '' }
+          </div>
+          <div className="content">
+            {!isSent ?
+              <Form inverted onSubmit={handleSubmit} className="small form">
+                <Form.Group widths='equal'>
+                  <Form.Field>
+                    <label fluid>First Name *</label>
+                    <input placeholder='eg. John'
+                      onChange={handleChange}
+                      name="first_name"
+                    // value={formdata.first_name}
+                    />
+                  </Form.Field>
+                <Form.Field>
+                  <Checkbox label='I agree to the Terms and Conditions *' />
+                </Form.Field>
+                <Button className="popup-auth-request" type='submit' style={{ backgroundColor: 'white', borderRadius: 0, color: '#012349', border: 'none', width: '100%' }}>Request Property Exchange</Button>
+              </Form>
+              :
+              <div className="review-sent-message">
+                <h1>Request sent!</h1>
+              </div>
+            }
+            {requestErrors ?
+        
+              <div className="ui error message small">
+                <div className="header">Please ensure each field is completed</div>
+              </div>
+              :
+              ''
+            }
+          </div>
+          <div className="actions">
+            <Button className="popup-auth-request" onClick={() => {
+              console.log('modal closed ')
+              close()
+            }} style={{ backgroundColor: 'white', borderRadius: 0, color: '#012349', border: 'none', width: '25%' }}>Close</Button>
+            
+          </div>
+        </div>
+      )}
+    </Popup>
+    ```
   
 # Future Features
 If we had more time to complete this project we would have included:
