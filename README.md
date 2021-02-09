@@ -112,7 +112,7 @@ The below code snippet shows how we implemented these popup modals (some code fr
     </Popup>
     ```
     
-  ![Show Page](sharebnb-showpage-map.png) 
+  ![Popup Modal](popup-modal.png) 
   
 # Future Features
 If we had more time to complete this project we would have included:
