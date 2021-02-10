@@ -20,7 +20,7 @@ Wireframe
 ![Wireframe](wireframe-p4.png)
 
 Trello
-![Trello](trello-p4.png)
+![Trello](Trello-p4.png)
 
 # Screenshots
 
