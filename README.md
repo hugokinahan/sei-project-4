@@ -14,13 +14,13 @@ Our end product was Sharebnb, a clean, upmarket house swap website with social f
 # Preparation & Organisation
 
 ERD Diagram
-![ERD Diagram](sharebnb-homepage.png)
+![ERD Diagram](ERD-diargram.png)
 
 Wireframe
-![Wireframe](sharebnb-homepage.png)
+![Wireframe](wireframe-p4.png)
 
 Trello
-![Trello](sharebnb-homepage.png)
+![Trello](trello-p4.png)
 
 # Screenshots
 
