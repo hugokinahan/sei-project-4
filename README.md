@@ -29,12 +29,16 @@ Trello
 
 # Screenshots
 
+Homepage
 ![Homepage](sharebnb-homepage.png)
 
+Index Page
 ![Index Page](sharebnb-indexpage.png)
 
+Show Page
 ![Show Page](sharebnb-showpage.png)
 
+Show Page
 ![Show Page](sharebnb-showpage-map.png)
 
 # Frameworks used
