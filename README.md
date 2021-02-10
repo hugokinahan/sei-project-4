@@ -5,8 +5,8 @@ Create a full stack application using a Python Django REST Framework Backend to 
 
 # Members
 
-- Elsie Down - github.com/elsiedown
-- Hugo Kinahan - github.com/hugokinahan
+- Elsie Down - https://github.com/elsiedown
+- Hugo Kinahan - https://github.com/hugokinahan
 
 # Deployment
 Please follow the link to the website: https://share-bnb.herokuapp.com/
