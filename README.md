@@ -11,6 +11,8 @@ Create a full stack application using a Python Django REST Framework Backend to 
 # Deployment
 Please follow the link to the website: https://share-bnb.herokuapp.com/
 
+Repository link: https://github.com/hugokinahan/sei-project-4
+
 # Motivation
 As a pair we decided on a house swap website, where users would register their own property to search for another property to swap with. 
 
@@ -30,6 +32,23 @@ Trello
 
 ![Trello](Trello-p4.png)
 
+# Frameworks used
+
+- HTML5
+- SCSS
+  - SemanticUI
+- Python
+  - Django
+- JavaScript
+  -  ECMAScript6
+  - React.js
+- mySQL
+  - PostgreSQL
+- GitHub
+- Insomnia
+
+# Process
+
 # Screenshots
 
 Homepage
@@ -47,21 +66,6 @@ Show Page
 Show Page
 
 ![Show Page](sharebnb-showpage-map.png)
-
-# Frameworks used
-
-- HTML5
-- SCSS
-  - SemanticUI
-- Python
-  - Django
-- JavaScript
-  -  ECMAScript6
-  - React.js
-- mySQL
-  - PostgreSQL
-- GitHub
-- Insomnia
 
 # Challenges
 
@@ -140,6 +144,10 @@ The below code snippet shows how we implemented these popup modals (some code fr
   ```
   
    ![Popup Modal](popup-modal.png) 
+   
+# Key Learnings
+
+
   
 # Future Features
 If we had more time to complete this project we would have included:
