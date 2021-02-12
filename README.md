@@ -9,6 +9,7 @@ Create a full stack application using a Python Django REST Framework Backend to 
 - Hugo Kinahan - https://github.com/hugokinahan
 
 # Deployment
+
 Please follow the link to the website: https://share-bnb.herokuapp.com/
 
 Repository link: https://github.com/hugokinahan/sei-project-4
@@ -48,6 +49,10 @@ Trello
 - Insomnia
 
 # Process
+
+Having learnt from a past pair project, we spent a good amount of time planning our application, establishing what relationships would be needed, the user journey and how our ideals for the 'look and feel' of the website. We established our relationships on an ERD Diagram you can see above and gauged a rough user journey. 
+
+After only one week of Python and Django tuition under our belt, we decided to set ourselves a challenging 
 
 # Screenshots
 
